@@ -1,0 +1,392 @@
+(function($) {
+    function isTaken(response) {
+        var responseObj = $.parseJSON(response);
+        
+        if (responseObj.hasOwnProperty('success') && responseObj.hasOwnProperty('taken')) {
+            return responseObj.taken;
+        }
+    }
+
+    function valueTaken(obj) {
+        var info = obj;
+        
+        return function(input) {
+            var data = {
+                nonce: info.nonce,
+                value: input.value,
+                type: input.getAttribute('name'),
+            };
+
+            return $.ajax({
+                method: "POST",
+                url: info.url,
+                data: data,
+            });
+        }
+    }
+
+    function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+            var context = this, args = arguments;
+            clearTimeout(timeout);
+            timeout = setTimeout(function() {
+                timeout = null;
+                if (!immediate) func.call(context, args);
+            }, wait);
+            if (immediate && !timeout) func.call(context, args);
+        };
+    }
+
+    function addClass(className) {
+        return function(el) {
+            return el.classList.add(className);
+        }
+    }
+
+    function removeClass(className) {
+        return function(el) {
+            return el.classList.remove(className);
+        }
+    }
+
+    function addEl(el) {
+        return function(classNames) {
+            return function(content) {
+                var msg = document.createElement(el);
+                classNames.forEach(function(className) {
+                    msg.classList.add(className);
+                });
+                msg.innerHTML = content;
+                return content ? msg : false;
+            }
+        }
+    }
+
+    function hasParent(sel, el) {
+        if(el === document.body) {
+            return false;
+        }
+
+        const parentContains = el.parentElement.classList.contains(sel);
+        return parentContains || hasParent(sel, el.parentElement);
+    }
+
+    function insertAfter(el, referenceNode) {
+        referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
+    }
+
+    function hasTooltip(el) {
+        return el.nextElementSibling.classList.contains('tooltip');
+    }
+
+    var validEmail = function(input) {
+        var filter = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,25}$/i; // regex to filter emails
+        return input.type === 'email' ? filter.test(input.value) : true;
+    }
+
+    var hasInput = function(input) {
+        return (input.value && input.value.length > 0);
+    }
+
+    var isDateField = function(input) {
+        return input.classList.contains('mepr-date-picker');
+    }
+
+    var isPassword = function(input) {
+        return input.classList.contains('password-validate');
+    }
+
+    var isEmailOrUser = function(input) {
+        return input.getAttribute('name') === 'user_email' ||
+               input.getAttribute('name') === 'user_login';
+    }
+
+    var hasErrors = function(inputs) {
+        var errors = [];
+        inputs.forEach(function(input) {
+            if (input.classList.contains('validation') && input.value.length > 0) {
+            } else { 
+                input.parentElement.classList.contains('has-error') ||
+                input.parentElement.classList.contains('has-taken') ||
+                (input.classList.contains('validation') && !input.classList.contains('valid')) ||
+                !hasInput(input) ? errors.push(input) : '';
+            }
+        });
+
+        return errors.length;
+    }
+
+    var noConsent = function(inputs) {
+        var hasConsent = true;
+        inputs.forEach(function(input) {
+            if (input.name === 'consent-checkbox') {
+                hasConsent = input.checked
+            }
+        });
+        return !hasConsent;
+    }
+
+    var notValid = function(input) {
+        if (input.classList.contains('validation')) {
+            return input.classList.contains('valid') ? false : true;
+        }
+
+        return false;
+    }
+
+    var addErrorMsg = addEl('span')(['help-block']);
+    var addEmptyMsg = addEl('span')(['empty-block']);
+    var addSuccessMsg = addEl('span')(['success-block']);
+    var addErrorTooltip = addEl('div')(['tooltip', 'tooltip--error']);
+
+    var addSubmitTooltip = function(btn) {
+        var submitError = form_vars['form_tooltip'].error;
+        var checkboxSubmitError = form_vars['form_tooltip'].errorCheckbox;
+        var content = "<span class='default-error'>" + submitError + "</span><span class='checkbox-error'>" + checkboxSubmitError + "</span>"
+        insertAfter(addErrorTooltip(content), btn);
+        return btn; 
+    }
+
+    var canSubmit = function(btn) {
+        return function(inputs) {
+            if(hasErrors(inputs)) {
+                btn.disabled = true;
+                btn.classList.add('btn--disabled', 'btn--error');
+                btn.classList.contains('form-group') ? btn.parentElement.classList.add('has-error') : '';
+                return false;
+            } else if (noConsent(inputs)) {
+                btn.disabled = true;
+                btn.classList.add('btn--disabled', 'btn--error');
+                btn.classList.contains('form-group') ? btn.parentElement.classList.add('has-error', 'has-error--checkbox') : btn.parentElement.classList.add('has-error--checkbox');
+                return false;
+            } else {
+                if (btn.getAttribute('data-is-submitting') === 'false' || hasParent('mepr-checkout-form', btn)) btn.disabled = false;
+                btn.classList.remove('btn--disabled', 'btn--error');
+                btn.classList.contains('form-group') ? btn.parentElement.classList.remove('has-error', 'has-error--checkbox') : btn.parentElement.classList.remove('has-error--checkbox');
+                return true;
+            }
+        }
+    }
+
+    var addMessages = function(inputs) {
+        var number = {
+            error: form_vars['payment_msgs'].cc.error,
+            empty: form_vars['payment_msgs'].cc.empty,
+            success: form_vars['payment_msgs'].cc.success,
+        };
+        var exp = {
+            error: form_vars['payment_msgs'].exp.error,
+            empty: form_vars['payment_msgs'].exp.empty,
+            success: form_vars['payment_msgs'].exp.success,
+        };
+        var cvc = {
+            error: form_vars['payment_msgs'].cvc.error,
+            empty: form_vars['payment_msgs'].cvc.empty,
+            success: form_vars['payment_msgs'].cvc.success,
+        };
+
+        inputs.forEach(function(input) {
+            if (input.classList.contains('cc-number')) {
+                insertAfter(addEmptyMsg(number.empty), input);
+                insertAfter(addSuccessMsg(number.success), input);
+                insertAfter(addErrorMsg(number.error), input);
+            } else if (input.classList.contains('cc-exp')) {
+                insertAfter(addEmptyMsg(exp.empty), input);
+                insertAfter(addSuccessMsg(exp.success), input);
+                insertAfter(addErrorMsg(exp.error), input);
+            } else if (input.classList.contains('cc-cvc')) {
+                insertAfter(addEmptyMsg(cvc.empty), input);
+                insertAfter(addSuccessMsg(cvc.success), input);
+                insertAfter(addErrorMsg(cvc.error), input);
+            }
+        });
+
+        return inputs;
+    }
+
+    var addError = addClass('has-error');
+    var removeError = removeClass('has-error');
+
+    var addSuccess = addClass('has-success');
+    var removeSuccess = removeClass('has-success');
+
+    var addEmpty = addClass('has-nothing');
+    var removeEmpty = removeClass('has-nothing');
+
+    var addTaken = addClass('has-taken');
+    var removeTaken = removeClass('has-taken');
+
+    var handleSuccess = function(input) {
+        removeEmpty(input.parentElement);
+        removeError(input.parentElement);
+        removeTaken(input.parentElement);
+        addSuccess(input.parentElement);
+    }
+
+    var handleError = function(input) {
+        removeEmpty(input.parentElement);
+        removeSuccess(input.parentElement);
+        removeTaken(input.parentElement);
+        addError(input.parentElement);
+    }
+
+    var handleEmpty = function(input) {
+        removeSuccess(input.parentElement);
+        removeError(input.parentElement);
+        removeTaken(input.parentElement);
+        addEmpty(input.parentElement);
+    }
+
+    var handleTaken = function(input) {
+        removeSuccess(input.parentElement);
+        removeError(input.parentElement);
+        removeEmpty(input.parentElement);
+        addTaken(input.parentElement);
+    }
+
+    function passwordsMatch(pass, conf) {
+        if (pass.value.length > 0 && !conf.value) { 
+            handleSuccess(pass);
+        } else if (pass.value === conf.value) {
+            handleSuccess(pass);
+            handleSuccess(conf);
+        } else {
+            handleError(conf);
+        }
+    }
+    
+    $(document).ready(function() {
+        var coupon = document.querySelector('.toggle--coupon');
+        var couponWrapper = document.querySelector('.toggle__wrapper');
+        var couponInput = document.querySelector('.mepr-form-coupon');
+
+        if (coupon) {
+            if (couponInput.value.length > 0) {
+                couponWrapper.classList.toggle('toggle__wrapper--closed');
+                couponWrapper.classList.add('has-error');
+            }
+            coupon.addEventListener('click', function() {
+                couponWrapper.classList.toggle('toggle__wrapper--closed');
+                if (!couponWrapper.classList.contains('toggle__wrapper--closed')) {
+                    setTimeout(function() {
+                        couponInput.focus();
+                    }, 250);
+                }
+            });
+            couponInput.addEventListener('keydown', function() {
+                couponWrapper.classList.remove('has-error');
+            });
+        }
+
+        var forms = Array.from(document.querySelectorAll('.mepr-form'));
+        var valueTakenWithInfo = valueTaken(form_vars['taken_check']);
+
+        forms.forEach(function(form) {
+            var inputs = Array.from(form.querySelectorAll('.mepr-form-input'));
+            inputs = inputs.filter(function(input) {
+                return input.hasAttribute('required');
+            });
+            var submit = form.querySelector('.btn--submit') || form.querySelector('.mepr-submit');
+            var canSubmitMepr = canSubmit(submit);
+            var password = form.querySelector('.password-enter');
+            var confirm = form.querySelector('.password-confirm');
+            var accountEmail = form.classList.contains('mepr-account-form') ? document.getElementById('user_email').value : null;
+            var isDifferentAccountEmail = function (input) {
+                if(input.getAttribute('name') === 'user_email' && (accountEmail === input.value)) {
+                    input.parentNode.classList.remove('has-error', 'has-success');
+                    return false;
+                } else {
+                    return true;
+                }
+            } 
+            // add error messages for credit card step
+            addMessages(inputs);
+            if (form.classList.contains('mepr-signup-form') ||
+                form.classList.contains('mepr-newpassword-form') ||
+                form.classList.contains('mepr-account-form') ||
+                form.classList.contains('mepr-checkout-form')) {
+                canSubmitMepr(inputs);
+            }
+
+            var meprValidateInput = function (input) {
+                input.classList.remove('invalid');
+                if (isDifferentAccountEmail(input)) {
+                    if (isEmailOrUser(input)) {
+                        valueTakenWithInfo(input)
+                        .done(function(response) {
+                            !hasInput(input) ? handleEmpty(input) :
+                            !validEmail(input) ? handleError(input) :
+                            isTaken(response) ? handleTaken(input) :
+                            notValid(input) ? handleError(input) : handleSuccess(input);
+                            canSubmitMepr(inputs);
+                            if (!canSubmitMepr(inputs) && !hasTooltip(submit)) { 
+                                addSubmitTooltip(submit);
+                            }
+                        });
+                    } else {
+                        !hasInput(input) ? handleEmpty(input) :
+                        isPassword(input) ? passwordsMatch(password, confirm) :
+                        notValid(input) ? handleError(input) : handleSuccess(input);
+                    }
+                }
+            };
+
+            var runValidation = function() {
+                isDateField(this) ? '' : meprValidateInput(this);
+                if (!form.classList.contains('mepr-login-form')) {
+                    canSubmitMepr(inputs);
+                    if (!canSubmitMepr(inputs) && !hasTooltip(submit)) { 
+                        addSubmitTooltip(submit);
+                    }
+                }
+            };
+
+            var debounceValidation = debounce(runValidation, 1250);
+            var debounceCanSubmit = debounce(function() {
+                canSubmitMepr(inputs);
+                if (!canSubmitMepr(inputs) && !hasTooltip(submit)) {
+                    addSubmitTooltip(submit);
+                }
+            }, 1250);
+            
+            var addValidationListeners = function() {
+                inputs.forEach(function(input) {
+                input.addEventListener('blur', runValidation);
+                if (input.name === 'consent-checkbox') {
+                    input.addEventListener('change', runValidation);
+                }
+                if (!form.classList.contains('mepr-checkout-form')) {
+                    input.addEventListener('keydown', debounceValidation);
+                } else {
+                    input.addEventListener('keydown', debounceCanSubmit);
+                }
+            })};
+
+            addValidationListeners();
+            addSubmitTooltip(submit);
+
+            form.addEventListener('submit', function() {
+                submit.setAttribute('data-is-submitting', 'true');
+                submit.disabled = true;
+                var spinner = document.querySelector('.mepr-loading-gif');
+                spinner.style.opacity = '1';
+            });
+        });
+
+    });
+})(jQuery);
+
+function getClientId() {
+    if (window.ga) {
+        window.ga('create', 'UA-29704913-1', 'auto');
+        window.ga(function(tracker) {
+            clientId = tracker.get('clientId');
+            jQuery.cookie('skillcrush_ga_cid', clientId, { expires: 7, path: '/'});
+        });
+    } else {
+        setTimeout(getClientId, 500)
+    }
+}
+
+getClientId();

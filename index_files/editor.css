@@ -1,0 +1,1092 @@
+#editor-area-publish-button, #editor-area-unpublish-button {
+    margin-left: 77px;
+    padding: 6px 20px;
+}
+
+/* Project Entry Class Nav */
+.top-editor{
+    background: #fff;
+    overflow: hidden;
+    border-bottom: 1px solid #f2f2f2;
+    height: 50px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 998;
+}
+.top-editor .h5 {
+    text-align: center;
+    padding: 19px;
+    font: 600 12px/100% 'Open Sans';
+    color: #505050;
+}
+.top-editor .h5 span {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.top-editor li {
+    margin: 0;
+    line-height: 50px;
+}
+.top-editor #back-to-class {
+    float: left;
+    padding: 0 30px;
+    border-right: 1px solid #f2f2f2;
+}
+.top-editor #back-to-class a {
+    text-transform: uppercase;
+    text-decoration: none;
+    font: 600 12px/50px 'open sans', sans-serif;
+    color: #f16059;
+}
+.top-editor #back-to-class a:before {
+    content: '';
+    display: inline-block;
+    margin-right: 5px;
+    background: url(../../../img/global/editor-arrows.png) no-repeat 0 0;
+    width: 5px;
+    height: 8px;
+}
+.top-editor .project-buttons {
+    float: right;
+    padding: 0 30px;
+    border-left: 1px solid #f2f2f2;
+}
+.top-editor .project-buttons.submit {
+    background: #c4e9e2;
+}
+.top-editor .project-buttons span {
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    font: 600 12px/50px 'Open Sans';
+    color: #505050;
+    cursor: pointer;
+}
+#signed-in-class-nav {
+    background: none repeat scroll 0 0 #434242;
+    color: #FFFFFF;
+    height: 50px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 998;
+}
+
+#signed-in-class-nav li {
+	float:left;
+}
+
+#signed-in-class-nav li a {
+	display:block;
+   padding: 12px 20px 0;
+	color:white;
+}
+
+#signed-in-class-nav #lesson-nav {
+	float:right;
+	width:300px;
+	display:none;
+}
+
+#signed-in-class-nav #lesson-nav > div {
+	float: right;
+}
+
+#lesson-nav {
+    overflow: hidden;
+}
+
+.top-editor #prev-lesson,
+.top-editor #next-lesson {
+    float: right;
+}
+.top-editor #prev-lesson a,
+.top-editor #next-lesson a {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    text-decoration: none;
+    font: 600 12px/50px 'Open Sans', sans-serif;
+    color: #505050;
+    vertical-align: middle;
+}
+
+#lesson-nav + #back-to-class {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+/* Testing CSS */
+.postid-2049 #container {
+    height: 100%;
+    min-width: 1002px;
+    width: 100%;
+}
+
+.editor-area {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    margin-left: -530px;
+    overflow: hidden;
+    position: fixed;
+    top: 50px;
+    transition: all 500ms ease 0s;
+    -moz-transition: all 500ms ease 0s;
+    -webkit-transition: all 500ms ease 0s;
+    width: 582px;
+}
+
+.user-notloggedin .editor-area {
+top: 0px;
+display:none;
+}
+
+.editor-area.slidein {
+	margin-left: 0px;
+	-webkit-transition: all 500ms ease;
+	-moz-transition: all 500ms ease;
+	-o-transition: all 500ms ease;
+	transition: all 500ms ease;
+	z-index: 998;
+}
+
+.project-entry #preview-area iframe {
+    -moz-transition: all 500ms ease 0s;
+    -webkit-transition: all 500ms ease 0s;
+    -o-transition: all 500ms ease 0s;
+    transition: all 500ms ease 0s;
+    border-color: -moz-use-text-color;
+    border-style: none;
+    border-width: medium medium medium 0;
+	width: 100%;
+	height: 100%;
+	background:white;
+}
+
+#preview-area {
+    border-left: 1px solid black;
+    bottom: 0;
+    left: 52px;
+    position: fixed;
+    top: 50px;
+    width: 97%;
+}
+
+.user-notloggedin #preview-area {
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+#preview-area.slidein {
+	    background: none repeat scroll 0 0 white;
+	      left: 582px;
+    -webkit-transition: all 500ms ease;
+       -moz-transition: all 500ms ease;
+         -o-transition: all 500ms ease;
+            transition: all 500ms ease;
+}
+
+.project-entry .CodeMirror {
+    background: none repeat scroll 0 0 white;
+    border-left: medium none;
+    border-radius: 0 0 0 0;
+    border-top: medium none;
+    float: none;
+    height: 100%;
+    max-width: 100%;
+    padding-top: 0;
+}
+
+.project-entry .CodeMirror-wrap {
+    float: left;
+    margin-bottom: 40px;
+}
+
+.single-user_challenges .project-entry .tab {
+	height:85%;
+}
+
+#editor-area-bottom-menu {
+	background: none repeat scroll 0 0 white;
+	display: block;
+	position:fixed;
+	bottom:0;
+	left:0;
+}
+
+.editor-area .CodeMirror-scroll {
+    height: 100%;
+}
+
+#slider #tabs {
+    background: none repeat scroll 0 0 white;
+    height: 100%;
+    width: 530px;
+}
+
+.project-editor .tab {
+	height: 80%;
+	min-height:400px;
+	min-width:200px;
+}
+
+#post {
+	height:100%;
+}
+
+#code-editor-top {
+    background: none repeat scroll 0 0 #adadad;
+    overflow: auto;
+    width: 100%;
+	padding-top:12px;
+}
+
+#code-editor-top ul {
+	margin-bottom: 0;
+}
+
+/* New Project Area Style */
+
+#slider #tabs ul {
+    float: left;
+    margin-right: 0px;
+}
+
+#editor-save-button, #next-lesson-button, #complete-challenge-button {
+ 	border: none;
+    border-radius: 5px 5px 5px 5px;
+    color: white;
+    margin-right: 10px;
+    margin-top: 4px;
+    padding: 3px 22px;
+    text-shadow: none;
+	text-transform:uppercase;
+	background:#5ba5fb;
+	box-shadow:0px 2px 0px #21599a;
+}
+
+#editor-save-button {
+	float: right;
+	margin-top: 4px;
+
+}
+#next-lesson-button {
+	margin-left: 20px;
+}
+#complete-challenge-button {
+	margin-right: 0px;
+	margin-top: 0px;
+}
+
+p#complete-challenge-button {
+	margin-top: 1px;
+	line-height: 24px;
+	font-family: 'Montserrat';
+}
+
+#editor-area-publish-button, #editor-area-unpublish-button, #editor-area-run-js-button {
+    background: url("../../../img/icons/icon-publish.png") no-repeat scroll 14px 10px #666666;
+    border: medium none;
+    box-shadow: 0 2px 0 #4E4E4E;
+    color: #272727;
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 0;
+    margin-top: 0;
+    padding: 9px 20px 9px 40px;
+    text-transform: uppercase;
+}
+
+input#editor-area-include-jquery-button {
+    margin-top: 12px;
+    vertical-align: bottom;
+    margin-right: 5px;
+}
+
+#editor-area-include-jquery-button-label {
+    font-size: 13px;
+}
+
+/*
+.single-user_projects #download-code,
+.single-user_102_challenges #download-code {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    cursor: pointer;
+    float: left;
+    margin-left: 69px;
+    padding: 11px 5px;
+    text-align: center;
+    width: 100px;
+}
+*/
+
+/* SLide Nav */
+#slide-nav {
+    background: none repeat scroll 0 0 #434242;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 50px;
+    width: 52px;
+    z-index: 999;
+}
+
+#slide-nav ul li {
+		border-bottom:1px solid #2a2a2a;
+		text-align:center;
+		color:#a2a2a6;
+		padding: 10px 2px 6px;
+}
+
+#slide-nav.slidein ul li.active {
+	background:#323232;
+}
+
+#slide-nav ul li p:hover {
+	cursor:pointer;
+	background:#323232;
+	transition: all 500ms ease 0s;
+	transition: all 500ms ease 0s;
+	-webkit-transition: all 500ms ease 0s;
+	-moz-transition: all 500ms ease 0s;
+	width:100px;
+}
+
+#slide-nav ul li#editor-close p:hover {
+	width:40px;
+}
+
+#slide-nav ul li#slide-nav-code p:hover {
+	width:140px;
+}
+
+#slide-nav ul li#editor-close #editor-close-symbol,
+#slide-nav ul li#editor-close.editor-close #editor-open-symbol {
+	display:none;
+}
+
+#slide-nav ul li#editor-close.editor-close #editor-close-symbol,
+#slide-nav ul li#editor-close #editor-open-symbol {
+	display:inline;
+}
+
+#slide-nav ul li p:hover .nav-text {
+/*
+	display:inline;
+*/
+	transition: all 800ms ease 0s;
+	transition: all 800ms ease 0s;
+	-webkit-transition: all 800ms ease 0s;
+	-moz-transition: all 800ms ease 0s;
+}
+
+.nav-symbol {
+	font-family:'SSSocial';
+	font-size:;
+	color:#a2a2a6;
+}
+
+.nav-text {
+/*
+	display:none;
+*/
+	transition: all 800ms ease 0s;
+	transition: all 800ms ease 0s;
+	-webkit-transition: all 800ms ease 0s;
+	-moz-transition: all 800ms ease 0s;
+}
+
+#slide-nav ul li p {
+ background: none repeat scroll 0 0 #323232;
+    border-radius: 3px 3px 3px 3px;
+    margin: 0 0 5px;
+    padding: 2px;
+    width: 40px;
+	height:30px;
+	overflow:hidden;
+	transition: all 500ms ease 0s;
+	transition: all 500ms ease 0s;
+	-webkit-transition: all 500ms ease 0s;
+	-moz-transition: all 500ms ease 0s;
+}
+
+#slide-nav-code .nav-symbol {
+font-family: 'montserrat';
+font-size: 16px;
+    letter-spacing: -2px;
+}
+
+#slide-nav ul li#editor-close {
+ border-bottom: 1px solid #2A2A2A;
+  color: white;
+font-family: 'montserrat';
+   padding: 8px 2px;
+  font-size: 21px;
+  text-align: center;
+background:#96e2ca;
+}
+
+/*
+#yourchallenge01 {
+	display:block;
+}*/
+
+
+/* User Challenge */
+#editor-challenge {
+    /*background: none repeat scroll 0 0 #CEDFF0;*/
+    border: medium none;
+    display: none;
+    margin: 0;
+    position: static;
+    width: 100%;
+}
+
+#slide-nav-challenge {
+	display:none;
+}
+
+#slide-nav-challenge .nav-symbol {
+
+}
+
+#slide-nav-challenge .nav-symbol {
+
+}
+
+#slide-nav-publish .nav-symbol,
+#editor-close .nav-symbol,
+#slide-nav-challenge .nav-symbol {
+}
+
+#slide-nav ul li#slide-nav-publish p:hover {
+	width:40px;
+}
+
+.single-user_projects #download-code:hover .nav-text,
+.single-user_102_challenges #download-code:hover .nav-text {
+    display:inline;
+}
+
+.single-user_projects #download-code .nav-text,
+.single-user_102_challenges #download-code .nav-text {
+	display:none;
+}
+
+.single-user_projects #slide-nav ul li#slide-nav-publish #download-code:hover,
+.single-user_102_challenges #slide-nav ul li#slide-nav-publish #download-code:hover {
+	width:120px;
+}
+
+#slide-nav ul li {
+	cursor: pointer;
+}
+
+#editor-close .nav-symbol {
+    color: white;
+    font-family: 'montserrat';
+    font-size: 20px;
+    font-weight: normal;
+}
+
+#editor-challenge .challenge-content {
+    color: #414141;
+    float: left;
+    width: 65%;
+}
+
+#editor-challenge .challenge-content .challenge-text h3.your-challenge-instructions {
+    font-size: 16px;
+    padding: 10px 20px 20px;
+}
+
+#editor-challenge .challenge-content h2 {
+     background: none;
+    border-bottom: none;
+    color: #414141;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    /*height: 20px;*/
+    margin: 0;
+    padding: 13px 5% 0 20px;
+    width: 90%;
+    text-transform: uppercase;
+    text-align:left;
+}
+
+#editor.challenges {
+	width:auto;
+	height:auto;
+}
+
+#challenge-close {
+    color: #D3E2F0;
+    font-family: 'Montserrat';
+    position: absolute;
+    right: 10px;
+    text-transform: uppercase;
+    top: 5px;
+}
+
+#challenge-close:hover {
+	cursor:pointer;
+}
+
+#challenge-complete-button {
+    color: white;
+    font-family: 'Montserrat';
+    position: absolute;
+    right: 20px;
+    top: 30px;
+}
+#challenge-done {
+    color: white;
+    font-family: 'Montserrat';
+    clear: both;
+}
+
+#challenge-close-button {
+    color: white;
+    float: right;
+    font-family: "Montserrat";
+    margin: 20px 20px 20px 0;
+}
+
+.single-user_102_challenges #challenge-done,
+.post-template-template-user_102_challenges-php #challenge-done,
+.single-user_challenges #challenge-done,
+.post-template-template-user_challenges-php #challenge-done,
+.single-sc_projects #challenge-done,
+.post-template-template-challenge-php #challenge-done,
+.single-user_projects #challenge-done,
+.post-template-template-sc_user_project_website-php #challenge-done {
+    color: #609f87;
+    background-color: #ccf1e3;
+    top: auto;
+    width: 100%;
+    position: static;
+    right: 10px;
+    padding: 10px;
+    margin-bottom: -8px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.single-user_102_challenges #challenge-done p,
+.post-template-template-user_102_challenges-php #challenge-done p,
+.single-user_challenges #challenge-done p,
+.post-template-template-user_challenges-php #challenge-done p,
+.single-sc_projects #challenge-done p,
+.post-template-template-challenge-php #challenge-done p,
+.single-user_projects #challenge-done p,
+.post-template-template-sc_user_project_website-php #challenge-done p {
+    font-family: 'Montserrat';
+    font-size: 15px;
+    margin: 0 0 5px 0;
+}
+
+.single-user_102_challenges #challenge-done img,
+.post-template-template-user_102_challenges-php #challenge-done img,
+.single-user_challenges #challenge-done img,
+.post-template-template-user_challenges-php #challenge-done img,
+.single-sc_projects #challenge-done img,
+.post-template-template-challenge-php #challenge-done img,
+.single-user_projects #challenge-done img,
+.post-template-template-sc_user_project_website-php #challenge-done img {
+    margin-bottom: 4px;
+    margin-right: 4px;
+}
+
+.single-user_102_challenges #challenge-close-button,
+.post-template-template-user_102_challenges-php #challenge-close-button,
+.single-user_challenges #challenge-close-button,
+.post-template-template-user_challenges-php #challenge-close-button,
+.single-sc_projects #challenge-close-button,
+.post-template-template-challenge-php #challenge-close-button {
+    top: 3px;
+    right: 10px;
+}
+
+/*	#challenge-close:hover {
+		cursor:pointer;
+	}*/
+
+	.challenges {
+	    background: none repeat scroll 0 0 white;
+	    display: none;
+	    min-height: 100px;
+	    overflow: auto;
+	}
+
+body.single-user_102_challenges .challenges,
+body.post-template-template-user_102_challenges-php .challenges {
+    min-height: 160px;
+}
+
+#slider {
+    height:900px;
+    padding-left: 52px;
+    position: relative;
+    /*width: 530px;	*/
+}
+
+.project-entry #preview-area iframe {
+    border-color: -moz-use-text-color;
+    border-style: none;
+    border-width: medium medium medium 0;
+    /*height: 900px;*/
+    transition: all 500ms ease 0s;
+    /*width: 900px;*/
+    z-index: 98;
+}
+
+#preview html {
+	width:100%;
+}
+
+.single-user_challenges #container {
+    width: 100%;
+}
+
+.show-nav #preview-area {
+    border-left: 1px solid black;
+    bottom: 0;
+ left: 131px;
+    overflow-y: scroll;
+    position: fixed;
+    top: 50px;
+    width: 97%;
+}
+
+
+/* The following lines of code fix the editor size bug */
+
+/*.single-user_challenges*/ .project-entry .tab {
+    clear: both;
+    height: 80%;
+}
+
+
+#editor-code {
+	height:100%;
+}
+
+
+#editor-challenge .challenge-content {
+    color: #414141;
+    /*width: 70%;*/
+}
+
+body.single-user_102_challenges #editor-challenge .challenge-content,
+body.post-template-template-user_102_challenges-php .challenge-content {
+    width: 100% !important;
+}
+
+#editor-challenge .challenge-content .challenge-text h3.your-challenge-instructions span {
+	font-weight:bold;
+}
+
+#challenge-close {
+ 	bottom: 0;
+    color: #666666;
+    display: none;
+    font-family: 'Montserrat';
+    font-size: 12px;
+    height: 20px;
+    position: absolute;
+    text-align: right;
+    text-transform: uppercase;
+    top: -3px;
+}
+
+#complete-challenge-button {
+    margin-right: 0;
+    margin-top: 0;
+    padding: 8px 22px;
+}
+
+#editor-footer {
+    background: none repeat scroll 0 0 #adadad;
+    bottom: 0;
+    height: 60px;
+    padding: 10px;
+    position: fixed;
+    width: 530px;
+    z-index: 99;
+}
+
+.slidein #editor-footer {
+	left:52px;
+}
+
+/* Project Area */
+
+.single-user_challenges .site-header {
+	display:none;
+}
+
+.project-entry {
+
+	  padding-top: 22px;
+
+}
+
+.project-editor .tab {
+		background:#ececee;
+		border-top:1px solid #cececf;
+		 padding-top: 10px;
+		clear:both;
+}
+
+.project-entry iframe {
+	    border-color: -moz-use-text-color;
+	    border-style: none;
+	    border-width: medium medium medium 0;
+	    float: left;
+	    position: relative;
+		-webkit-transition: all 500ms ease;
+		   -moz-transition: all 500ms ease;
+		     -o-transition: all 500ms ease;
+		        transition: all 500ms ease;
+}
+
+
+/* Project Code Editor */
+.project-entry #tabs li,  .css-step-editor #tabs li {
+		border-radius:0px;
+		background:#414141;
+		font-family:'Montserrat', arial;
+		color:white;
+		text-transform:uppercase;
+		text-align:center;
+		float:left;
+		font-size:16px;
+		margin-right:4px;
+		margin-bottom:0px;
+}
+
+.project-entry #tabs li a, .css-step-editor #tabs li a {
+		display:block;
+		padding: 11px 12px;
+		color:white;
+		font-size:16px;
+}
+
+.project-entry #tabs li.active {
+	background:#ffffff;
+	color:#414141;
+}
+
+.project-entry #tabs li.active a, .css-step-editor #tabs li.active a {
+		color:#414141;
+}
+
+.editor-show {
+    opacity:1;
+}
+
+p#editor-close {
+    background: url("../../../img/icons/icon_left_arrow_grey.png") no-repeat scroll 0 13px transparent;
+    color: #A2A2A7;
+    float: left;
+    font-family: 'din-bold',arial;
+    margin-bottom: 0px;
+    margin-left: 10px;
+    padding: 10px 20px;
+}
+
+p#editor-close {
+	cursor:pointer;
+}
+
+#editor-save-button {
+    float: right;
+    margin-right: 10px;
+    margin-top: 0;
+    padding: 7px 20px;
+}
+
+#editor-area-top-menu {
+	margin-top:10px;
+	border-bottom:1px solid #cececf;
+	padding-bottom:0px;
+	margin-bottom:5px;
+}
+
+.editor-slideout {
+    margin-left: -530px;
+	-webkit-transition: all 500ms ease;
+	-moz-transition: all 500ms ease;
+	-o-transition: all 500ms ease;
+	transition: all 500ms ease;
+}
+
+.preview-slideout {
+	margin-left:-582px;
+	-webkit-transition: all 500ms ease;
+	   -moz-transition: all 500ms ease;
+	     -o-transition: all 500ms ease;
+	        transition: all 500ms ease;
+}
+
+.editor-area-button {
+	width:100px;
+	padding:10px 0px;
+	text-align:center;
+	border:1px solid #d4d4d2;
+}
+
+html {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Editor Styles */
+
+/*.single-user_projects #download-code {
+    background: url("..../../img/icons/icon-download-white.png") no-repeat scroll 15px 9px #313131;
+    box-shadow: 0 2px 0 #000000;
+    float: left;
+    font-size: 16px;
+    margin-right: 10px;
+    padding: 7px 20px 6px 40px;
+    text-transform: uppercase;
+	font-family: Montserrat;
+	font-weight: normal;
+}*/
+
+#tabs .CodeMirror-gutter {
+    border-right: medium none;
+    height: 100%;
+    left: 0;
+    min-width: 2em;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+	background:none;
+}
+
+.CodeMirror-lines {
+    cursor: text;
+    padding: 4px 20px;
+    white-space: pre;
+}
+
+#editor-code .CodeMirror {
+    background: url("../../../img/backgrounds/code-lines.png") repeat scroll -14px 0 #F8F8F8;
+    float: none;
+    height: 100%;
+    line-height: 2.3;
+    min-height: 0;
+}
+
+#signed-in-class-nav li#editor-logo a {
+    background: url("../../../img/logo/small-logo.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 24px;
+    margin: 11px 20px;
+    padding: 0;
+    text-indent: -10000px;
+    width: 128px;
+}
+
+#prev-lesson,
+#next-lesson {
+    float: right;
+    padding: 0 30px;
+    border-left: 1px solid #F2F2F2;
+}
+
+/* Fixed Nav */
+
+#fixed-left-nav {
+	position:fixed;
+	top:0;
+	left:-250px;
+	bottom:0;
+	height:100%;
+	width:250px;
+	background:#e8e8e8;
+	z-index:999;
+}
+
+#fixed-left-nav ul {
+	margin-top:50px;
+}
+
+#fixed-left-nav ul li {
+    border-bottom: 1px solid #B3B3B3;
+    font-family: 'montserrat';
+    font-size: 18px;
+    margin-bottom: 0;
+}
+#fixed-left-nav ul li a {
+	color:#414141;
+	display:block;
+	padding: 13px 20px 16px;
+}
+
+#left-menu-button {
+    background: url("../../../img/icons/icon-menu.png") no-repeat scroll 0 0 transparent;
+    height: 20px;
+    margin: 18px 5px 16px 16px;
+    text-indent: -10000px;
+    width: 16px;
+}
+
+.show-nav #left-menu-button {
+    margin: 18px 5px 16px 97px;
+}
+
+#left-menu-button:hover {
+	cursor:pointer;
+}
+
+#signed-in-class-nav li#back-to-class {
+	float:right;
+	text-align:right;
+}
+
+#signed-in-class-nav li#back-to-class a {
+	color:#b9b9b9;
+}
+
+.show-nav #fixed-left-nav {
+	left:0;
+}
+
+.show-nav #slide-nav {
+	left:80px;
+}
+
+.show-nav .editor-area {
+	left:80px;
+}
+
+.show-nav .slidein #editor-footer {
+    left: 132px;
+}
+
+
+
+.show-nav #preview-area.slidein {
+    left: 662px;
+}
+
+.show-nav #preview-area.slidein,
+.show-nav .editor-area,
+.show-nav #editor-footer {
+-webkit-transition: all 1000ms ease;
+   -moz-transition: all 1000ms ease;
+     -o-transition: all 1000ms ease;
+        transition: all 1000ms ease;
+}
+
+.show-nav #editor-footer {
+    left: 132px;
+}
+
+.user-notloggedin #preview-area.slidein {
+    background: none repeat scroll 0 0 white;
+    left: 0;
+	-webkit-transition: all 1000ms ease;
+	   -moz-transition: all 1000ms ease;
+	     -o-transition: all 1000ms ease;
+	        transition: all 1000ms ease;
+	 border-left: medium none;
+}
+
+/* Challenge Styles */
+.post-template-template-challenge-php #signed-in-navigation {
+	display:none;
+}
+
+.show-nav.post-template-template-challenge-php #signed-in-navigation {
+	display:block;
+}
+
+#missing-body-modal {
+    display: none;
+    top: 10%;
+}
+#missing-body-modal.modal.fade {
+    top: 10%;
+}
+#missing-body-modal .modal-header {
+    padding-left: 30px;
+}
+
+.individual-skill-resource .iframe-inner-wrap {
+    border: 1px solid #bcbcbc;
+    position: relative;
+    z-index: 1;
+}
+.individual-skill-resource iframe {
+    border: 1px solid #bcbcbc;
+    display: block;
+    margin: 0;
+    min-height: 500px;
+    padding: 0;
+    width: 100%;
+    max-width: none !important;
+    max-height: none !important;
+}
+div#js-tab-footer iframe#run-js-iframe, div#js-snippet-footer iframe#run-js-iframe {
+	display: none;
+}
+
+input#run-js-button {
+    float: right;
+    margin-top: 20px;
+    background-color: #f1c92a;
+}
+
+/* Project Buttons
+exist only in content-class-editor.php
+*/
+
+.project-button, a.project-button, input[type="submit"].project-button {
+    background: none repeat scroll 0 0 #09cda1;
+    border: medium none;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 2px 0 0 #1c8971;
+    color: white;
+    display: block;
+    float: left;
+    font-family: 'Montserrat';
+    font-size: 16px;
+    padding: 16px 30px;
+    text-transform: none;
+}
+
+a.project-button{
+  display:block;
+  color: white;
+  font-size:16px;
+    padding: 13px 25px;
+}
+
+.project-button a {
+  color:white;
+}
+
+.project-button:hover, input[type="submit"].project-button:hover {
+  background:#71acfd;
+  color:white;
+  cursor:pointer;
+}
+
+.project-button:active, input[type="submit"].project-button:active {
+  background:#2b83fd;
+}

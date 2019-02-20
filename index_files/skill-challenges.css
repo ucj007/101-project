@@ -1,0 +1,771 @@
+.single-challenges_users #container #site-header {
+    display: none;
+}
+
+.main {
+	max-width:100%;
+}
+
+.single-challenges_users .main {
+	padding-top:50px;
+}
+
+.single-challenges_users #container {
+    padding-bottom: 0px;
+}
+
+.challenge-form-container form {
+    margin:40px 0 20px;
+    overflow:auto;
+}
+
+.challenge-form-container form span#helper {
+    color: #8A8A8A;
+    font-size: 14px;
+    clear: both;
+    display: block;
+    padding: 10px 0;
+}
+
+.challenge-form-container h4 {
+    clear: both;
+    color: #8A8A8A;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.challenge-form-container h4 a {
+    color:#0088CC;
+}
+
+.challenge-form-container input[type="url"], .challenge-form-container input[type="text"],
+.challenge-form-container input[type="file"], .challenge-form-container input[type="button"],
+.link #wpcw_fe_outer_wrap input[type="text"],
+.wpcw_fe_quiz_q_upload_wrapper input[type="file"] {
+    border: 1px solid #DEDEDE;
+    border-radius: 0 0 0 0;
+    box-shadow: none;
+    color: #8A8A8A;
+    float: left;
+    font-family: montserrat;
+    font-size: 16px;
+    height: 62px;
+    padding: 10px 20px;
+    width: 634px;
+}
+
+.challenge-form-container input[type="file"] {
+    height: 62px;
+    padding:0;
+    width: 600px;
+}
+
+.challenge-form-container input[type="submit"],
+.challenge-form-container input[type="button"] {
+    border-radius: 0 0 0 0;
+    border: none;
+    box-shadow: none;
+    float: left;
+    height: 62px;
+    margin-right:0;
+    text-transform:uppercase;
+    width: 30%;
+    margin-left: 10px;
+    color: white;
+}
+
+.challenge-form-container input[type="button"] {
+    background: none repeat scroll 0 0 #57C09C;
+    float: right;
+    margin-top: 20px;
+}
+
+.challenge-link-submission input[type="submit"].lesson-button,
+.challenge-form-container.challenge-form-file input[type="submit"] {
+    margin:0;
+}
+
+img.ajax-loader {
+    margin: auto;
+    display: none;
+}
+form#core-skills-challenge-code-snippet img.ajax-loader {
+    margin-top: 35px;
+}
+div#challenge-submit-alerts, div#challenge-submit-errors, div#success {
+    display: none;
+}
+div#challenge-submit-alerts .main img, div#challenge-submit-errors .main img, div#success .main img {
+    float: none;
+}
+img#generating-preview {
+    display: none;
+}
+iframe#upload-frame {
+    display: none;
+}
+
+div#challenge-feedback div#challenge-submit-alerts {
+    background: #FFF8DD;
+    color: #505050;
+}
+div#challenge-feedback div#challenge-submit-errors {
+    background: #fee9e9;
+    color: #505050;
+    margin-top: 50px;
+    height: 120px;
+	bottom:auto;
+	top:0;
+}
+div#challenge-feedback div#success {
+    background: #c4e9e2;
+    color: #505050;
+}
+
+.info-msgs .alert {
+    background: #F6F4F4;
+    border: solid #E5E3E3;
+    border-width: 1px 0;
+	padding: 30px 0;
+    line-height: 1;
+    text-align: center;
+    width: 100%;
+    color: #505050;
+    border-radius: 0;
+}
+.info-msgs .alert h4 {
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+    width: auto;
+    margin-top: 0;
+}
+.info-msgs .alert strong {
+    text-transform: uppercase;
+    font: 600 16px 'open sans', sans-serif;
+    color: #505050;
+}
+.info-msgs .alert strong + h4 {
+    text-transform: none;
+}
+#challenge-feedback .alert img {
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+}
+div#challenge-feedback div#challenge-submit-alerts h4,
+div#challenge-feedback div#challenge-submit-errors h4,
+div#challenge-feedback div#success h4 {
+    font: normal 16px 'open sans', sans-serif;
+    color: #505050;
+    text-align: center;
+    text-transform: none;
+}
+div#challenge-feedback a.alert-close {
+	position: absolute;
+    right: 20px;
+    top: 0;
+	cursor: pointer;
+	text-decoration: none;
+	margin: -10px 0 0;
+    font: normal normal 16px 'open sans', sans-serif;
+    color: #505050;
+}
+
+.single-challenges_users footer .main {
+	padding:0 10px;
+}
+
+div.skill-challenge-solution,
+div.skill-challenge-solution-2,
+div.skill-challenge-solution-3,
+#suggestions,
+div.embed-example-code {
+	display: none;
+	padding: 20px;
+	background-color: #EBEBEB;
+	margin-bottom: 20px;
+}
+
+/* gravity forms hacks */
+div.gform_footer button, div.gform_footer button:hover {
+	margin: 0px 0px 0px 10px;
+    padding: 13px 34px 14px;
+	background: none repeat scroll 0 0 #3A3939;
+    border-radius: 0 0 0 0;
+    border: none;
+    box-shadow: none;
+    height: 62px;
+	width: 166px;
+    text-transform: uppercase;
+    color: white;
+	float: right;
+}
+div.ui-datepicker-title select {
+	width: auto;
+	border: none;
+	margin: 5px 3px;
+}
+a.ui-datepicker-prev, a.ui-datepicker-next {
+	margin-top: 5px;
+}
+div.skill-challenge .gform_ajax_spinner {
+	margin-top: 16px;
+	float: right;
+}
+/* end gravity forms hacks */
+
+/** code preview indentation **/
+span.code-indent-one {
+	padding-left: 50px;
+}
+span.code-indent-two {
+	padding-left: 100px;
+}
+span.code-indent-three {
+	padding-left: 150px;
+}
+span.code-indent-four {
+	padding-left: 200px;
+}
+
+/** JS console sandbox **/
+#sandbox {
+    max-width: 760px !important;
+}
+#sandbox pre {
+    background: none;
+}
+div#sandbox pre.output {
+    white-space: pre-line !important;
+    height: 400px;
+}
+
+
+.skill-challenge #start-project-button {
+    margin: 60px 324px 0;
+}
+
+.single-challenges_users #logged-in-top-nav-container {
+    display: none;
+}
+
+.skill-info-text .skill-challenge-solution h5 {
+	margin-top:0;
+}
+
+.skill-content-main .challenge-form-container input[type="url"],
+.link #wpcw_fe_outer_wrap input[type="text"] {
+    width: 70%;
+}
+
+ul#jsbin-directions {
+    margin-top: 15px;
+}
+.skill-info-text ul li,
+ul#jsbin-directions li {
+    list-style-type: disc;
+    margin-left: 40px;
+}
+
+#challenge-feedback #challenge-submit-alerts,
+#challenge-feedback #challenge-submit-errors,
+#challenge-feedback #success {
+    border-radius: 0;
+    left: 0;
+    margin-left: 0;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    z-index: 101;
+}
+
+.single-challenges_users .alert .main {
+    padding-top: 0px;
+}
+
+.skill-challenge-solution,
+.skill-challenge-solution-2,
+.skill-challenge-solution-3,
+#suggestions, .embed-example-code {
+    background-color: #ebebeb;
+    display: none;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+#suggestions h2 {
+	margin-bottom: 20px;
+}
+#suggestions ul li {
+	background: url('../../img/icons/icon-green-arrow.png') no-repeat 0px 4px;
+	padding-left: 30px;
+}
+/* User Challenges */
+.user-challenge-main {
+	border-bottom:1px solid #f2f2f2;
+	padding:0 0 50px 0;
+	overflow:auto;
+}
+.user-challenge-header {
+    padding: 30px 0 20px;
+    width: 60%;
+}
+.user-challenge-header h1 {
+    font-family: 'montserrat';
+}
+.user-challenge-header p {
+	text-transform:uppercase;
+}
+.user-challenge-sidebar {
+	float:right;
+	width:40%;
+	padding: 133px 0px 0 60px;
+}
+
+.user-challenge-sidebar h3 {
+    font-family: 'montserrat';
+	margin-top:0;
+}
+.user-challenge-content-main {
+	float:left;
+	width:60%;
+}
+.user-challenge-content-main h4 {
+    text-transform: uppercase;
+}
+.user-challenge-content-main #preview-frame {
+    width: 100%;
+    height: 500px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.challenge-form-container input[type="file"],
+.wpcw_fe_quiz_q_upload_wrapper input[type="file"] {
+    height: 62px;
+    padding: 0;
+    width: 70%;
+}
+
+.challenge-screenshot img {
+    clear: both;
+    height: auto;
+    margin: 0px 0 20px;
+    max-width: 100%;
+	border:1px solid #e3e3e3;
+}
+
+.user-challenge-content-main .challenge-form-container form {
+    margin: 0 0 20px;
+    overflow: auto;
+}
+
+.challenge-embed-preview {
+    margin-bottom: 40px;
+    margin-left: 0;
+    width: 100%;
+}
+
+.challenge-embed-preview iframe {
+	height: 800px !important;
+	width: 100%;
+}
+
+.challenge-button-container {
+	width:50%;
+	float:left;
+}
+
+.challenge-button-container h4 {
+    font-family: 'open-sans';
+    margin: 20px 0 0;
+    text-transform: none;
+}
+
+.user-challenge-author {
+	margin:0 0 80px;
+}
+
+.user-challenge-author #author-avatar {
+	float:left;
+	width:90px;
+	margin:0 10px 0 0;
+}
+
+.user-challenge-author #author-avatar img {
+	width:100%;
+}
+.user-challenge-author a,
+.user-challenge-author a:hover {
+    color: #333;
+    font-weight: bold;
+}
+
+.user-challenge-author p a,
+.user-challenge-author p a:hover {
+	font-weight:normal;
+}
+
+.single-challenges_users #edit-challenge-toggle {
+    float: right;
+    margin: 20px 0 0 10px;
+}
+.single-challenges_users #edit-challenge-toggle,
+.single-challenges_users #edit-challenge-done-toggle {
+    background-color: #e5e5e5;
+    text-transform: uppercase;
+    color: #737272;
+    font-size: 12px;
+    font-family: 'montserrat';
+}
+.single-challenges_users #edit-challenge-done-toggle a {
+    color: #737272;
+    text-decoration: none;
+}
+.single-challenges_users #edit-challenge-toggle:focus,
+.single-challenges_users #edit-challenge-done-toggle:focus {
+    outline:0;
+}
+.single-challenges_users .activity-nav .main {
+    position: static;
+}
+
+.single-challenges_users #challenge-edit {
+    display: none;
+}
+.single-challenges_users #challenge-share .gform_footer {
+    display: none;
+}
+
+/** this div shows the old code for embed challenges **/
+#old-saved-code {
+	display: none;
+}
+#view-old-code {
+	font-size: 16px;
+}
+
+#skill-challenge-info {
+    padding: 20px 0 40px;
+}
+.single-sc_skill_challenges header.individual-core-skill-header {
+	margin-top: 50px;
+}
+
+.single-sc_skill_challenges .main,
+.single-challenges_users .main {
+    position: relative;
+}
+
+.skill-challenge {
+    width:800px;
+    margin-left:144px;
+}
+
+.resources-list .skill-challenge {
+    margin-left:0;
+    width:auto;
+}
+
+/* Challenge Form styles */
+
+.challenge-status input[type="button"],
+input[type="submit"].challenge-submit {
+ background: none repeat scroll 0 0 #57C09C;
+    border-radius: 0 0 0 0;
+    border: none;
+    box-shadow: none;
+    font-size: 18px;
+    margin-right: 0;
+    padding: 20px 34px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font: 600 12px 'Open Sans';
+    color: #505050;
+    display: block;
+    background: #C4E9E2;
+    margin: 0;
+    outline: 0;
+}
+
+#skill-resource-header .challenge-status input[type="button"],
+#skill-resource-header input.challenge-submit[type="submit"] {
+    margin-top: 0;
+	margin-right:0;
+    padding: 16px 34px 16px;
+}
+
+.lesson-button {
+    float: left;
+    margin-bottom: 20px;
+}
+
+.skill-challenge .challenge-info {
+    float: left;
+    max-width: 480px;
+    width: 70%;
+}
+
+.challenge-info h5 {
+    text-transform:uppercase;
+    font-weight:bold;
+    margin-top:5px;
+}
+
+.challenge-status input[type="button"],
+input[type="submit"].challenge-submit {
+    background: none repeat scroll 0 0 #57C09C;
+    border-radius: 0 0 0 0;
+    border: none;
+    box-shadow: none;
+    font-size: 18px;
+    margin-right: 0;
+    padding: 20px 34px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font: 600 12px 'Open Sans';
+    color: #505050;
+    display: block;
+    background: #C4E9E2;
+    margin: 0;
+    outline: 0;
+}
+
+#skill-resource-header .challenge-status input[type="button"],
+#skill-resource-header input.challenge-submit[type="submit"] {
+    margin-top: 0;
+    margin-right: 0;
+    padding: 16px 34px 16px;
+}
+
+/*======================================================
+New Challenge Editor Styles // Nov 2016
+========================================================*/
+
+.skill-content-main #tabs {
+    float: left;
+    margin-bottom: 20px;
+    overflow: auto;
+    width: 50%;
+}
+.skill-content-main #tabs ul {
+    background:#636161;
+    overflow:auto;
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.skill-content-main #tabs ul li a {
+    color:white;
+    text-align:center;
+    width:120px;
+    font-family:'montserrat';
+    font-size:13px;
+    display:block;
+    padding: 14px 20px;
+	text-transform:lowercase;
+}
+
+.skill-content-main #tabs ul li {
+    float:left;
+    margin-bottom:0;
+    border-right:1px solid #888888;
+}
+
+.skill-content-main #tabs ul li.active {
+    background:#545454;
+}
+.skill-content-main #code-preview-preview {
+    border-bottom: 1px solid #dbdbdb;
+    border-right: 1px solid #dbdbdb;
+	border-top:1px solid #dbdbdb;
+    min-height: 374px;
+    width: 100%;
+}
+.skill-content-main .code-preview-iframe-header {
+    background: #eeeeee;
+    height: 48px;
+    width: 100%;
+	padding:16px 20px;
+	font-family:'montserrat';
+	text-transform:uppercase;
+	color:#3b3b3b;
+	font-size:13px;
+}
+
+.skill-content-main .code-preview-iframe-header i.fa {
+	margin:0 3px 0 0;
+}
+
+.skill-content-main .challenge-form-container form#core-skills-challenge-code-preview .CodeMirror {
+    width: 100%;
+}
+.skill-content-main .challenge-form-container form#core-skills-challenge-code-embed .CodeMirror,
+.skill-content-main .challenge-form-container form#core-skills-challenge-ruby-code-snippet .CodeMirror {
+    border-bottom: 1px solid #BCBCBC !important;
+    border-image: none !important;
+    border-left: 1px solid #BCBCBC !important;
+    border-right: 1px solid #BCBCBC !important;
+    border-top: medium none;
+}
+
+.code-mirror-container.challenge-form-container {
+	width:80%;
+	margin:auto;
+}
+
+.challenge-form-container form .CodeMirror pre {
+	padding: 0 4px 0 35px;
+}
+.challenge-form-container form .CodeMirror .CodeMirror-gutter {
+    border-right: medium none;
+    height: 100%;
+    left: 0;
+    min-width: 2em;
+    position: absolute;
+    top: 0;
+    background:none;
+    z-index: 10;
+}
+
+.challenge-form-container input[type="submit"].code-snippet-submit,
+.challenge-form-container input[type="submit"].code-embed-submit {
+    margin-top:20px;
+    float:right;
+}
+.challenge-form-container input[type="submit"].code-snippet-submit:focus,
+.challenge-form-container input[type="submit"].code-embed-submit:focus {
+    outline: 0;
+}
+
+#skill-challenge-info #tabs {
+    float: left;
+    margin-bottom: 20px;
+    overflow: auto;
+    width: 430px;
+}
+
+.challenge-form-container form#core-skills-challenge-code-preview .CodeMirror,
+.challenge-form-container form#core-skills-challenge-code-preview-embed .CodeMirror {
+    background: #545454;
+    line-height: 32px;
+    padding-top: 0;
+    min-height: 374px;
+	color:white;
+}
+
+/* Overriding Code Mirror styles
+Need to finesse these! */
+.CodeMirror-gutter-elt{
+	background:#636161;
+}
+
+#tabs .CodeMirror-gutter,
+#core-skills-challenge-js-code-snippet .CodeMirror-gutter,
+#core-skills-challenge-ruby-code-snippet  .CodeMirror-gutter {
+	background:#636161;
+}
+
+#skill-challenge-info #tabs ul {
+    background:#dfe0e1;
+    border:1px solid #979797;
+    border-radius:3px 3px 0 0;
+    overflow:auto;
+	margin-bottom: 0;
+}
+
+#skill-challenge-info #tabs ul li a {
+    color:#5f5e5e;
+    text-align:center;
+    width:100px;
+    font-family:arial;
+    font-size:14px;
+    display:block;
+    padding: 14px 20px;
+}
+
+#skill-challenge-info #tabs ul li {
+    float:left;
+    margin-bottom:0;
+    border-right:1px solid #979797;
+}
+
+#skill-challenge-info #tabs ul li.active {
+    background:#eeeeef;
+}
+
+.challenge-form-container #core-skills-challenge-code-preview input[type="submit"] {
+    float:right;
+    margin-top:0;
+}
+
+#iframe-holder {
+    display: block;
+    height: 90%;
+    min-height: 600px;
+    padding-top: 0;
+    position: relative;
+    width: 100%;
+}
+
+#code-preview-iframe {
+    width: 50%;
+    float:left;
+}
+
+#code-preview-iframe img {
+    border-bottom: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    margin-bottom: 20px;
+    width: 712px;
+}
+
+/* JS Snippet */
+#core-skills-challenge-js-code-snippet .CodeMirror,
+#core-skills-challenge-ruby-code-snippet .CodeMirror {
+	background:#545454;
+}
+
+.code-snippet-header {
+    background: none repeat scroll 0 0 #636161;
+	border:none;
+    border-bottom: 1px solid #BCBCBC;
+    border-radius: 0;
+    font-family: 'montserrat';
+    color: white;
+    text-align: center;
+	padding:15px 0;
+}
+
+#run-js-iframe {
+	display:none;
+}
+
+input#run-js-button { background-color:#413f3f; }
+
+.challenge-screenshot {
+    padding-top: 30px;
+    clear: both;
+}
+
+/* Syntax highlighting */
+.CodeMirror.cm-s-default span { color: white; }
+
+.CodeMirror.cm-s-default span.cm-comment { color: #75715e; }
+.CodeMirror.cm-s-default span.cm-atom { color: #ae81ff; }
+.CodeMirror.cm-s-default span.cm-number { color: #ae81ff; }
+
+.CodeMirror.cm-s-default span.cm-property, .CodeMirror.cm-s-default span.cm-attribute { color: #a6e22e; }
+.CodeMirror.cm-s-default span.cm-keyword { color: #f92672; }
+.CodeMirror.cm-s-default span.cm-builtin { color: #66d9ef; }
+.CodeMirror.cm-s-default span.cm-string { color: #e6db74; }
+
+.CodeMirror.cm-s-default span.cm-variable { color: #f8f8f2; }
+.CodeMirror.cm-s-default span.cm-variable-2 { color: #9effff; }
+.CodeMirror.cm-s-default span.cm-variable-3 { color: #66d9ef; }
+.CodeMirror.cm-s-default span.cm-def { color: #fd971f; }
+.CodeMirror.cm-s-default span.cm-bracket { color: #f8f8f2; }
+.CodeMirror.cm-s-default span.cm-tag { color: #FF3D84; }
+.CodeMirror.cm-s-default span.cm-header { color: #ae81ff; }
+.CodeMirror.cm-s-default span.cm-link { color: #ae81ff; }
+.CodeMirror.cm-s-default span.cm-error { background: #f92672; color: #f8f8f0; }

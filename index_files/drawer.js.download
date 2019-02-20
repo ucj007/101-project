@@ -1,0 +1,44 @@
+function attrToBool(el, attr) {
+  return el.getAttribute(attr) === "true";
+}
+
+function findParentDrawer(el) {
+  if (el === document.body) {
+    return false;
+  }
+  
+  return el.parentElement.hasAttribute('data-drawer-wrapper') ? el.parentElement : findParentDrawer(el.parentElement)
+}
+
+function toggleDrawer(wrapper) {
+  return function(e) {
+    toggleDrawerAttr(e.currentTarget, wrapper);
+    setDrawerHeight(wrapper);
+    return e;
+  }
+}
+
+function toggleDrawerAttr(btn, wrapper) {
+  var isExpanded = attrToBool(wrapper, "data-drawer-expanded");
+  wrapper.setAttribute('data-drawer-expanded', !isExpanded);
+  wrapper.classList.toggle('drawer--open');
+  btn.setAttribute('aria-expanded', !isExpanded);
+  return wrapper;
+}
+
+function setDrawerHeight(wrapper) {
+  wrapper.style.height = attrToBool(wrapper, "data-drawer-expanded") ? wrapper.querySelector('[data-drawer-full]').offsetHeight + 'px' : wrapper.querySelector('[data-drawer-visible]').offsetHeight + 'px';
+  
+  var parentDrawer = findParentDrawer(wrapper);
+  if (parentDrawer) {
+    setDrawerHeight(parentDrawer);
+  }
+}
+
+var drawers = document.querySelectorAll('[data-drawer-action]');
+
+drawers.forEach(function(btn) {
+  var wrapper = document.getElementById(btn.getAttribute('aria-controls'));
+  setDrawerHeight(wrapper)
+  btn.addEventListener("click", toggleDrawer(wrapper));
+});

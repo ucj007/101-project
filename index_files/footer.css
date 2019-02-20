@@ -1,0 +1,77 @@
+/*======================================================
+Footer
+========================================================*/
+
+.home .main-container,
+.page-template-template-mp-signin .main-container,
+.page-template-page-templatestemplate-mp-signin-php .main-container {
+  margin-bottom: -6.55em;
+}
+
+.home .main-container:after,
+.page-template-template-mp-signin .main-container:after,
+.page-template-page-templatestemplate-mp-signin-php .main-container:after {
+    content: "";
+    display: block;
+    height: 6.55em;
+}
+
+.site-footer {
+  border-top: 5px solid #edeeee;
+  clear: both;
+  margin-top: 0;
+  padding-top: 2em;
+  height: 6.55em;
+}
+.sub-footer {
+  color: #8f8f8f;
+  font: 700 0.6875em/1 'Montserrat', sans-serif;
+}
+
+.site-footer .sf_email-us,
+.site-footer .sf_email-us a {
+  color: #000;
+}
+.site-footer .sf_email-us strong {
+  text-transform: uppercase;
+}
+
+.sub-footer a {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.sub-footer a:hover {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.sub-footer .footer-copyright {
+  margin-left: 3.7em;
+}
+
+
+/*======================================================
+Footer Links & Share Buttons
+========================================================*/
+
+.footer-links {
+  float:left;
+}
+.footer-right {
+  float: right;
+}
+
+.footer-links a {
+  margin-right: 1.5em;
+}
+
+.site-footer .fa-twitter {
+  font-size: 1.8em;
+  vertical-align: middle;
+}
+.site-footer .fa-twitter + span {
+  display: inline-block;
+  vertical-align: middle;
+}

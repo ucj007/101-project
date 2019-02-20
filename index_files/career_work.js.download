@@ -1,0 +1,166 @@
+
+function readURL(input) {
+	
+	if (input.files && input.files[0]) {
+		var reader = new FileReader();
+		reader.onload = function (e) {
+			
+			var file_type_array = e.target.result.split(";",1);
+			if(file_type_array.length != 0){
+				var file_type_unparsed = file_type_array[0].split(":");
+				var file_type = file_type_unparsed[1];
+
+				if(file_type == "application/pdf"){
+					//it's a pdf
+					$('#preview').show();
+					$(".career-upload_img").hide();
+					$('#img-preview').hide();
+					$('#preview > iframe').show();
+					var pdffile = document.getElementById("upload_file").files[0];
+					var pdffile_url = URL.createObjectURL(pdffile);
+					$('#pdf-preview').attr('src', pdffile_url);
+					
+				} else {
+					var allowed = new Array("image/jpg","image/jpeg","image/png", "image/gif");
+					if(allowed.indexOf(file_type) != -1){
+						$('#preview').show();
+						$(".career-upload_img").hide();
+						$('#preview > iframe').hide();
+						$('#img-preview').show();
+						$('#img-preview').attr('src', e.target.result);
+					} else {
+						// file type not supported
+						$('#preview').hide();
+						$(".career-upload_img").show();
+						$('#img-preview').hide();
+						$('#preview > iframe').hide();
+					}
+				}
+			}
+		}
+
+		reader.readAsDataURL(input.files[0]);
+	}
+}
+
+$(document).ready(function() {
+	
+	$("#upload_div").click(function () {
+		$("#upload_file").trigger('click');
+	});
+			
+	jQuery("#upload_form").validate({
+		ignore: [],
+		rules : {
+			"upload_file": { 
+				required: true,
+				accept: "image/jpg, image/jpeg, image/png, image/gif, application/pdf",
+				filesize: 5000000 //5MB
+			},
+			"link": {
+				required: true,
+				url: true
+			}
+		},
+		messages : {
+			"upload_file": { 
+				accept: "Please upload the following file types: <strong>png, jpeg, jpg, gif or pdf</strong>",
+				filesize: "Please upload a file with size up to <strong>5MB</strong>"
+			}
+		}
+	});
+	
+	jQuery.validator.addMethod('filesize', function(value, element, param) {
+		// param = size (en bytes) 
+		// element = element to validate (<input>)
+		// value = value of the element (file name)
+		return this.optional(element) || (element.files[0].size <= param) 
+	});
+	
+	// On input type file change validate and submit the file work
+	$("#upload_file").change(function(){
+		if(!jQuery("#upload_form").valid()){
+			$('#preview').hide();
+			$(".career-upload_img").show();
+			$('#img-preview').hide();
+			$('#preview > iframe').hide();
+		} else {
+			$("#upload_div").hide();
+			$("#loading-gif").show();
+			$("#done").click();
+		}		
+	});	
+	
+	$(".career-step_footer").show();
+	
+	// Set current menu active page
+	var current_nav_page = jQuery.cookie('past_career_content_page');
+	$("#"+current_nav_page).addClass('ui-tabs-active ui-state-active');
+	
+	// Set menu back url
+	var back = $(".career_back").attr('href');
+	$(".career_back").attr('href', back + '#'+ current_nav_page);
+	
+	
+	// I've finished this button click
+	$("#finish").click(function(event){
+		event.preventDefault();
+		$("#need_file_modal").modal("show");
+	});
+	
+	$("#remove_work").click(function(){
+		$("#loading-gif").siblings().hide();
+		$("#sure-remove-modal").modal("hide");
+		removeWork(true);
+	});
+	
+	$("#change_work").click(function(){
+		$("#loading-gif").siblings().hide();
+		$("#sure-change-modal").modal("hide");
+		removeWork(false);
+	});
+	
+});
+
+function removeWork(finished_step){
+	$("#del_hidden").val(true);
+		
+	$.ajax({
+		type: "POST",
+		url: window.location.href,
+		data: { del_hidden: true, finished: finished_step },
+		beforeSend: function(){
+			$("#loading-gif").show();
+			$(".wrap > input, .wrap > button").remove();
+		},
+		success: function(){
+			// Redirect to default upload step
+			window.location.href = $("#step_permalink").val();			
+		},
+		error: function(jqXHR, textStatus, errorThrown ){
+			alert(errorThrown);
+		}
+	});
+}
+
+// Hide preview (pdf, img) until is fully loaded, then hide loading
+if(document.getElementById("img-preview") || document.getElementById("pdf-preview")){
+	var preview = document.getElementById("img-preview") || document.getElementById("pdf-preview");
+	preview.onload = hideLoading(preview);
+}
+
+function showLoading(){	
+	$('<div id="skillcrush-loading"><div></div></div>').click(hideLoading).appendTo('body');
+	
+	$(document).bind('keydown.loading', function(e) {
+		if ((e.which || e.keyCode) === 27) {
+			e.preventDefault();
+			hideLoading();
+		}
+	});
+}
+
+function hideLoading(preview){
+	$("#loading-gif").hide();
+	$(preview).show();
+}

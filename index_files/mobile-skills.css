@@ -1,0 +1,565 @@
+/*======================================================
+Mobile Styles: Skill Resources, Challenges & Course Units
+========================================================*/
+@media screen and (max-width: 1200px){
+    .single-sc_skill_resources #container,
+    .single-user_challenges #container,
+    .single-user_projects #container,
+    .single-sc_projects #container,
+    .single-user_102_challenges #container,
+    .individual-skill-holder {
+        min-width: 0;
+    }
+    .skill-stuff .step-title h4,
+    .skill-stuff h4.lesson-title {
+        margin-right: 0
+    }
+    .user-project-links {
+        height: auto;
+        width: 100%;
+    }
+    .individual-skill-holder {
+        margin-bottom: 60px;
+    }
+    .postid-20810 .skill-info-text p,
+    .skill-info-text img[alt="bookofruby"]{
+        width: 50%;
+    }
+    .single p img,
+    .single-sc_skill_challenges p img,
+    .single-sc_skill_resources p img,
+    img.size-full {
+        margin-top: 20px;
+    }
+    .skill-info-text p#beginning-ruby,
+    .skill-info-text p#oreilly,
+    .skill-info-text p#eloquent-ruby {
+        padding-top: 50px;
+    }
+    #eloquent-ruby + .book-notes {
+        float: right;
+    }
+    #eloquent-ruby + .book-notes img {
+        width: 100%;
+    }
+    #lrthw {
+        padding: 0 0 0 10px;
+    }
+    .skill-info-text div.button#pick-app-button {
+        width: auto;
+    }
+    #bootcamp.bootcamp-big #mce-EMAIL {
+        width: 300px;
+    }
+    .completed-classes .one-class {
+        margin-top: 40px;
+    }
+
+} /* end 960 */
+
+@media screen and (min-width: 801px) and (max-width: 960px){
+    .single-sc_projects aside {
+        width: 30%;
+        margin-right: 3%;
+    }
+    #all-skill-holder {
+        width: 67%;
+    }
+    .skill-content {
+        max-width: none;
+    }
+    .skill-content-main,
+    .skill-sidebar {
+        float: none;
+        padding: 30px 20px 0;
+    }
+    .skill-sidebar {
+        width: 100%;
+        min-height: 0;
+    }
+    .skill-content-main {
+        width: 100%;
+        border-left: 0;
+    }
+    body.single-sc_skill_resources .skill-sidebar,
+    body.single-sc_skill_resources .skill-content-main {
+        -webkit-flex: none;
+        -moz-flex: none;
+        -ms-flex: none;
+        flex: none;
+    }
+    .single-sc_skill_resources #homepage-page-container,
+    .single-sc_skill_resources .individual-skill-resource,
+    .single-sc_skill_resources #container,
+    .single-sc_skill_resources .skill-main {
+        display: block;
+        -webkit-flex: none;
+        -moz-flex: none;
+        -ms-flex: none;
+        flex: none;
+    }
+    .user-challenge-sidebar {
+        padding-top: 50px;
+    }
+    .user-challenge-author #author-avatar {
+        float: none;
+        width: auto;
+        padding: 0 10px 10px;
+    }
+}
+
+@media screen and (max-width:480px) {
+	#container {
+		padding:0;
+	}
+
+
+	.individual-skill-resource .iframe-wrap,
+	.single-course_unit .iframe-wrap {
+	    width: 100%;
+	}
+
+	.individual-skill-resource .iframe-wrap iframe,
+	.single-course_unit iframe {
+	    height: 190px;
+	    min-height: 190px;
+	}
+
+	.skill-main .skill-content-main {
+	    float: none;
+	    height: auto;
+	    padding: 20px 10px 120px;
+	}
+
+
+
+}
+
+/* Vertically oriented tablets and phablets */
+@media screen and (min-width:481px) and (max-width:768px) {
+
+}
+
+/* Landscape orientated iPads */
+@media only screen and (max-width: 800px) and (orientation:landscape) {
+
+}
+
+/* Vertically orientated iPads & other small devices */
+@media only screen and (max-width: 800px) and (orientation:portrait) {
+
+}
+
+/* Vertically orientated iPads & other small devices */
+@media only screen and (max-width: 800px) {
+	.skill-sidebar {
+	    width: 100%;
+	    padding: 0 5%;
+	}
+
+	.skill-content {
+	    padding: 30px 0;
+	    width: 100%;
+	    margin: auto;
+		overflow:auto;
+	}
+
+	.skill-content-main {
+	    padding-bottom: 130px;
+	}
+
+	.skill-description-text .sidebar-content {
+	    max-width: 100%;
+	    float: none;
+	}
+
+	.skill-description-text .sidebar-downloads {
+	    float: none;
+	    width: 100%;
+	    padding: 0 0 30px;
+	}
+
+	.skill-main .download-link, .sidebar-downloads .button {
+	    max-width: 100%;
+	    width: 100%;
+	}
+	.download .skill-info-text img {
+	    max-width: 100%;
+	    margin: 20px 0 0;
+	}
+
+	.sidebar-content h1#skill-title {
+	    margin: 5px 0 20px;
+	}
+
+	.single-sc_skill_resources .skill-main,
+	.single-sc_skill_challenges .skill-main {
+	    padding: 10px 0 0;
+	}
+
+	.challenge-form-container input[type="submit"],
+	.challenge-form-container input[type="button"] {
+	    background: none repeat scroll 0 0 #3A3939;
+	    border-radius: 0 0 0 0;
+	    border: none;
+	    box-shadow: none;
+	    float: none;
+	    height: 62px;
+	    margin-right: 0;
+	    text-transform: uppercase;
+	    width: 100%;
+	    margin-left: 10px;
+	    color: white;
+	    clear: both;
+	}
+
+	.challenge-form-container input[type="file"],
+	.wpcw_fe_quiz_q_upload_wrapper input[type="file"] {
+	    height: 62px;
+	    padding: 0;
+	    width: 100%;
+	}
+
+	.wpcw_fe_quiz_box_wrap, .quiz .wpcw_fe_progress_box_wrap {
+	    width: 100%;
+	    margin: auto;
+	}
+
+	.user-project-links {
+    	height: auto;
+    	width: 30%;
+	}
+
+	.wpcw_fe_progress_box {
+	    padding: 40px 5%;
+	}
+
+	.quiz .wpcw_fe_progress_box.wpcw_fe_progress_box_success {
+		padding:0;
+	}
+
+	.single-course_unit #container {
+	    padding: 0px 0 0;
+	}
+
+
+	.wpcw_fe_progress_box.wpcw_fe_progress_box_pending.wpcw_fe_progress_box_updating p {
+	    float: none;
+	    font-weight: bold;
+	    margin: 20px 0;
+	    width: 100%;
+	    text-align: left;
+	    text-transform: none;
+	}
+
+	.individual-skill-resource iframe,
+	.single-course_unit iframe {
+		width:100%;
+	}
+
+	.skill-main .skill-content-main {
+	    float: none;
+	    height: auto;
+	    padding: 20px 20px 120px;
+	}
+
+	.skill-main .skill-content-main,
+	.skill-main .skill-sidebar {
+	    float: none;
+	    height: auto;
+	    padding: 20px 20px 0;
+	}
+
+	.single-sc_skill_resources .site-header h1 a {
+	    background: transparent;
+	}
+    #all-skills {
+        margin-top: 50px;
+    }
+
+    .single-sc_projects .individual-core-skill header .core-skill-description {
+        margin-left: 0;
+    }
+    .class-page-skills span {
+        float: none;
+        display: inline-block;
+    }
+    .single-sc_projects .core-skill-description p {
+        margin-bottom: 0;
+        float: none;
+    }
+
+    .class-tab-content {
+        padding-bottom: 50px;
+        overflow: hidden;
+    }
+    aside .class-page-sidebar-module,
+    .sc_projects{
+        margin-bottom: 40px;
+    }
+    .sidebar-resource-list .has-dropdown.open ul {
+        padding-top: 10px;
+    }
+    .skill-stuff li {
+        padding: 10px;
+    }
+    .skill-stuff > h4,
+     .skill-stuff.active > h4 {
+        padding-left: 10px;
+    }
+    .individual-skill-holder {
+        margin-bottom: 60px;
+    }
+    .single-sc_projects .individual-core-skill header .core-skill-description,
+    .individual-core-skill-header .skill-badge {
+        float: none;
+        width: 100%;
+    }
+    .single-sc_projects aside,
+    #all-skill-holder {
+        width: 100%;
+    }
+    .skill-content-main {
+        padding: 10px;
+    }
+    .skill-content-main,
+    .skill-sidebar {
+        float: none;
+        height: auto;
+        padding: 20px 10px 0;
+    }
+    body.single-sc_skill_resources .skill-sidebar,
+    body.single-sc_skill_resources .skill-content-main {
+        -webkit-flex: none;
+        -moz-flex: none;
+        -ms-flex: none;
+        flex: none;
+    }
+    .single-sc_skill_resources #homepage-page-container,
+    .single-sc_skill_resources .individual-skill-resource,
+    .single-sc_skill_resources #container,
+    .single-sc_skill_resources .skill-main,
+    .single-sc_skill_resources .skill-sidebar {
+        display: block;
+        -webkit-flex: none;
+        -moz-flex: none;
+        -ms-flex: none;
+        flex: none;
+    }
+    .skill-main .html-viewer {
+        width: auto;
+    }
+    .skill-sidebar {
+        width: 100%;
+    }
+    .skill-content-main {
+        width: 100%;
+        border-left: 0;
+    }
+    #skill-resource-header {
+        height: auto;
+        position: static;
+    }
+    .single-sc_skill_resources #homepage-page-container,
+    .single-challenges_users #homepage-page-container,
+    .single-sc_skill_challenges #homepage-page-container {
+        margin-top: 0;
+        height: auto;
+    }
+    .single-sc_skill_resources #homepage-page-container {
+        margin: 0;
+        padding: 0 0 0px;
+        height: auto;
+    }
+    .transcript-wrap .content {
+        padding: 10px;
+    }
+    #code-preview-iframe img {
+        max-width: 100%;
+    }
+    .skill-content-main .code-preview-iframe-header,
+    #code-preview-iframe {
+		width: 100%;
+		float: none;
+    }
+    .skill-info-text p {
+        margin-bottom: 15px;
+    }
+    #skill-resource-header h4 {
+	    clear: both;
+	    padding: 15px 20px;
+	    border-top: 1px solid #F2F2F2;
+	    line-height: 1.8;
+    }
+    #back-link a {
+        padding: 16px 15px;
+    }
+    #skill-resource-header #resource-header-right {
+        min-width: 0;
+        white-space: nowrap;
+        float: none;
+        position: static;
+        width: auto;
+        text-align: right;
+    }
+    #skill-resource-header nav {
+        float: none;
+    }
+    #skill-resource-header ol li,
+    #resource-header-right div {
+        float: none;
+        display: inline-block;
+        margin-bottom: 0;
+    }
+    #skill-resource-header ol li a {
+        padding: 16px 10px;
+    }
+    #back-link {
+        border-bottom: 0;
+    }
+    .gform_wrapper .gform_footer {
+        overflow: hidden;
+    }
+    #skill-resource-header .challenge-status input[type="button"],
+    #skill-resource-header input.challenge-submit[type="submit"] {
+        padding: 8px 20px;
+        width: 100px;
+        white-space: normal;
+    }
+    /* Style for Submit button on mobile */
+    #skill-resource-header input#submit-challenge.challenge-submit {
+        padding: 17px 20px 16px;
+        width: 100%;
+    }
+    .user-challenge-header,
+    .user-challenge-content-main,
+    .user-challenge-sidebar {
+        float: none;
+        width: 100%;
+    }
+    .user-challenge-sidebar {
+        padding: 30px 0 0;
+    }
+    .user-challenge-author {
+        margin-bottom: 0;
+    }
+    .single-challenges_users #edit-challenge-toggle {
+        float: none;
+        clear: both;
+        margin: 0 0 20px;
+    }
+    h1#skill-title,
+    #edit-challenge-done-toggle {
+        margin: 20px 0;
+    }
+    .blog-header + .main .individual-content {
+        width: 100%;
+    }
+    .postid-20810 .skill-info-text div p,
+    .skill-info-text div img[alt="bookofruby"]{
+        width: 100%;
+        float: none;
+    }
+    .skill-info-text p.book-notes#beginning-ruby,
+    .skill-info-text p.book-notes#oreilly,
+    .skill-info-text p.book-notes#eloquent-ruby,
+    .skill-info-text p.book-notes#book-of-ruby {
+        padding-top: 20px;
+        float: none;
+        margin: 10px 0;
+    }
+
+	ul#js-review li, ul#html-review li, .skill-info-text .list-unstyled li {
+		margin:0;
+	}
+
+	.js-review-example, .html-review-example {
+	    float: none;
+	    width: 100%;
+	}
+
+	.js-review-main, .html-review-main {
+	    width: 100%;
+	    float: none;
+	    margin-right: 0;
+	    padding: 20px 20px 20px 0px;
+	}
+
+	.skill-content-main #tabs {
+	    float: none;
+	    margin-bottom: 20px;
+	    overflow: auto;
+	    width: 100%;
+	}
+
+	.wpcw_fe_progress_box.wpcw_fe_progress_box_pending.wpcw_fe_progress_box_updating {
+	    padding: 24px 4% 40px;
+	}
+
+	.sclmsaddon_fe_progress_box_mark {
+	    margin: 0 20px 0 0;
+	}
+
+	.code-mirror-container.challenge-form-container {
+		width:100%;
+	}
+
+	.skill-info-text #first-photo,
+	.skill-info-text #second-photo,
+	.skill-info-text #third-photo {
+		float:none;
+		margin:20px auto;
+	}
+
+	.skill-info-text #third-photo {
+	    margin: 80px auto;
+	}
+
+	#first-photo a img {
+	    max-width: 210px;
+	    height: auto;
+	    margin-top: 0;
+	}
+
+	#second-photo a img,
+	#third-photo img {
+		margin-top:0;
+	}
+
+	#sidebar-project-area .user-project-links {
+	    border: 1px solid #737676;
+	    background: #e5e6e6;
+	    border-radius: 2px;
+	    width: 240px;
+	    padding: 10px 4px 4px;
+	}
+
+}
+
+@media screen and (max-width:480px) {
+	.quiz .wpcw_fe_progress_download a.fe_btn.fe_btn_completion.fe_btn_small {
+		float: none;
+		display: block;
+		text-align: center;
+		margin: 0 0 10px;
+	}
+
+	.wpcw_fe_progress_box.wpcw_fe_progress_box_pending.wpcw_fe_progress_box_updating {
+	    background: #f5f5f5;
+	    padding: 24px 7% 10px;
+	}
+
+	.sclmsaddon_fe_progress_box_mark {
+	    float: none;
+	    width: 100%;
+	}
+
+	.skill-content-main #code-preview-preview {
+	    border: 1px solid #dbdbdb;
+	}
+}
+
+/** iPhone 6s Plus **/
+@media only screen and (min-device-width : 414px) and (max-device-width : 736px) {
+
+}

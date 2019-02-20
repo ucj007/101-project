@@ -1,0 +1,302 @@
+@media screen and (max-width: 1266px){
+    .prerequisites:before {
+        margin-left: 6%;
+    }
+}
+
+@media screen and (max-width: 1040px) {
+
+}
+
+@media screen and (min-width: 960px) and (max-width: 1200px){
+    .individual-entry #bootcamp .error-container {
+        bottom: 0;
+        text-align: left;
+    }
+   
+    .main,
+    .horizontal-boot #bootcamp .main {
+        padding-right: 20px;
+        padding-left: 20px;
+        max-width: 1160px;
+        min-width: 960px;
+    }
+    .horizontal-boot #bootcamp #mce-EMAIL,
+    .horizontal-boot.red-boot #bootcamp #mce-EMAIL {
+        width: 55%;
+        margin-right: 3%;
+    }
+    .horizontal-boot #bootcamp .bootcamp-content {
+        float: none;
+        width: 100%;
+    }
+    .horizontal-boot #bootcamp #mc-embedded-subscribe,
+    .horizontal-boot.red-boot #bootcamp #mc-embedded-subscribe {
+        width: 35%;
+    }
+    #bootcamp-about ul li {
+        margin-bottom: 15px;
+    }
+    .bootcamp-subscribe {
+        background-position: -205px 0;
+        padding: 40px 0 70px 430px;
+    }
+    .page-template-page-templatestemplate-bootcamp-sales-php #testimonials {
+        padding: 0 10px;
+    }
+    .archive-main-content article.trading-card {
+        width: 30%;
+        margin: 0 1.5% 60px;
+    }
+    .archive-main-content article.trading-card.project .ss_screenshot_link img {
+        width: 100%;
+    }  
+    .single-sc_projects aside {
+        width: 30%;
+        margin-right: 7%;
+    }
+}
+
+@media screen and (min-width: 801px) and (max-width: 960px){
+    .top-nav-item a {
+        padding: 13px 13px 18px;
+    }
+    .um-list .um-link {
+        padding: 2em 0.5em;
+    }
+    .um-list .um-link i {
+        margin-left: 0.5em;
+    }
+    .um-list .um-link.your i {
+        margin-right: 0;
+        margin-bottom: 0.5em;
+    }
+    #top-nav-settings-link.top-nav-icon > a {
+        width: 60px;
+        margin-right: 0;
+        background-position: center;
+    }
+    #logged-in-nav.main {
+        padding: 0;
+    }
+   
+    #top-nav-classes-link > a {
+        padding-right: 35px;
+    }
+ 
+    #comments {
+        font-size: 1.1em;
+    }
+    #comments input[type="submit"] {
+        float: none;
+        margin-left: 115px;
+    }
+    #comments .commentlist, 
+    #comments .comment-respond {
+        padding-left: 0;
+    }
+    .page-404-content {
+        font-size: 0.9em;
+    }
+    .page-404-content .errors-codes {
+        width: 60%;
+    }
+    .page-404-content .fact {
+        width: 40%;
+        padding: 0 0 0 2%;
+    }
+    .page-404-content .col {
+        width: 100%;
+    }
+    .page-404-content p {
+        margin-bottom: 2em;
+    }
+    .page-404-content .fact h2 {
+        padding-left: 50px;
+        background-size: 45px auto;
+        background-position: 0 center;
+    }
+    .bootcamp-subscribe .main {
+        background: rgba(255,255,255,.6);
+        box-shadow: 0 0 3px #fff;
+        padding-top: 10px;
+    }
+    .guides-header {
+        padding: 40px 0;
+    }
+    .hero-header h1 {
+        font-size: 4em;
+    }
+    .hero-header p {
+        font-size: 1.2em;
+    }
+    .awesome-subscribe {
+        background-size: cover;
+        min-height: 0;
+    }
+    .awesome-subscribe .main {
+        padding: 20px;
+        background: rgba(255,255,255, 0.7);
+    }
+    .bootcamp-subscribe {
+        padding: 470px 10px 0;
+        background-size: 80%;
+    }
+    #bootcamp-about ul li {
+        margin-bottom: 15px;
+    }
+
+    #skillcrush-bootcamp-sales-hero header h1 {
+        font: 43px/55px 'Montserrat', sans-serif;
+        margin: 20px auto 0;
+    }
+
+    .main {
+        min-width: 0;
+        max-width: 920px;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+    #site-footer {
+        text-align: center;
+    }
+    .footer-links,
+    .footer-right {
+        float: none;
+        margin-bottom: 1em;
+    }
+    .social-like-buttons .twitter-follow {
+        height: 20px;
+    }
+    body.home .main-container {
+        margin-bottom: -110px;
+    }
+    .site-logo a {
+        margin-right: 8px;
+    }
+    .menu-item a, .log-out-link a {
+        margin: 2px 0 0;
+        padding: 0 8px;
+    }
+        
+    /* Profile user page */
+    
+    .my-projects .archive-main-content .trading-card {
+        margin: 0 2.5% 35px;
+        width: 45%;
+    }
+    .archive-main-content article.trading-card.project .ss_screenshot_link img {
+        width: 100%;
+    }
+
+    .archive-main-content {
+        padding: 0 5%;
+    }
+
+    #container .email-contact .main h3 {
+        padding: 0 10px;
+    }
+    section.my-projects {
+        margin: 0;
+    }
+    /* End Profile user page */
+
+    /* Siggin pages */
+    .red-main-for-login h3 {
+        margin-top: 10px;
+    }
+
+    #unauthorized form label,
+    .red-main-for-login label {
+        display: block;
+        margin-right: 0;
+    }
+    #more-about-bootcamp p {
+        padding: 0 20px;
+    }
+    .sc-testimonials {
+        width: auto;
+    }
+    .testimonial-copy {
+        float: none;
+        width: auto;
+        padding-left: 200px;
+    }
+    .page-template-page-templatestemplate-mp-unauthorized-php #container {
+        padding-bottom: 0;
+    }
+    #unauthorized .main {
+        padding: 0 300px 0 30px;
+        background-position: 100px bottom;
+        min-height: 645px;
+    }
+    .page-template-page-templatestemplate-mp-unauthorized-php .sub-footer,
+    .page-template-page-templatestemplate-mp-unauthorized-php .sub-footer .footer-copyright {
+        margin: 20px 0 0;
+    }
+    #unauthorized #wp-submit {
+        width: 100%;
+        height: 50px;
+    }
+
+    .page #sales-hero header h1 {
+        float: none;
+        font-size: 40px;
+        margin-bottom: 0;
+    }
+    #sales-hero .hero-content {
+        max-width: 635px;
+    }
+    #sales-hero .hero-content p {
+        font: 20px /30px 'open sans', sans-serif;
+    }
+    #bp-program {
+        background-size: 80%;
+        overflow: hidden;
+    }
+    .individual-content  .entry-content {
+        margin-right: 0;
+    }
+    .horizontal-boot #bootcamp .main {
+        min-width: 0;
+    }
+    #bootcamp figure {
+        width: 28%;
+        margin-right: 2%;
+    }
+    #bootcamp figure img {
+        max-width: 100%;
+        width: 100%;
+    }
+    #bootcamp .bootcamp-content {
+        padding-left: 33%;
+    }
+    .horizontal-boot #bootcamp .bootcamp-content {
+        float: none;
+        width: 100%;
+    }
+    #bootcamp #mce-EMAIL,
+    #bootcamp #mc-embedded-subscribe {
+        display: inline-block;
+        vertical-align: top;
+        border-radius: 0;
+        float: none;
+        width: 100%;
+        max-width: 320px;
+    }
+    #bootcamp #mce-EMAIL,
+    #bootcamp #mc-embedded-subscribe,
+    #bootcamp.bootcamp-big input#mce-EMAIL,
+    .horizontal-boot #bootcamp #mce-EMAIL {
+        width: 100%;
+        max-width: 320px;
+        margin-right: 0;
+        margin-bottom: 10px;
+    } 
+    #bootcamp .mc-field-group {
+        margin-top: 20px;
+    }
+    .individual-entry #bootcamp {
+        padding: 40px 0;
+    }
+} /* END styles for tablet */

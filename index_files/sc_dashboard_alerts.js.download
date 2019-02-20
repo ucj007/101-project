@@ -1,0 +1,20 @@
+$(document).ready(function() {
+	if ($('.dashboard-alert').length > 0) {
+		var cookieValDash = '';
+		$('.dashboard-alert .main p.active').each(function() {
+			cookieValDash = cookieValDash + $(this).text();
+		});
+		cookieValDash = cookieValDash.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+		
+		if (jQuery.cookie('sc_dashboard_alert') != cookieValDash) {
+			$('.dashboard-alert').delay(3000).slideDown(500);
+			jQuery.removeCookie('sc_dashboard_alert', {path: '/'});
+		}
+		$('.dashboard-alert.alert .close').click(function() {
+			$(this).closest('.alert').slideUp(500);
+			if (!jQuery.cookie('sc_dashboard_alert')) {
+				jQuery.cookie('sc_dashboard_alert', cookieValDash, {expires: 14, path: '/'});
+			}
+		});
+	}
+});

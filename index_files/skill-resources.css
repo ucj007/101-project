@@ -1,0 +1,134 @@
+/* ====================================================================================================
+All skill resource steps
+This doc is for shared styles across steps
+
+* single-sc_skill-resources.php
+* single-course_unit.php
+* ex: /skill-resource/intro-to-101/
+* ex: /skill-resource/text-vs-tags-2016/
+====================================================================================================*/
+
+.single-sc_skill_resources .skill-main {
+    border-bottom: 0;
+}
+.single-sc_skill_resources .skill-content-main {
+    position: relative;
+    min-height: 100%;
+}
+
+.skill-description-text ul li {
+	list-style-type:disc;
+}
+
+.single-sc_skill_resources #container {
+    padding-bottom: 0;
+}
+
+/** JS & HTML code review grids 
+ex: /skill-resource/html-tags-for-text-2016/
+**/
+ul#js-review li,
+ul#html-review li,
+.skill-info-text .list-unstyled li {
+    list-style: none outside none;
+}
+
+.js-review-main,
+.html-review-main {
+    width: 340px;
+    float: left;
+    margin-right: 40px;
+    padding: 20px 20px 20px 0px;
+}
+.html-review-main h4 {
+    text-transform: lowercase;
+}
+.js-review-example,
+.html-review-example {
+    float: left;
+        width: 50%;
+    min-height: 140px;
+    padding: 20px;
+    background: #f0eeee;
+    margin-bottom: 40px;
+}
+.js-review-example p,
+.html-review-example p {
+    font-family: Courier New;
+    font-size: 15px;
+}
+.js-review-example h5,
+.html-review-example h5 {
+    margin-top: 0px;
+    color: #999999;
+}
+
+.single-sc_skill_resources header.individual-core-skill-header {
+	margin-top: 50px;
+}
+
+/* Download step specific styles */
+.download .skill-content-main {
+	background:#e2e2e2;
+	border-top:1px solid #dddddd;
+}
+
+.download .skill-info-text img {
+	max-width:650px;
+	border:1px solid #d4d4d4;
+	box-shadow: 2px -2px 2px 0px #d7d7d7;
+	margin: 50px 0 0;
+}
+
+.download .skill-info-text p {
+	text-align:center;
+}
+
+.skill-main .download-link,
+.sidebar-downloads .button {
+    background: none repeat scroll 0 0 #f16059;
+	padding: 15px 0;
+    color: #fff;
+    display: block;
+    font: 16px 'Open Sans', sans-serif;
+    height: 53px;
+    margin-top: 0px;
+    max-width: 280px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+	font-weight:bold;
+	margin-bottom:20px;
+}
+
+.skill-description-text  .sidebar-content {
+    max-width: 67%;
+    float: left;
+}
+
+.skill-description-text .sidebar-downloads {
+    float: right;
+    width: 31%;
+}
+
+.skill-info-text #sandbox {
+	max-width:100%;
+	width:100%;
+}
+
+.individual-skill-resource .iframe-wrap iframe {
+	min-height: 450px;
+}
+
+/* JS Practice Console
+/skill-resource/practice-maths-v2/ */
+
+.single-sc_skill_resources #sandbox pre.output {
+	background:none;
+	min-height:285px;
+}
+
+.video-sidebar {
+    max-width: 802px;
+    margin: 40px auto 0;
+}

@@ -1,0 +1,1119 @@
+/*
+ Theme Name:   Skillcrush 3.0 Child
+ Theme URI:    http://example.com/twenty-fourteen-child/
+ Description:  Skillcrush 3.0 Child - Skillcrush
+ Author:       Adda Birnir
+ Author URI:   http://example.com
+ Template:     skillcrush3.0
+ Version:      1.0.0
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  skillcrush3.0-child
+*/
+
+/*@import url("../skillcrush3.0/css/main.css");*/
+
+/* =Theme customization starts here
+-------------------------------------------------------------- */
+
+/* OLD STYLES, will remove dubles with some service TODO */
+
+
+/*========================================================================================================================
+Global Styles
+=========================================================================================================================*/
+
+@import url(//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
+@import url(//fonts.googleapis.com/css?family=Bad+Script);
+@import url(//fonts.googleapis.com/css?family=Homemade+Apple);
+@import url(//fonts.googleapis.com/css?family=Montserrat:400,700);
+/* Wisdom Script */
+@font-face {
+    font-family: 'wisdom';
+    src: url("../../fonts/WisdomScript.otf") format("opentype");
+}
+
+@font-face {
+    font-family: 'wisdom_scriptregular';
+    src: url('../../fonts/wisdom_script_aj-webfont.eot');
+    src: url('../../fonts/wisdom_script_aj-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/wisdom_script_aj-webfont.woff') format('woff'),
+         url('../../fonts/wisdom_script_aj-webfont.ttf') format('truetype'),
+         url('../../fonts/wisdom_script_aj-webfont.svg#wisdom_scriptregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* User Logged Out Styles */
+.single-sc_skill_resources .user-notloggedin {
+    padding-left: 0;
+    padding-top: 0;
+}
+
+.single-sc_skill_challenges .user-notloggedin {
+    padding-left: 0;
+    padding-top: 0;
+}
+
+.single-sc_projects.post-template-template-class-php .user-notloggedin,
+.single-sc_projects.post-template-template-learnhtml-php .user-notloggedin {
+  padding-left:0;
+}
+
+.user-notloggedin #header-sign-in {
+    float: right;
+    max-width: 360px;
+    min-width: 220px;
+    width: 33%;
+}
+
+/* hide top nav on login / register & logged out project pages */
+.page-template-page-templatestemplate-register-php .user-notloggedin .site-header,
+.page-template-page-templatestemplate-mp-signin-php .user-notloggedin .site-header,
+.single-user_projects .user-notloggedin .site-header,
+.single-user_challenges .user-notloggedin .site-header,
+.single-user_102_challenges .user-notloggedin .site-header {
+  display: none;
+}
+
+p > strong {
+  font-weight:bold;
+}
+
+.single-sc_skill_resources #container,
+.single-user_challenges #container,
+.single-user_projects #container,
+.single-sc_projects #container,
+.single-user_102_challenges #container {
+    min-width: 1142px;
+    padding-left: 0;
+    width: 100%;
+}
+
+.modal .widget .login p.message {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.modal .widget .login p {
+  margin-bottom:10px;
+}
+
+.modal .close {
+    color: #999999;
+    font-family: georgia;
+    font-size: 32px;
+    font-weight: normal;
+    opacity: 1;
+    position: absolute;
+    text-transform: uppercase;
+    right: 4px;
+    top: 1px;
+    min-width: 26px;
+}
+
+
+.modal .close:hover {
+  cursor:pointer;
+}
+
+.modal-body ul li {
+  list-style-type:disc;
+  margin-left:20px;
+}
+
+.modal-body {
+    max-height: 800px;
+    overflow-y: auto;
+    padding: 20px 30px;
+}
+
+/* Step Modals */
+.modal p#step12-intro-paragraph {
+  text-align:center;
+  font-size:18px;
+  color:#3A3939;
+  /*border-bottom:;*/
+  border-bottom: 1px solid #E1E0E0;
+    margin-bottom: 20px;
+  padding: 20px 120px;
+}
+
+#step12-intro-modal {
+    left: 50%;
+    margin-left: -296px;
+    width: 592px;
+}
+
+.modal .button {
+  float:right;
+}
+
+.modal .button:hover {
+  cursor:pointer;
+}
+
+.modal .example-site {
+    padding: 20px 30px;
+}
+
+/*========================================================================================================================
+Form Styles
+=========================================================================================================================*/
+
+form label {
+  font-size:16px;
+  color:#3A3939;
+}
+
+input[type="checkbox"] {
+    vertical-align: middle;
+}
+
+/*========================================================================================================================
+Login Styles
+=========================================================================================================================*/
+
+#login {
+  padding-top:100px;
+}
+
+.success p {
+  font-size:18px;
+}
+
+aside {
+    float: left;
+    width: 320px;
+}
+
+aside > li {
+  list-style-type:none;
+    margin-bottom: 30px;
+}
+
+/* Sidebar Styles */
+.sidebar-module {
+  margin-bottom:70px;
+}
+
+.sidebar-module ul, .sidebar-module li {
+  margin-left:0px;
+  list-style-type:none;
+}
+
+.sidebar-module li {
+margin-bottom:28px;
+line-height:24px;
+}
+
+/*========================================================================================================================
+Individual Project Page Styles
+=========================================================================================================================*/
+
+.sc_projects {
+  margin-bottom:100px;
+}
+
+.user-project-links h3 {
+    float: left;
+    margin-right: 0;
+    padding-top: 7px;
+}
+
+.user-project-links a.ss_screenshot_link {
+  margin:0px;
+  overflow:auto;
+}
+
+.single-user_projects .user-notloggedin .site-header,
+.single-user_challenges .user-notloggedin .site-header,
+.single-sc_projects .user-notloggedin .site-header {
+  display:none;
+}
+
+/*========================================================================================================================
+Misc Content Page Styles
+=========================================================================================================================*/
+
+/* Single Page Styles */
+.page section .main #content {
+  padding:100px 0px;
+}
+
+/* Skillcrush Bootcamp Class Page */
+.single-sc_projects.logged-in #signed-in-navigation {
+    left: 0;
+}
+
+.single-sc_projects.logged-in.post-template-template-user_102_challenges-php #signed-in-navigation {
+    left: -81px;
+}
+
+/* =Page Template styles go here
+-------------------------------------------------------------- */
+.transparent-background.modal-background {
+    display:block;
+    background:none;
+     z-index: 99;
+}
+
+.transparent-background.modal-background .modal {
+    display:none;
+}
+
+.site-header .menu-item a.active {
+    color:#f16159;
+    font-weight:bold;
+}
+
+/* NEW MENU */
+
+.sidebar-resource-list .has-dropdown li a:hover { text-decoration: underline;}
+
+/* EDN old new.css*/
+
+/* GLOBAL
+-------------------------------------------------------------- */
+html, body {
+    height: 100%;
+    max-height: 100%;
+}
+
+body {
+  background: #fff;
+  color: #3b3b3b;
+  font: 16px 'Open Sans', sans-serif;
+}
+
+#container {
+    padding-bottom: 60px;
+}
+
+.main {
+    margin: 0 auto;
+    max-width: 1200px;
+    min-width: 960px;
+}
+
+p {
+    font: 1em/1.625em 'Open Sans', helvetica, arial, sans-serif;
+    margin-bottom: 20px; /* 1.25em */
+}
+
+a {
+  color: #4c9fb2;
+  text-decoration: none;
+}
+a:visited, a:link {
+  text-decoration: none;
+}
+a:active,
+a:focus {
+  outline: none;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a {
+  color:#3A3939;
+}
+
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover {
+    color: #4c9fb2;
+    text-decoration: none;
+}
+
+em {
+  font-style:italic;
+}
+
+ul, ul li {
+    font-family: 'open sans';
+    line-height: 1.6;
+    list-style-type: none;
+    margin-left: 0;
+}
+
+ul li, ol li {
+  margin-bottom:10px;
+}
+
+ol, ol li {
+  font-family: 'open sans';
+      line-height: 1.6;
+      list-style-type: none;
+      margin-left: 0;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    *zoom: 1;
+}
+
+button, .button,
+input[type="submit"] {
+    background-color: #DF5555;
+    border: medium none;
+    border-radius: 0;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Montserrat","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+    font-weight: normal;
+    line-height: normal;
+    margin: 0 0 1.25rem;
+    padding: 1.0625rem 2rem 1rem;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 300ms ease-out 0s;
+}
+
+button:hover, .button:hover {
+    background-color:#cf3535;
+}
+
+.main-container {
+  margin: auto;
+  width: 100%;
+  min-height: 100%;
+}
+
+#get-back-css {
+  display: none;
+}
+/* =Theme customization starts here
+-------------------------------------------------------------- */
+
+#logged-in-nav {
+    height: 100%;
+}
+
+/* Top Nav */
+#logged-in-top-nav-container {
+    background: #fcfbfc;
+    border-bottom: 1px solid #EBE9E9;
+    height: 59px;
+    position: relative;
+    z-index: 100;
+}
+#top-nav-right .close {
+  display: none;
+}
+.single-memberpressproduct #logged-in-top-nav-container {
+  display: none;
+}
+
+.top-nav-item {
+    float:left;
+    height: 100%;
+}
+
+.top-nav-item a {
+    color:#7d7c7c;
+    text-transform:uppercase;
+    font-family: 'open sans';
+}
+
+.top-nav-item > a {
+    border-left: 0;
+    border-top: 5px solid transparent;
+    display: block;
+    padding: 15px 29px 18px;
+}
+
+@media screen and (min-width: 961px) and (max-width: 1120px) {
+  .top-nav-item > a {
+    padding: 15px 18px 18px;
+  }
+}
+
+#logged-in-nav .top-nav-item > a {
+  font-size: 0.875em;
+}
+
+@media screen and (min-width: 801px) {
+  .top-nav-item > a {
+    font-size: 0.825em;
+  }
+}
+
+.class-icon {
+  height: 50px;
+  width: 50px;
+  margin: 0 0.25em;
+}
+.class-icon__circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  text-align: center;
+  display: block;
+}
+.class-icon__img {
+  height: 100%;
+  padding: 28% 19%;
+}
+
+.top-nav-item a:hover {
+    text-decoration:none;
+    background-color: #f6f4f4;
+}
+
+#logged-in-nav .top-nav-item:hover > a,
+#logged-in-nav .top-nav-item.active > a,
+#logged-in-nav .top-nav-item.open > a {
+    border-top-color: #4E8E94;
+    background-color: transparent;
+}
+
+.subscription-container #logged-in-nav .top-nav-item > a i.fa-angle-down {
+    display: none;
+    transform: rotate(180deg);
+    transition: all .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+.subscription-container #logged-in-nav .top-nav-item.open > a i.fa-angle-down {
+    transform: rotate(0deg);
+}
+
+.top-nav-item.top-nav-icon > a {
+    display: block;
+    text-indent: -10000px;
+    width: 72px;
+}
+.top-nav-item .fa-home,
+.top-nav-item .fa-cog {
+  color: #707070;
+  font-size: 1.5em;
+  margin-right: 0;
+}
+.top-nav-item .fa-angle-down {
+  margin-right: 0;
+  margin-left: 1em;
+}
+.top-nav-item a span {
+  display: none;
+}
+
+#top-nav-home-link.top-nav-item {
+    border-right: 1px solid #F2F2F2;
+}
+#top-nav-home-link.top-nav-icon a {
+    background: transparent url("..../../img/global/icon-home.png") no-repeat center;
+}
+
+#top-nav-settings-link.top-nav-icon > a {
+  background: transparent url("..../../img/global/icon-settings.png") no-repeat center;
+}
+
+#top-nav-home-link.top-nav-icon:hover a {
+  border-top-color: #4E8E94;
+    background-color: transparent;
+}
+
+.top-nav-right .top-nav-item {
+    border-left:1px solid #f2f2f2;
+}
+.top-nav-left {
+    float:left;
+    height: 100%;
+}
+
+.top-nav-right {
+    float:right;
+    height: 100%;
+}
+
+.navbar-nav > li {
+    clear: both;
+    float: none;
+    padding: 5px 16px;
+}
+
+.popover.bottom > .arrow:after {
+    border-bottom-color: #FFFFFF;
+    border-top-width: 0;
+    content: " ";
+    margin-left: -11px;
+    top: 1px;
+    z-index: 99;
+}
+
+.popover-content {
+    padding: 9px 10px;
+}
+
+div.popover {
+  max-width: 276px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1010;
+  width:100px;
+  text-align:center;
+  font-size:12px;
+  color:#3b4647;
+  display: none;
+  padding: 1px;
+  white-space: normal;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, .1);
+  border-radius: 3px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+  font-family:'open sans';
+  border-radius: 3px;
+}
+
+.top-nav-popover + .popover {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.dropdown .dropdown-menu {
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 1px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+    font-size: 14px;
+    left: 0;
+    list-style: none outside none;
+    margin: 0;
+    min-width: 160px;
+    padding: 5px 0;
+    position: absolute;
+    top: 100%;
+    z-index: 1000;
+}
+
+.dropdown-menu li:hover {
+    background:#f6f4f4;
+}
+
+.dropdown-menu li {
+    padding:0px;
+    margin-bottom:0;
+}
+
+/* Classes Menu */
+#top-nav-classes-link .class-description p span {
+    font-family:'montserrat';
+    display:block;
+    text-transform:uppercase;
+}
+
+#top-nav-classes-link .dropdown-menu {
+    width: 322px;
+}
+
+#top-nav-classes-link .dropdown-menu li {
+    display: block;
+    margin-bottom: 10px;
+    overflow: auto;
+    padding: 5px 10px;
+}
+
+#top-nav-classes-link .class-description p a {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    clear: none;
+    display: block;
+    padding: 5px 10px;
+}
+
+.top-nav-item .class-description p a {
+    text-transform:none;
+    color:#3b4647;
+    background:none;
+}
+
+#top-nav-classes-link .class-description p {
+    font-size: 12px;
+    line-height: 20px;
+    margin-bottom: 0;
+}
+
+#top-nav-classes-link .class-description a {
+  font-size: 1.1em;
+}
+
+.dropdown-menu .classes-badge {
+    float: left;
+    width: 50px;
+}
+
+.dropdown-menu .classes-badge img {
+    width: 100%;
+}
+
+.dropdown-menu .class-description {
+    float: left;
+    width: 250px;
+    word-wrap: break-word;
+}
+
+#top-nav-classes-link .dropdown-menu li {
+    margin-bottom: 0;
+    padding: 5px 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.dropdown-menu .classes-badge a {
+    clear: none;
+    color: #333333;
+    display: block;
+    font-weight: normal;
+    line-height: 20px;
+    padding: 0;
+    white-space: nowrap;
+}
+
+#top-nav-settings-link .dropdown-menu {
+    left: auto;
+    right: 0;
+    padding-top: 5px;
+}
+
+#top-nav-settings-link .dropdown-menu > li {
+    margin-bottom: 0;
+}
+
+#top-nav-settings-link .dropdown-menu > li > a {
+    padding: 15px;
+}
+
+#top-nav-settings-link.top-nav-item .nav.navbar-nav.dropdown-menu a:hover {
+    background:#f6f4f4;
+}
+
+/* Global Styles */
+body.logged-in {
+    padding-left: 0;
+}
+
+/* Class Styles */
+.individual-core-skill-header .skill-badge img,
+.dashboard-blog-post .post-main-image img,
+.nav.navbar-nav.dropdown-menu .classes-badge img {
+    width:100%;
+}
+
+.single-sc_skill_resources header.individual-core-skill-header,
+.single-sc_skill_challenges header.individual-core-skill-header {
+    margin-top: 0;
+}
+
+.individual-core-skill header .core-skill-description h1#skill-resource-title,
+.individual-core-skill header .core-skill-description h1#skill-challenge-title {
+    color:#3A3939;
+}
+
+.user-project-links {
+    height: 163px;
+    margin-bottom: 0;
+    width: 200px;
+}
+
+.user-project-links a.ss_screenshot_link {
+    margin: 0;
+    overflow: auto;
+    padding: 0 !important;
+}
+
+.user-project-links a.ss_screenshot_link img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.top-search {
+  display: none;
+}
+
+/* Fix for suuuuuper large images */
+.single p img,
+.single-sc_skill_challenges p img,
+.single-sc_skill_resources p img,
+img.size-full {
+    width: auto;
+  max-width: 100%;
+    height: auto;
+}
+
+.error-container {
+    position: absolute;
+    width: 100%;
+    bottom: -10px;
+}
+
+.error-container label {
+  background: url("..../../img/global/alert.png") no-repeat 10px center;
+  color: #FF5E63;
+  padding-left: 40px;
+  font-family:'open sans';
+}
+
+.error-container label a {
+    color:#ff5e63;
+    text-decoration:underline;
+}
+
+/* Form style  */
+input[type="text"], input[type="password"] {
+    border: 1px solid #D6D6D6;
+    border-radius: 0 0 0 0;
+    box-shadow: none;
+    color: #666666;
+    font-size: 16px;
+    height: 42px;
+    padding: 5px 10px;
+}
+
+input[type="submit"] {
+  display:block;
+  color: white;
+  font-size:16px;
+    padding:10px 34px;
+  margin-right:10px;
+}
+/* End Form style  */
+
+.success {
+  display:none;
+  margin-top: -50px;
+}
+
+/*========================================================================================================================
+Modal Styles
+=========================================================================================================================*/
+.modal-background {
+  background:black;
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+    display: none;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999999;
+}
+
+#modal-close {
+    color: #ADADAD;
+    position: absolute;
+    right: 9px;
+    top: 2px;
+}
+
+#modal-close:hover {
+  cursor:pointer;
+}
+
+.modal header {
+    border-bottom: 1px solid #C6D5D7;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+}
+
+.modal h2 {
+  text-align:center;
+}
+
+.page-template-page-templatestemplate-mp-thankyou-php #logged-in-top-nav-container,
+.page-template-page-templatestemplate-mp-thankyou-php .menu {
+  display: none;
+}
+
+.terms-page {
+  margin-top: 55px;
+}
+.terms-page h1 {
+  font: bold 56px/60px 'Montserrat', sans-serif;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+}
+.terms-page h2 {
+  font: 18px/23px 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+.terms-page h3 {
+  font: 24px/29.5px 'Montserrat', sans-serif;
+  margin: 50px 0 20px;
+}
+.terms-page p {
+  font: 16.5px/24.5px 'open sans', sans-serif;
+  margin-bottom: 20px;
+}
+.terms-page .lead {
+  font: 14px/24.5px 'open sans', sans-serif;
+  max-width: 1000px;
+}
+.terms-page .columns {
+  margin: 55px -20px;
+  overflow: hidden;
+}
+.terms-page .columns:before {
+  content: '';
+  display: block;
+  width: 168px;
+  border-top: 2px solid #fa7b75;
+  margin: 0 20px 5px;
+}
+.terms-page .col {
+  width: 33.33%;
+  float: left;
+  padding: 0 20px;
+}
+
+/* alerts */
+.alert {
+  display: none;
+  background: #f4f4f4;
+  border: solid #e5e3e3;
+  border-width: 1px 0px;
+  border-radius: 0;
+  color: #000;
+  font: 400 1em/1.85em 'Open Sans', Arial, sans-serif;
+  letter-spacing: 0.05em;
+  padding: 30px 0;
+  text-align: center;
+  text-shadow: none;
+  width: 100%;
+  position: relative;
+  z-index: 100;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.dashboard-alert.alert {
+  z-index: 1;
+}
+.alert p {
+  line-height: 1;
+  margin: 0 auto 7px;
+  display: none;
+  max-width: 1200px;
+}
+.alert.active,
+.alert p.active {
+  display: block;
+}
+.alert p span {
+  font-weight:bold;
+  text-transform:uppercase;
+}
+.alert p code {
+  background:#ffffff;
+  border:1px solid #e5e3e3;
+  padding:0 5px;
+}
+.alert.success { /* green */
+  background-color: #dff0d8;
+}
+.alert.info { /* blue */
+  background: #E9F6FE;
+}
+.alert.warning,
+.alert.warning .main { /* red */
+  background-color: #fa8983;
+  color: #fff;
+}
+
+/* Retina icons */
+@media
+(min--moz-device-pixel-ratio: 2),
+(-o-min-device-pixel-ratio: 2/1),
+(-webkit-min-device-pixel-ratio: 2),
+(min-device-pixel-ratio: 2) {
+  /* logo */
+  .page .site-logo a {
+    background: url('../../img/retina-icons/Skillcrush_Logo@2x.png') no-repeat center;
+    background-size: 100% auto;
+  }
+  #top-primary-content #footer-logo a,
+  .page-template-template-mp-signin .site-logo a {
+    background: url('../../img/retina-icons/White_Skillcrush_Logo@2x.png') no-repeat center;
+    background-size: 100% auto;
+  }
+
+}
+
+/* hide admin panel for test */
+#wpadminbar {
+  display: none !important;
+}
+html.js {
+  margin-top: 0 !important;
+}
+
+.fa {
+  margin-right: 10px;
+}
+
+input[type=text]::-ms-clear{
+  display: none;
+}
+
+input[type=password]::-ms-reveal{
+  display: none;
+}
+
+/* New modular styles that can be moved to utilities or components in SCSS */
+.container {
+  width: 80%;
+  max-width: 960px;
+  margin: auto;
+}
+
+.sc-alert {
+  transition: all 0.3s cubic-bezier(0.185, 0.470, 0.450, 0.940);
+}
+
+.sc-alert--info {
+  background-color: #52C8DE;
+  color: white;
+}
+
+.sc-alert--success {
+  background-color: #5cb5a3;
+  color: white;
+}
+
+.sc-alert--notify {
+  background-color: #f16059;
+  color: white;
+}
+
+.sc-alert--hidden {
+  height: 0;
+  overflow: hidden;
+  transition: none;
+}
+
+/* This is written to handle lesson steps. The nave on these pages are sticky so we need to account for it. */
+.single-course_unit .global-feedback-alert {
+  position: fixed;
+  top: 50px;
+  width: 100%;
+  z-index: 999;
+}
+
+.single-course_unit .global-feedback-alert--mobile {
+  display: none;
+}
+
+.sc-alert .sc-alert__content {
+  color: white;
+  padding: 1em 0;
+  text-align: center;
+  opacity: 1;
+  transition: all 0.3s cubic-bezier(0.185, 0.470, 0.450, 0.940) 0.3s;
+}
+
+.sc-alert--hidden .sc-alert__content {
+  opacity: 0;
+  transition: none;
+}
+
+.sc-alert__link {
+  color: white;
+  text-decoration: none;
+}
+
+.sc-alert__link:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.notification-badge {
+  font-size: 10px;
+  padding: 0.2em;
+  background-color: #f16059;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border: 2px solid white;
+  border-radius: 100%;
+}
+
+.lesson-number .notification-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.sc-pill {
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 2px 16px;
+  margin: 0 8px;
+  border-radius: 12px;
+}
+
+.sc-pill--info {
+  background-color: #52C8DE;
+  color: white;
+}
+
+.sc-pill--notify {
+  background-color: #f16059;
+  color: white;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+.sc_highlight {
+  color: #f16059;
+}
+
+/** 
+ * Custom Styles for the Chatlio Widget
+ * We have to use an ID selector in this case because we are working with a third-party
+ * application that uses them. It is not ideal but we must use it to overwrite their options.
+ */
+body #chatlio-widget .chatlio-widget .chatlio-title-avatar-container img {
+  border: 2px solid #f16059;
+}
+
+/* Custom Styles for consent wording on Hubspot forms */
+form.hs-form > .legal-consent-container {
+  color: #999999;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: normal;
+  margin: 0;
+  text-transform: none;
+  clear: both;
+}

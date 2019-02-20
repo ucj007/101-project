@@ -1,0 +1,1856 @@
+/* ====================================================================================================
+Course unit styles
+This doc is for styles that ONLY apply to course units
+
+* single-course_unit.php
+* ex:
+====================================================================================================*/
+
+.single-course_unit #container {
+    padding: 50px 0 0;
+}
+
+.single-course_unit .global-feedback-alert + #container {
+    margin-top: 64px;
+}
+
+.single-course_unit .global-feedback-alert.sc-alert--hidden + #container {
+    margin-top: 0;
+}
+
+#skill-resource-header ol li.last-step {
+	background:#f5f5f5;
+}
+
+#skill-resource-header ol li#next-resource {
+	float: right;
+}
+
+/* =====================================================
+	WP Courseware footer (mark as complete button)
+=======================================================*/
+
+.wpcw_fe_progress_box.wpcw_fe_progress_box_complete {
+	background:#5cb5a3;
+}
+
+.wpcw_fe_progress_box.wpcw_fe_progress_box_complete {
+	padding: 40px 0;
+  margin-bottom: 0;
+	position:fixed;
+	width:100%;
+	bottom:0;
+	left:0;
+  color: white;
+  font-weight: normal;
+  text-align: center;
+  font-family: 'montserrat';
+  text-transform: uppercase;
+  font-size: 18px;
+  z-index: 999;
+}
+
+#wpcw_fe_outer_wrap {
+    margin-top: 100px;
+}
+
+.wpcw_fe_progress_box.wpcw_fe_progress_box_pending.wpcw_fe_progress_box_updating {
+    background: #f5f5f5;
+    padding: 44px 14% 40px;
+    overflow: auto;
+    position: relative;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+}
+
+.wpcw_fe_progress_box_wrap {
+	width:100%;
+	margin:auto;
+	position: absolute;
+	left: 0;
+}
+
+
+.sclmsaddon_fe_progress_box_mark a {
+	background:#5cb5a3;
+	color:white;
+	font-family:'montserrat';
+	text-transform:uppercase;
+	padding:20px 0;
+	font-size:14px;
+	display:block;
+	width:100%;
+	text-align:center;
+}
+
+.sclmsaddon_fe_progress_box_mark {
+	float:left;
+	width:33%;
+}
+
+.wpcw_fe_progress_box.wpcw_fe_progress_box_pending.wpcw_fe_progress_box_updating p {
+  float: left;
+  font-weight: bold;
+  margin: 0px 0px 0px 7%;
+	width:60%;
+	text-align:left;
+	text-transform: none;
+}
+
+/* This seems really dicey but I can't figure out where this p tag is coming from! */
+.wpcw_fe_progress_box_wrap > p {
+	display:none;
+}
+
+/* styles for js slide in */
+#wpcw_fe_outer_wrap.show-footer {
+  transform: translateY(150px);
+  animation: come-in 0.8s ease forwards;
+  display:block;
+
+}
+
+/* Hide Navigation Created by WPCW */
+
+.wpcw_fe_navigation_box {
+  display: none;
+}
+
+/* Remove margin from duplicate inner wpcw_fe_outer_wrap */
+#wpcw_fe_outer_wrap #wpcw_fe_outer_wrap {
+    margin: 0;
+    padding: 0;
+}
+
+#wpcw_fe_outer_wrap > .clearfix {
+    margin: 0;
+    padding: 0;
+}
+
+/*======================================================
+Success & Error Messages
+========================================================*/
+
+.wpcw_fe_progress_box_success, .wpcw_fe_progress_box_error, .wpcw_fe_quiz_q_single_error, .wpcw_fe_quiz_q_single_error {
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1;
+  padding: 16px;
+  border: none;
+}
+
+.wpcw_fe_progress_box_error, .wpcw_fe_quiz_q_single_error {
+  background: #d36250;
+}
+
+.wpcw_fe_progress_box_success {
+  background: #5cb5a3;
+}
+
+/* Change the error message on pages that only require marking as complete */
+.read .wpcw_fe_progress_box_error, .watch .wpcw_fe_progress_box_error, .download .wpcw_fe_progress_box_error {
+    padding: 40px 0;
+    margin: 0;
+    display: none;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    color: white;
+    font-weight: normal;
+    text-align: center;
+    font-family: 'montserrat';
+    text-transform: uppercase;
+    font-size: 18px;
+    z-index: 99;
+}
+
+/*======================================================
+Download Styles
+========================================================*/
+.download .skill-description ul {
+    margin-left: 1.5em;
+}
+
+/*======================================================
+Quiz Styles
+========================================================*/
+
+.quiz .skill-sidebar .sidebar-content {
+    width: 100%;
+    max-width: 100%;
+    float: left;
+}
+
+/* Before Quiz Styles */
+.wpcw_fe_quiz_pass_mark, .wpcw_fe_quiz_begin_quiz .wpcw_fe_quiz_begin_quiz_hdr {
+  display: none;
+}
+
+.wpcw_fe_quiz_begin_quiz #sclmsaddon_fe_quiz_begin_quiz {
+  display: block;
+  width: 45%;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  padding: 16px 34px;
+  margin: 124px auto 0;
+  background: #f16059;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.wpcw_fe_quiz_begin_quiz #wpcw_fe_quiz_begin_quiz:hover {
+  background: #C93535;
+}
+
+.quiz #wpcw_fe_outer_wrap {
+  margin-top: 30px;
+}
+
+.wpcw_fe_quiz_title, .wpcw_progress_wrap.wpcw_fe_upload_progress {
+	display:none;
+}
+
+.wpcw_fe_progress_box.wpcw_fe_progress_box_success, .wpcw_fe_progress_box.wpcw_fe_progress_box_error {
+	position:relative;
+}
+
+.quiz .wpcw_fe_progress_box.wpcw_fe_progress_box_error, .htmlcsseditor .wpcw_fe_progress_box.wpcw_fe_progress_box_error, .htmlcsseditor .wpcw_fe_progress_box.wpcw_fe_progress_box_success, .jseditor .wpcw_fe_progress_box.wpcw_fe_progress_box_error, .jseditor .wpcw_fe_progress_box.wpcw_fe_progress_box_success,
+.htmlcssjseditor .wpcw_fe_progress_box.wpcw_fe_progress_box_error, .htmlcssjseditor .wpcw_fe_progress_box.wpcw_fe_progress_box_success {
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+
+.quiz .wpcw_fe_progress_box_wrap,
+.quiz .wpcw_fe_quiz_box_wrap {
+	width:100%;
+	margin:auto;
+	position: static;
+	left: auto;
+}
+
+.wpcw_fe_quiz_q_single {
+	padding: 30px 0 20px;
+	border-top:2px solid #cccccc;
+}
+
+.wpcw_fe_quiz_q_single:nth-child(3) {
+	border-top: none;
+}
+
+.quiz .wpcw_fe_quiz_q_single.wpcw_fe_quiz_q_single_0 {
+	border-top:0;
+  padding-top: 60px;
+  clear: both;
+}
+
+.wpcw_fe_quiz_q_single input[type="text"], .wpcw_fe_quiz_q_single textarea{
+	width: 100%;
+}
+
+.wpcw_fe_quiz_q_title {
+	font-weight:bold;
+	margin: 0 0 10px;
+}
+
+.wpcw_fe_quiz_q_title span {
+	color:#f16059;
+}
+
+.skill-info-text ul.wpcw_fe_quiz_q_answers li {
+    list-style-type: none;
+    margin-left: 8px;
+    overflow: auto;
+    padding-left: 2px;
+}
+
+.wpcw_fe_quiz_q_answers li label {
+    font-size: 16px;
+    color: #3A3939;
+    font-weight: normal;
+    margin: 0 0 0 0px;
+    width: calc(100% - 28px);
+    float: right;
+}
+
+.wpcw_fe_quiz_q_answers li input[type="radio"],
+.wpcw_fe_quiz_q_answers li input[type="checkbox"] {
+    margin: 0px 0 3px;
+}
+
+.wpcw_fe_quiz_q_answers {
+	margin:10px 0 0 0;
+}
+.wpcw_fe_quiz_q_answers li {
+	margin:0 0 10px;
+}
+
+.wpcw_fe_quiz_q_your_answer img {
+	width:100%;
+}
+
+/* Quiz submit */
+.wpcw_fe_quiz_submit p {
+	text-align:center;
+}
+
+.wpcw_loader {
+	display:none;
+  margin: 22px 48% 0;
+}
+
+.wpcw_fe_quiz_submit {
+	border-top: 3px solid #f16059;
+}
+
+.quiz .fe_btn.fe_btn_completion.btn_completion {
+	background: #f16059;
+	padding:1.7625rem 3rem 1.75rem;
+    margin: 40px auto 0;
+    display: block;
+}
+
+.quiz .fe_btn.fe_btn_completion.btn_completion:hover {
+	background: #cf3535;
+}
+
+.quiz .wpcw_fe_progress_box_complete .wpcw_fe_progress_box_download {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100px;
+}
+
+.quiz .wpcw_fe_progress_box_complete .wpcw_fe_progress_box_download a {
+  padding: .75em 2.25em;
+  font-size: 21px;
+  font-weight: bold;
+  background: #3b8173;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.quiz .wpcw_fe_progress_box_complete .wpcw_fe_progress_box_download a:hover {
+  background: #30695e;
+}
+
+.quiz .wpcw_fe_progress_box_complete p {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 76px;
+}
+
+/* Quiz Results */
+
+.wpcw_fe_quiz_q_result.wpcw_fe_quiz_q_result_correct,
+.wpcw_fe_quiz_q_result.wpcw_fe_quiz_q_result_incorrect {
+	font-weight:bold;
+	text-transform:uppercase;
+	margin:0 0 10px;
+}
+
+.wpcw_fe_quiz_q_result.wpcw_fe_quiz_q_result_correct {
+	color:#5cb5a3;
+}
+
+.wpcw_fe_quiz_q_result.wpcw_fe_quiz_q_result_incorrect {
+	color:#f16059;
+}
+
+.wpcw_fe_quiz_q_your_answer,
+.wpcw_fe_quiz_q_correct {
+	margin:0 0 10px;
+}
+
+.wpcw_fe_quiz_q_your_answer ul {
+	margin:0;
+}
+
+.quiz .wpcw_fe_progress_download a.fe_btn.fe_btn_completion.fe_btn_small {
+	background:#3b3b3b;
+	color:white;
+	padding: 1rem 2rem;
+	font-family:'montserrat', sans-serif;
+	text-transform:uppercase;
+	font-size:14px;
+  line-height: 2;
+  width: 230px;
+  display: inline-block;
+  text-align: center;
+}
+
+.quiz .wpcw_fe_progress_download a.fe_btn.fe_btn_completion.fe_btn_small:hover {
+	background:#222;
+}
+
+.wpcw_fe_progress_box.wpcw_fe_progress_box_success p {
+	font-weight:bold;
+	font-size:18px;
+	font-family:"montserrat";
+	text-transform:uppercase;
+	padding-top: 9px;
+}
+
+/* Quiz Status Bar */
+
+.quiz #wpcw_fe_timer_countdown {
+  color: #3b3b3b;
+  float: left;
+  text-align: left;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.quiz #wpcw_fe_timer_countdown .wpcwcountdown-row {
+  padding: 16px 24px;
+  display: inline-block;
+  background: #5cb5a3;
+  color: #fff;
+}
+
+.quiz #wpcw_fe_timer_countdown .wpcwcountdown-section {
+  padding: 0 .5em 0 0;
+}
+
+.quiz #wpcw_fe_timer_countdown .wpcwcountdown-section .wpcwcountdown-amount {
+  padding: 0 .25em 0 0;
+}
+
+.quiz .wpcw_fe_paging_progress {
+  color: #3b3b3b;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 16px;
+  float: left;
+  text-align: center;
+  width: 195px;
+  background: #eee;
+  font-size: 14px;
+}
+
+/* Review Styles */
+
+.quiz .wpcw_fe_quiz_box_wrap .wpcw_fe_progress_box_wrap {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.wpcw_fe_progress_box_warning {
+  font-size: 17px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'montserrat', 'open sans', sans-serif;
+  border-bottom: 4px solid #eee;
+  padding-bottom: 12px;
+}
+
+/* Success Styles */
+
+.quiz .wpcw_fe_progress_box.wpcw_fe_progress_box_success .wpcw_fe_progress_download {
+    position: absolute;
+    right: 0;
+    top: 116px;
+}
+
+.quiz .wpcw_fe_progress_box.wpcw_fe_progress_box_success p {
+  position: static;
+  font-size: 17px;
+  padding: 10px 0 20px 0;
+  border-bottom: 4px solid #eee;
+  float: left;
+  margin: 60px -16px 0;
+}
+
+.quiz .wpcw_fe_progress_box.wpcw_fe_progress_box_success p:first-of-type {
+  float: none;
+  color: #fff;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: static;
+  border-bottom: none;
+  font-family: 'open sans', sans-serif;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Failed Styles */
+
+.quiz .wpcw_fe_progress_box.wpcw_fe_progress_box_error .wpcw_fe_progress_download {
+    position: absolute;
+    right: 0;
+    top: 116px;
+}
+
+.quiz .wpcw_fe_progress_box.wpcw_fe_progress_box_error p {
+  font-size: 17px;
+  padding: 0 0 20px 0;
+  margin: 0 -16px;
+  float: left;
+}
+
+.quiz .wpcw_fe_progress_box.wpcw_fe_progress_box_error p:first-of-type {
+  float: none;
+  color: #fff;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: static;
+  border-bottom: none;
+  font-family: 'open sans', sans-serif;
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.quiz .wpcw_fe_progress_box.wpcw_fe_progress_box_error p:nth-child(4) {
+  top: 100px;
+  font-weight: bold;
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  margin-top: 60px;
+}
+
+.quiz .sclmsaddon_fe_quiz_retake {
+  margin-top: 28px;
+}
+
+.quiz .sclmsaddon_fe_quiz_retake a.fe_btn.fe_btn_completion.btn_completion {
+  background: #f16059;
+  color: white;
+  padding: 1rem 2rem;
+  font-family: 'montserrat', sans-serif;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  width: 100%;
+  display: block;
+  margin: auto;
+  width: 45%;
+  text-align: center;
+  line-height: 2;
+}
+
+.quiz .wpcw_fe_progress_box.wpcw_fe_progress_box_warning {
+  clear: both;
+  margin-bottom: 16px;
+}
+
+.quiz .wpcw_fe_progress_box.wpcw_fe_progress_box_warning p:first-child {
+  margin: 0;
+  padding: 0;
+  text-transform: none;
+}
+
+/* Hides uneccessary text, but keeps it in document flow to add spacing needed to move questions below the absolutely positioned elements on the blocking quizzes without adding that space on non-blocking quizzes */
+.quiz .wpcw_fe_progress_breakdown_wrap {
+  display: none;
+}
+
+.quiz .wpcw_fe_quiz_box_full_answers {
+  clear: both;
+}
+
+/*==============================================================
+Link styles
+==============================================================*/
+
+.link #wpcw_fe_outer_wrap {
+  margin-top: 40px;
+}
+
+.link .wpcw_fe_quiz_box {
+  background: #fff;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link .sclmsaddon_fe_lesson_challenge_box_wrap h4 {
+  margin-bottom: 0;
+}
+
+.link #wpcw_fe_outer_wrap p {
+  margin-bottom: 0;
+}
+
+.link .wpcw_fe_progress_box_wrap {
+  position: static;
+}
+
+.link .wpcw_fe_quiz_q_hint {
+    clear: both;
+    padding-top: 16px;
+    font-weight: bold;
+    color: #ccc;
+    font-family: 'montserrat';
+    font-size: 14px;
+}
+
+.link .wpcw_question_type_open {
+  overflow: auto;
+  border: none;
+}
+
+.link #wpcw_fe_outer_wrap input[type="text"] {
+  width: 100%;
+}
+
+.link #wpcw_fe_outer_wrap input[type="text"]:focus {
+  outline: none;
+  border-color: #96bfe3;
+}
+
+.link .wpcw_fe_quiz_submit {
+    border-top: none;
+}
+
+.link .wpcw_fe_quiz_submit p:last-child {
+  display: block;
+}
+
+/* Reset styles from base submit button */
+.link #wpcw_fe_outer_wrap input[type="submit"] {
+  background-color: #f16059;
+  border: medium none;
+  cursor: pointer;
+  display: block;
+  padding: 1.5625rem 2rem 1.5rem;
+  margin: 0 auto;
+
+  /* Remove added styles from WPCW Buttons */
+  border-radius: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  text-shadow: none;
+  background-image: none;
+  box-shadow: none;
+}
+
+.link .wpcw_fe_submit_loader.wpcw_loader {
+  margin: 30px 48% 0;
+}
+
+/* Things that need to disappear */
+.link .wpcw_fe_quiz_q_title,
+.link .wpcw_fe_quiz_q_hdr,
+.link .wpcw_fe_quiz_box_full_answers,
+.link .wpcw_progress_percent,
+.link .sclmsaddon_fe_lesson_challenge_box_wrap .wpcw_fe_quiz_q_your_answer,
+.link .wpcw_fe_quiz_submit p {
+	display:none;
+}
+
+/*==============================================================
+Upload styles
+==============================================================*/
+
+.upload #wpcw_fe_outer_wrap {
+    margin-top: 40px;
+}
+
+.upload .wpcw_fe_quiz_q_upload_permitted_files {
+    clear: both;
+    font-style: italic;
+    padding-top: 10px;
+}
+
+/* Things that need to disappear */
+.upload .wpcw_progress_wrap.wpcw_fe_upload_progress,
+.upload .wpcw_fe_quiz_q_upload_existing,
+.upload .wpcw_fe_quiz_q_upload_change_file_cancel,
+.upload .wpcw_fe_progress_box_wrap .wpcw_fe_progress_box.wpcw_fe_progress_box_error,
+.upload .wpcw_fe_quiz_q_your_answer img,
+.upload .wpcw_progress_percent,
+.upload .wpcw_fe_quiz_q_title,
+.upload .wpcw_fe_quiz_q_user_grade {
+	display:none;
+}
+
+.upload .wpcw_fe_quiz_q_your_answer img {
+    border: 1px solid #ccc;
+}
+
+/* add spacing below the "Your Answer" title */
+.upload .wpcw_fe_quiz_q_your_answer b {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.upload .wpcw_fe_quiz_q_upload_wrapper input[type="file"] {
+  width: 100%;
+}
+
+.upload .step-comment .wpcw_question_type_upload,
+.upload .step-comment .wpcw_fe_quiz_submit,
+.upload .step-loading .wpcw_question_type_upload,
+.upload .step-loading .wpcw_fe_quiz_submit {
+    display: none;
+}
+/* remove line break so that cancel link is not moved */
+.upload .wpcw_fe_quiz_q_upload_change_file_wrap br {
+  display: none;
+}
+
+.upload .wpcw_fe_quiz_q_upload_change_file_wrap {
+  padding: 16px 0 0;
+}
+
+.upload .wpcw_fe_quiz_submit {
+    border-top: none;
+}
+
+.upload .wpcw_fe_quiz_q_upload_change_file, .upload .wpcw_fe_quiz_q_upload_change_file_cancel {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.upload .wpcw_fe_quiz_q_upload_change_file:after {
+  content: "\f107";
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-left: 6px;
+  font-weight: bold;
+}
+
+.upload .wpcw_fe_quiz_q_upload_change_file_cancel:after {
+  content: "\f106";
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-left: 6px;
+  font-weight: bold;
+}
+
+.upload .wpcw_fe_quiz_q_single_error {
+  margin-bottom: 16px;
+}
+
+/*==============================================================
+HTML & CSS Code Editor styles
+==============================================================*/
+/* Things that need to disappear */
+.htmlcsseditor .wpcw_progress_percent,
+.htmlcsseditor .sclmsaddon_fe_lesson_challenge_box_wrap.wpcw_fe_quiz_box_full_answers,
+.htmlcsseditor .sclmsaddon_lesson_challenge_form .wpcw_fe_quiz_q_single.wpcw_question_type_open,
+.htmlcssjseditor .wpcw_progress_percent,
+.htmlcssjseditor .sclmsaddon_fe_lesson_challenge_box_wrap.wpcw_fe_quiz_box_full_answers,
+.htmlcssjseditor .sclmsaddon_lesson_challenge_form .wpcw_fe_quiz_q_single.wpcw_question_type_open,
+.jseditor .wpcw_progress_percent,
+.jseditor .sclmsaddon_fe_lesson_challenge_box_wrap.wpcw_fe_quiz_box_full_answers,
+.jseditor .sclmsaddon_lesson_challenge_form .wpcw_fe_quiz_q_single.wpcw_question_type_open,
+.sclmsaddon-code-editor .wpcw_fe_progress_box.wpcw_fe_progress_box_error,
+.sclmsaddon-code-editor .wpcw_fe_progress_box.wpcw_fe_progress_box_success {
+  display:none;
+}
+
+/* Move submit button to right side on js pages */
+.htmlcssjseditor #wpcw_fe_outer_wrap,
+.jseditor #wpcw_fe_outer_wrap {
+    width: 120%;
+    margin: 0 -10%;
+}
+
+.htmlcssjseditor #wpcw_fe_outer_wrap > .clearfix,
+.jseditor #wpcw_fe_outer_wrap > .clearfix {
+    display: none;
+}
+
+.htmlcssjseditor #wpcw_fe_outer_wrap > #wpcw_fe_outer_wrap,
+.jseditor #wpcw_fe_outer_wrap > #wpcw_fe_outer_wrap {
+    width: 100%;
+    margin: 0;
+}
+
+.htmlcssjseditor .wpcw_fe_quiz_submit p,
+.jseditor .wpcw_fe_quiz_submit p {
+    text-align: right;
+}
+
+.htmlcssjseditor .wpcw_loader,
+.jseditor .wpcw_loader {
+    margin: 32px 87% 0;
+}
+/* End move submit button to right side on js pages */
+
+.htmlcsseditor .sclmsaddon_lesson_challenge_form {
+    margin-top: 1.5em;
+}
+
+#sclmsaddon-html-code,
+#sclmsaddon-css-code,
+#sclmsaddon-js-code {
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+
+.sclmsaddon-code-editor {
+  width: 120%;
+  margin: 0 -10%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.skill-content-main #sclmsaddon-editor-tabs {
+    margin-bottom: 0;
+    width: 50%;
+    padding: 0;
+}
+
+.skill-content-main #sclmsaddon-editor-tabs ul {
+    background:#636161;
+    overflow:auto;
+    margin-bottom: 0;
+    width: 100%;
+    padding: 0;
+}
+
+.skill-content-main #sclmsaddon-editor-tabs ul li a {
+    color:white;
+    text-align:center;
+    width:120px;
+    font-family:'montserrat';
+    font-size:13px;
+    display:block;
+    padding: 14px 20px;
+	text-transform:lowercase;
+}
+
+.skill-content-main #sclmsaddon-editor-tabs ul li {
+    float:left;
+    border-right:1px solid #888888;
+    margin: 0;
+}
+
+.skill-content-main #sclmsaddon-editor-tabs ul li.ui-state-active {
+    background:#545454;
+}
+
+.skill-content-main #sclmsaddon-result-tabs {
+    margin-bottom: 0;
+    width: 50%;
+    height: 100%;
+    padding: 0;
+}
+
+.skill-content-main #sclmsaddon-result-tabs ul {
+    background: #EEE;
+    overflow: auto;
+    margin-bottom: 0;
+    width: 100%;
+    padding: 0;
+}
+
+.skill-content-main #sclmsaddon-result-tabs ul li a {
+    color: #3b3b3b;
+    text-align: center;
+    font-family:'montserrat';
+    font-size: 13px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 14px 32px;
+	text-transform: uppercase;
+}
+
+.skill-content-main #sclmsaddon-result-tabs ul li {
+    display: inline-block;
+    float: left;
+    border-right: 1px solid #CCC;
+    margin: 0;
+}
+
+.htmlcssjseditor .skill-content-main #sclmsaddon-result-tabs ul li.ui-state-active {
+    background: #CCC;
+}
+
+.skill-content-main #sclmsaddon-result-tabs ul.console-active {
+    background: #545454;
+}
+
+.skill-content-main #sclmsaddon-result-tabs ul.console-active li a, .jseditor .skill-content-main #sclmsaddon-result-tabs ul li a {
+    color: white;
+}
+
+.skill-content-main #sclmsaddon-result-tabs ul.console-active li {
+    border-right: 1px solid #DDD;
+}
+
+.skill-content-main #sclmsaddon-result-tabs ul.console-active li.ui-state-active, .jseditor .skill-content-main #sclmsaddon-result-tabs ul {
+    background: #404040;
+}
+
+.jseditor .skill-content-main #sclmsaddon-result-tabs ul li, .htmlcsseditor .skill-content-main #sclmsaddon-result-tabs ul li {
+    border-right: none;
+}
+
+#sclmsaddon-result-tabs > p, #sclmsaddon-result-tabs > p, #sclmsaddon-result-tab-console > p {
+    display: none;
+}
+
+#sclmsaddon-result-tab-preview {
+    border-bottom: 1px solid #dbdbdb;
+    border-right: 1px solid #dbdbdb;
+    position: relative;
+    min-height: 474px;
+}
+
+.skill-content-main #sclmsaddon-editor-preview-iframe {
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    position: absolute;
+}
+
+.skill-content-main .sclmsaddon-editor-preview-iframe-header {
+    background: #eeeeee;
+    height: 48px;
+    width: 100%;
+	padding:16px 20px;
+	font-family:'montserrat';
+	text-transform:uppercase;
+	color:#3b3b3b;
+	font-size:13px;
+}
+
+.skill-content-main .sclmsaddon-editor-preview-iframe-header i.fa {
+	margin:0 3px 0 0;
+}
+
+.skill-content-main .sclmsaddon-code-editor .tab.ui-tabs-panel {
+    margin: 0;
+    padding: 0;
+}
+
+.skill-content-main .sclmsaddon-code-editor .result-tab {
+    height: calc(100% - 49px);
+}
+
+.skill-content-main .sclmsaddon-code-editor .editor-tab {
+    height: 474px;
+}
+
+.skill-content-main .sclmsaddon-code-editor .tab.ui-tabs-panel > br,
+#sclmsaddon-editor-preview .sclmsaddon-editor-preview-iframe-header > br,
+#sclmsaddon-editor-console .sclmsaddon-editor-console-iframe-header > br {
+    display: none;
+}
+
+.skill-content-main .sclmsaddon-code-editor .tab.ui-tabs-panel .CodeMirror {
+    width: 100%;
+    height: 100%;
+}
+
+.sclmsaddon-code-editor .tab.ui-tabs-panel .CodeMirror pre {
+	padding: 0 14px 0 60px;
+}
+.sclmsaddon-code-editor .tab.ui-tabs-panel .CodeMirror .CodeMirror-gutter {
+    border-right: medium none;
+    height: 100%;
+    left: 0;
+    min-width: 3em;
+    position: absolute;
+    top: 0;
+    background:none;
+    z-index: 10;
+}
+
+.sclmsaddon-code-editor input[type="submit"].code-snippet-submit,
+.sclmsaddon-code-editor input[type="submit"].code-embed-submit {
+    margin-top:20px;
+    float:right;
+}
+.sclmsaddon-code-editor input[type="submit"].code-snippet-submit:focus,
+.sclmsaddon-code-editor input[type="submit"].code-embed-submit:focus {
+    outline: 0;
+}
+
+#skill-challenge-info #sclmsaddon-editor-tabs {
+    float: left;
+    margin-bottom: 20px;
+    overflow: auto;
+    width: 430px;
+}
+
+.sclmsaddon-code-editor .tab.ui-tabs-panel .CodeMirror,
+.sclmsaddon-code-editor .tab.ui-tabs-panel .CodeMirror {
+    background: #545454;
+    line-height: 32px;
+    padding-top: 0;
+    min-height: 450px;
+	color:white;
+}
+
+.sclmsaddon-js-custom {
+    float: left;
+    margin: 1.5em -10% 0;
+}
+
+.sclmsaddon-js-custom .button#js-run {
+    background: #BBB;
+}
+
+.sclmsaddon-js-custom .button#js-run:hover {
+    background: #AAA;
+}
+
+/* Disabled buttons */
+#js-run:disabled, .fe_btn.fe_btn_completion.btn_completion:disabled {
+    opacity: 0.5;
+}
+
+/* Overriding Code Mirror styles
+Need to finesse these! */
+.CodeMirror-gutter-elt {
+	background: #636161;
+}
+
+.CodeMirror-gutter-elt .CodeMirror-lint-marker-error,
+.CodeMirror-gutter-elt .CodeMirror-lint-marker-warning {
+    background-size: contain;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 20px;
+    width: 20px;
+}
+
+.CodeMirror-lint-tooltip {
+    background-color: #F5F5F5;
+    border: none;
+    border-radius: 0px;
+    color: #3B3B3B;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 2px 6px 4px;
+    display: flex;
+    flex-direction: column;
+    overflow: inherit;
+}
+
+.CodeMirror-lint-tooltip .CodeMirror-lint-message-error,
+.CodeMirror-lint-tooltip .CodeMirror-lint-message-warning  {
+    background-image: none;
+    padding: 0;
+}
+
+.CodeMirror-lint-tooltip:after {
+    position: absolute;
+    content: '';
+    top: 100%;
+    left: 6px;
+    width: 12px;
+    height: 12px;
+    border-top: 6px solid #F5F5F5;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 6px solid transparent;
+}
+
+.CodeMirror-gutter-elt .CodeMirror-lint-marker-error {
+	background-image: url('../../img/icons/error-icon.png');
+}
+
+.CodeMirror-gutter-elt .CodeMirror-lint-marker-warning {
+	background-image: url('../../img/icons/warning-icon.png');
+}
+
+.CodeMirror-gutter-elt .CodeMirror-lint-marker-error .CodeMirror-lint-marker-multiple,
+.CodeMirror-gutter-elt .CodeMirror-lint-marker-warning .CodeMirror-lint-marker-multiple {
+    background-size: contain;
+    width: 26px;
+    height: 26px;
+    margin: -8px 0 0 -2px;
+}
+
+.CodeMirror-gutter-elt .CodeMirror-lint-marker-error .CodeMirror-lint-marker-multiple:after,
+.CodeMirror-gutter-elt .CodeMirror-lint-marker-warning .CodeMirror-lint-marker-multiple:after {
+    content: '';
+    background-color: #636161;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.CodeMirror-gutter-elt .CodeMirror-lint-marker-error .CodeMirror-lint-marker-multiple {
+	background-image: url('../../img/icons/error-icon-multiple.png');
+}
+
+.CodeMirror-gutter-elt .CodeMirror-lint-marker-warning .CodeMirror-lint-marker-multiple {
+	background-image: url('../../img/icons/warning-icon-multiple.png');
+}
+
+#sclmsaddon-editor-tabs .CodeMirror-lines {
+    padding: 4px 0px;
+}
+
+#sclmsaddon-editor-tabs .CodeMirror-gutter,
+#core-skills-challenge-js-code-snippet .CodeMirror-gutter {
+	background:#636161;
+}
+
+.CodeMirror-cursor {
+    border-left: 1px solid #f8f8f0 !important;
+}
+
+#skill-challenge-info #sclmsaddon-editor-tabs ul {
+    background:#dfe0e1;
+    border:1px solid #979797;
+    border-radius:3px 3px 0 0;
+    overflow:auto;
+	margin-bottom: 0;
+}
+
+#skill-challenge-info #sclmsaddon-editor-tabs ul li a {
+    color:#5f5e5e;
+    text-align:center;
+    width:100px;
+    font-family:arial;
+    font-size:14px;
+    display:block;
+    padding: 14px 20px;
+}
+
+#skill-challenge-info #sclmsaddon-editor-tabs ul li {
+    float:left;
+    margin-bottom:0;
+    border-right:1px solid #979797;
+}
+
+#skill-challenge-info #sclmsaddon-editor-tabs ul li.active {
+    background:#eeeeef;
+}
+
+.sclmsaddon-code-editor #core-skills-challenge-code-preview input[type="submit"] {
+    float:right;
+    margin-top:0;
+}
+
+#iframe-holder {
+    display: block;
+    height: 90%;
+    min-height: 600px;
+    padding-top: 0;
+    position: relative;
+    width: 100%;
+}
+
+#code-preview-iframe {
+    width: 50%;
+    float:left;
+}
+
+#code-preview-iframe img {
+    border-bottom: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    margin-bottom: 20px;
+    width: 712px;
+}
+
+.htmlcsseditor #wpcw_fe_outer_wrap,
+.htmlcssjseditor #wpcw_fe_outer_wrap,
+.jseditor #wpcw_fe_outer_wrap {
+    margin-top: 0px;
+}
+
+.htmlcsseditor .wpcw_fe_quiz_submit,
+.htmlcssjseditor .wpcw_fe_quiz_submit,
+.jseditor .wpcw_fe_quiz_submit {
+    border-top: none;
+    text-align: center;
+}
+.htmlcssjseditor .wpcw_fe_quiz_submit,
+.jseditor .wpcw_fe_quiz_submit {
+    text-align: right;
+    margin-top: 24px;
+}
+
+@media screen and (max-width: 800px) {
+  .sclmsaddon-code-editor {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  /* Move submit button to right side on js pages */
+    .htmlcssjseditor #wpcw_fe_outer_wrap,
+    .jseditor #wpcw_fe_outer_wrap {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+/* Console Styles */
+
+.skill-content-main .sclmsaddon-editor-console-iframe-header {
+    background: #404040;
+    height: 48px;
+    width: 100%;
+	padding: 16px 20px;
+	font-family:'montserrat';
+	text-transform: uppercase;
+	color:#FFF;
+	font-size:13px;
+}
+
+.skill-content-main .sclmsaddon-editor-console-iframe-header i.fa {
+	margin:0 3px 0 0;
+}
+
+#sandbox {
+    margin: 0;
+    border-radius: 0;
+    padding: 4px 20px 15px;
+    height: 100%;
+}
+
+div#sandbox pre.output {
+    height: 423px;
+}
+
+#sandbox, #sandbox textarea {
+    background: #404040;
+}
+
+#sandbox p, #sandbox pre.output span.command {
+    display: none;
+}
+
+/* Solution Code Styles */
+.sclmsaddon-solution-code {
+    display: none;
+    margin-bottom: 4em;
+    width: 100%;
+}
+
+.sclmsaddon-solution-code.complete {
+    display: block;
+}
+
+.sclmsaddon-solution-code .crayon-theme-monokai {
+    max-width: 100% !important; /* need important here to override inline styles */
+}
+
+.sclmsaddon-solution-code h5 {
+    margin-top: 0;
+}
+
+/* remove empty p tags that get added inside of crayon div */
+.sclmsaddon-solution-code .crayon-syntax p {
+    display: none;
+}
+
+/*==============================================================
+Ruby Snippet styles
+==============================================================*/
+
+.rubysnippet #wpcw_fe_outer_wrap {
+    margin: 20px -10% 60px;
+    width: 120%;
+}
+
+.rubysnippet .wpcw_progress_percent,
+.rubysnippet .sclmsaddon_fe_lesson_challenge_box_wrap.wpcw_fe_quiz_box_full_answers,
+.rubysnippet .sclmsaddon_lesson_challenge_form .wpcw_fe_quiz_q_single.wpcw_question_type_open {
+  display:none;
+}
+
+.rubysnippet .wpcw_fe_progress_box.wpcw_fe_progress_box_error,
+.rubysnippet .wpcw_fe_progress_box.wpcw_fe_progress_box_success {
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.rubysnippet .skill-content-main #sclmsaddon-editor-tabs {
+    width: 100%;
+}
+
+#core-skills-challenge-ruby-code-snippet  .CodeMirror-gutter {
+	background:#636161;
+}
+
+.rubysnippet .wpcw_fe_quiz_submit{
+    border-top: none;
+}
+
+/* Move submit button to right side on js pages */
+.rubysnippet #wpcw_fe_outer_wrap > .clearfix {
+    display: none;
+}
+
+.rubysnippet #wpcw_fe_outer_wrap > #wpcw_fe_outer_wrap {
+    width: 100%;
+    margin: 0;
+}
+
+.rubysnippet .wpcw_fe_quiz_submit p {
+    text-align: center;
+}
+
+.rubysnippet .wpcw_loader {
+    margin: 32px auto 0;
+    text-align: center;
+}
+
+.rubysnippet .sclmsaddon-solution-code-spacer {
+    width: 50%;
+    height: 100px;
+    float: left;
+}
+
+/*==============================================================
+Choose Lesson Styles
+==============================================================*/
+
+.choose h3 {}
+
+.choose .path-select__list {
+  border: none;
+  margin: 2em 0;
+  padding: 0;
+}
+
+
+/* Base for label styling */
+.choose .path-select__list__item [type="checkbox"]:not(:checked),
+.choose .path-select__list__item [type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+.choose .path-select__list__item [type="checkbox"]:not(:checked) + label,
+.choose .path-select__list__item [type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 1.95em;
+  cursor: pointer;
+}
+
+/* checkbox aspect */
+.choose .path-select__list__item [type="checkbox"]:not(:checked) + label:before,
+.choose .path-select__list__item [type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 1em; height: 1em;
+  border: 2px solid #ccc;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+}
+/* checkbox aspect */
+.choose .path-select__list__item [type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 1em; height: 1em;
+  border: 2px solid #7b7b7b;
+  background: #7b7b7b;
+  border-radius: 50%;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+}
+/* checked mark aspect */
+.choose .path-select__list__item [type="checkbox"]:not(:checked) + label:after,
+.choose .path-select__list__item [type="checkbox"]:checked + label:after {
+  font-family: FontAwesome;
+  content: '\f00c';
+  position: absolute;
+  top: 0.5em; left: 0.35em;
+  font-size: 0.75em;
+  font-weight: 300;
+  line-height: 0.8;
+  color: #fff;
+  transition: all .2s;
+}
+/* checked mark aspect changes */
+.choose .path-select__list__item [type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+.choose .path-select__list__item [type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+/* disabled checkbox */
+.choose .path-select__list__item [type="checkbox"]:disabled:not(:checked) + label:before,
+.choose .path-select__list__item [type="checkbox"]:disabled:checked + label:before {
+  box-shadow: none;
+  border-color: #bbb;
+  background-color: #ddd;
+}
+.choose .path-select__list__item [type="checkbox"]:disabled:checked + label:after {
+  color: #999;
+}
+.choose .path-select__list__item [type="checkbox"]:disabled + label {
+  color: #aaa;
+}
+/* Feedback styles */
+.select-feedback {
+  border: none;
+  padding: 2em;
+  background-color: #F2F2F2;
+  text-align: center;
+  display: none;
+  margin-bottom: 4em;
+  width: 100%;
+}
+
+div.select-feedback > p {
+    margin: 0;
+}
+
+.step-select .select-feedback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.select-feedback .select-feedback__question {
+  margin: 0;
+  font-family: "Open Sans","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+  font-weight: bold;
+  color: #3b3b3b;
+  font-size: 18px;
+  text-transform: none;
+  width: calc(100% - 264px);
+}
+
+.select-feedback__option {
+    background-color: #f16059;
+    border: 2px solid #f16059;
+    border-radius: 0;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Montserrat","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0 0 0 24px;
+    padding: 1.5625rem 2rem 1.5rem;
+    transition: all 300ms ease-out 0s;
+    text-transform: uppercase;
+    min-width: 240px;
+}
+
+.select-feedback__option:hover,
+.select-feedback__field:checked + .select-feedback__option,
+.select-feedback__field:focus + .select-feedback__option,
+.select-feedback__field:active + .select-feedback__option {
+  background-color: #BE3C2D;
+  border-color: #BE3C2D;
+}
+
+.student-comment {
+  border: none;
+  margin: 0;
+  padding: 0;
+  display: none;
+}
+
+.step-comment .student-comment,
+.step-loading .student-comment,
+.step-waiting .student-comment,
+.step-continue .student-comment {
+    display: block;
+}
+
+.student-comment .student-comment__label__wrapper,
+.student-comment__label__wrapper > .student-comment__label {
+  margin-bottom: 0;
+}
+
+.student-comment__label {
+    display: block;
+    margin-bottom: 1em;
+    font-family: "Open Sans","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+    font-weight: bold;
+  }
+
+.step-waiting .student-comment__label--before,
+.step-continue .student-comment__label--before,
+.student-comment__label--after {
+    display: none;
+}
+
+.step-waiting .student-comment__label--after,
+.step-continue .student-comment__label--after {
+    display: block;
+}
+
+.student-comment__field {
+  width: 100%;
+  min-height: 140px;
+  border: 1px solid #DEDEDE;
+  padding: 1em;
+  margin-bottom: 1.75em;
+  font-size: 16px;
+  color: #8A8A8A;
+  font-family: "Montserrat","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+}
+
+.student-comment__field:active,
+.student-comment__field:focus {
+   outline: none;
+   border-color: #96bfe3;
+}
+
+.student-comment .student-comment__submit {
+    background-color: #f16059;
+    border: 2px solid #f16059;
+    border-radius: 0;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Montserrat","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 1.075em 1.5em 1em;
+    transition: all 300ms ease-out 0s;
+    text-transform: uppercase;
+    min-width: 240px;
+}
+
+.student-comment .student-comment__submit:hover, {
+  background-color: #BE3C2D;
+  border-color: #BE3C2D;
+}
+
+.student-comment .student-comment__submit:disabled {
+    background-color: #ddd;
+    border: 2px solid #ddd;
+    cursor: default;
+}
+
+.step-loading .student-comment__submit {
+    background-color: #e6e6e6;
+    border-color: #e6e6e6;
+    pointer-events: none;
+}
+
+.student-comment__cancel {
+    background: none;
+    border: none;
+    color: #888;
+    text-decoration: underline;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Montserrat","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    margin: 0 0 0 24px;
+    transition: all 200ms ease-out 0s;
+    padding: 0;
+}
+
+.student-comment__cancel:hover,
+.student-comment__cancel:focus {
+    color: #BE3C2D;
+    outline: none;
+    background: none;
+    text-decoration: underline;
+}
+
+.step-loading .student-comment__cancel,
+.step-waiting .student-comment__cancel,
+.step-continue .student-comment__cancel {
+    display: none;
+}
+
+.student-comment__loading {
+    display: none;
+    margin: 0 0 4px 2em;
+}
+
+.step-loading .student-comment__loading {
+    display: inline-block;
+}
+
+.student-comment__error {
+    display: none;
+}
+
+.step-error .student-comment__error {
+    display: block;
+}
+
+@media screen and (max-width: 800px) {
+    .student-comment {
+        margin: 0 0 10em 0;
+    }
+}
+
+.feedback {
+    margin-top: 3em;
+}
+.feedback__alert {
+    display: none;
+    margin-bottom: 2em;
+}
+.step-waiting .feedback__alert--waiting {
+    display: block;
+}
+.step-continue .feedback__alert--continue {
+    display: block;
+}
+
+.thread {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    color: #3b3b3b;
+}
+
+.skill-main .feedback .feedback__title {
+    color: #3b3b3b;
+    text-transform: uppercase;
+    margin: 0 0 32px 0;
+}
+
+.thread  .thread__reply {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 40px 0;
+}
+
+.thread  .thread__reply--flip {
+    flex-direction: row-reverse;
+}
+
+.thread  .thread__reply__avatar {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    border-radius: 100px;
+    margin: 0 0 0.5em 0;
+    background-color: #d7d7d7;
+    text-align: center;
+    overflow: hidden;
+}
+
+.thread  .thread__reply--flip .thread__reply__avatar {
+    background-color: #F16059;
+}
+
+.thread .thread__reply__avatar__name {
+    margin: 0;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 24px;
+    line-height: 100px;
+}
+
+.thread  .thread__reply__avatar__img {
+    width: 100%;
+    height: auto;
+}
+
+.thread  .thread__reply__avatar__default {
+    margin: 0;
+    padding: 1.5em 1.25em;
+    height: 100%;
+}
+
+.thread  .thread__reply__avatar__default svg {
+    width: 100%;
+    height: auto;
+}
+
+.thread .thread__reply__name {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.thread  .thread__reply__content {
+    flex: 1;
+    padding: 2em;
+    margin: 0 0 0 66px;
+    border: 1px solid #E6E6E6;
+    position: relative;
+    width: calc(100% - 166px);
+}
+
+.thread  .thread__reply__content:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -28px;
+    top: -1px;
+    border-top: 14px solid #E6E6E6;
+    border-left: 14px solid transparent;
+    border-right: 14px solid #E6E6E6;
+    border-bottom: 14px solid transparent;
+}
+
+.thread  .thread__reply__content:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -26px;
+    top: 0;
+    border-top: 14px solid white;
+    border-left: 14px solid transparent;
+    border-right: 14px solid white;
+    border-bottom: 14px solid transparent;
+}
+
+.thread  .thread__reply--flip .thread__reply__content:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: auto;
+    right: -28px;
+    top: -1px;
+    border-top: 14px solid #E6E6E6;
+    border-left: 14px solid #E6E6E6;
+    border-right: 14px solid transparent;
+    border-bottom: 14px solid transparent;
+}
+
+.thread  .thread__reply--flip .thread__reply__content:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: auto;
+    right: -26px;
+    top: 0;
+    border-top: 14px solid white;
+    border-left: 14px solid white;
+    border-right: 14px solid transparent;
+    border-bottom: 14px solid transparent;
+}
+
+.thread  .thread__reply--flip .thread__reply__content {
+    margin: 0 66px 0 0;
+}
+
+.thread .thread__reply__badge {
+    margin-top: 0;
+    display: inline-block;
+    text-transform: uppercase;
+    color: white;
+    background-color: #F16059;
+    padding: 0.25em 0.5em;
+}
+
+.thread .thread__reply__heading {
+    margin: 0 0 0.5em 0;
+    font-weight: bold;
+}
+
+.thread  .thread__reply__subheading {
+    margin: 1.75em 0 0.5em 0;
+    padding-bottom: 0.5em;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.thread  .thread__reply__message {
+    margin: 0;
+}
+
+.thread  .thread__reply__content pre {
+    white-space: pre-wrap;
+    word-break: normal;
+}
+
+.thread  .thread__reply__attachments {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5em 0 0;
+    margin: 0 -2.25em 0 0;
+}
+
+.thread  .thread__reply__attachments__link {
+    display: inline-block;
+    width: calc((100% / 3) - 2.25em);
+    font-size: 14px;
+    padding: 0.25em 0;
+    margin: 0 2em 0 0;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #4c9fb2;
+}
+
+.thread  .thread__reply__attachments__link a {
+    text-decoration: none;
+}
+
+.thread  .thread__reply__attachments__link a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 1000px) {
+    .thread .thread__reply__attachments {
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .thread .thread__reply__attachments__link {
+        width: 100%;
+        padding: 0;
+        margin: 0 0 0.5em 0;
+    }
+}
+
+@media screen and (max-width: 625px) {
+    .thread {
+        margin-bottom: 6em;
+    }
+}
+
+.u-visibly-hidden {
+  position: absolute;
+  left: -9999px;
+}
+
+.button-group {
+  display: flex;
+}
+
+.button-group--center-h {
+  justify-content: center;
+}

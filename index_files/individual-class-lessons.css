@@ -1,0 +1,155 @@
+/* ====================================================================================
+Ruby on Rails
+=====================================================================================*/
+
+/* NEW Brainstorm a web app */
+#data, #messaging {
+    margin-left:0;
+    margin-bottom: 40px;
+    padding-left: 2px;
+    overflow: auto;
+}
+/* entire container, keeps perspective */
+.flip-container {
+    float: left;
+    margin: 10px;
+    height:150px;
+    width:246px;
+        margin: auto;
+}
+/* flip the pane when hovered */
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+    -webkit-transform:rotateY(180deg); /* Opera, Chrome, and Safari */
+    -moz-transform:rotateY(180deg); /* IE 9 */
+    -ms-transform:rotateY(180deg); /* IE 9 */
+    transform: rotateY(180deg);
+}
+/* flip speed goes here */
+.flipper {
+    -webkit-perspective: 1000;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: 0.6s;
+
+    -mox-perspective: 1000;
+    -moz-transform-style: preserve-3d;
+    -moz-transition: 0.6s;
+
+    -ms-perspective: 1000;
+    -ms-transform-style: preserve-3d;
+    -ms-transition: 0.6s;
+
+    perspective: 1000;
+    transform-style: preserve-3d;
+    transition: 0.6s;
+
+    position: relative;
+    height: 110px;
+    width: 186px;
+}
+/* hide back of pane during swap */
+.front, .back {    
+    -webkit-backface-visibility:hidden;
+    -webkit-perspective: 1000;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: 0.6s;
+
+    -moz-backface-visibility:hidden;
+    -mox-perspective: 1000;
+    -moz-transform-style: preserve-3d;
+    -moz-transition: 0.6s;
+
+    -ms-backface-visibility:hidden;
+    -ms-perspective: 1000;
+    -ms-transform-style: preserve-3d;
+    -ms-transition: 0.6s;
+
+    backface-visibility: hidden;
+    perspective: 1000;
+    transform-style: preserve-3d;
+    transition: 0.6s;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 110px;
+    padding: 0 20px;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    line-height: 1.4;
+
+}
+/* front pane, placed above back */
+.front {
+    background:#509EA8;
+    color: #FFFFFF;
+    font-size: 24px;
+    z-index: 2;
+	padding-top:40px;
+}
+/* back, initially hidden pane */
+.back {
+	padding-top: 10px;
+    background: #ECF1F1;
+    color: #1C383C;
+    -webkit-transform:rotateY(180deg); /* Opera, Chrome, and Safari */
+    -moz-transform:rotateY(180deg); /* IE 9 */
+    -ms-transform:rotateY(180deg); /* IE 9 */
+    transform: rotateY(180deg);
+}
+.back span {
+    line-height: normal;
+    display: inline-block;
+    vertical-align: middle;
+}
+#messaging .front {
+    padding-top: 30px;
+}
+/* end */
+
+.skill-info-text p#book-of-ruby {
+    padding-right: 0;
+	float:left;
+}
+.skill-info-text p#eloquent-ruby {
+    padding-top: 120px;
+    padding-left: 100px;
+}
+.skill-info-text p#beginning-ruby {
+    margin-left: -75px;
+}
+.skill-info-text p#oreilly {
+    margin-right: -25px;
+    margin-left: -20px;
+}
+
+.book-notes {
+	float:left;
+}
+
+p#lrthw {
+	padding:40px;
+}
+
+.postid-20810 .skill-info-text > div > p > img,
+.postid-20810 .skill-info-text > div > a > img {
+	float:left;
+}
+
+.postid-20810 .skill-info-text > h5 {
+	margin-bottom:40px;
+}
+
+/* What JavaScript can do 
+/skill-resource/what-can-you-do-with-javascript/ */
+.carousel-control {
+	border-radius: 100%;
+	height: 40px;
+	width: 40px;
+	border: 3px solid white;
+	margin: 200px 10px 0;	
+}
+.carousel {
+    max-width: 800px;
+}
+

@@ -1,0 +1,327 @@
+/* 404 Pages */
+#hero-404 {
+  background: #f9c3ce url(../../img/backgrounds/404-icecream.jpg) no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding: 140px 0 100px;
+  margin-top: -66px;
+  text-align: left;
+}
+.logged-in #hero-404 {
+  margin-top: 0;
+}
+
+#hero-404 h1 {
+  color: #fff;
+  font: 700 5.75em/1.1em 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  margin-left: -8px;
+}
+
+#hero-404 h1 span {
+  color: #fd7368;
+}
+
+#hero-404 h2 {
+  color: #626262;
+  font: 700 2.275em/1.2em 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 35px;
+}
+
+#hero-404 h3 {
+  color: #626262;
+  font: 700 2.5em/1.2em 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  margin-top: 175px;
+}
+#hero-404 h3 span {
+  color: #fff;
+  font: 400 1em 'wisdom_scriptregular', sans-serif;
+  text-transform: lowercase;
+}
+
+#hero-404-links a {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  font: 300 1.71em/1em 'Open Sans', sans-serif;
+  display: inline-block;
+  padding: 14px 40px;
+  text-transform: uppercase;
+  vertical-align: top;
+  margin-right: 25px;
+}
+
+#hero-404-links .fa {
+    margin: 0 0 0 9px;
+}
+
+.page-404-content {
+  color: #626262;
+  padding-top: 80px;
+}
+
+.page-404-content .into {
+  font: 400 1em/1.8em 'Open Sans' sans-serif;
+  margin-bottom: 45px;
+}
+
+.page-404-content h2 {
+  color: #f58278;
+  font: 700 2.1875em/1em 'Montserrat', sans-serif;
+  margin-bottom: 45px;
+  text-transform: uppercase;
+}
+
+.page-404-content .errors-codes {
+  float: left;
+  width: 66%;
+}
+
+.page-404-content .fact { 
+  float: left;
+  padding: 0 5%;
+  width: 34%;
+}
+
+.page-404-content .fact h2 {
+  background: url(../../img/backgrounds/404-cocktail.png) no-repeat;
+  padding-top: 15px;
+  padding-left: 100px;
+  margin-bottom: 30px;
+}
+
+.page-404-content .col {
+  float: left;
+  width: 50%;
+  padding-right: 5%;
+}
+.page-404-content p {
+  font-size: 1.125em;
+  line-height: 1.5em;
+  margin-bottom: 3em;
+}
+
+.page-404-content q {
+  display: block;
+  line-height: 1.33em;
+  color: #f58278;
+  font-style: italic;
+  margin: 15px;
+
+}
+
+/* OLD  404 */
+
+body.home .modal-backdrop.fade.in,
+body.page .modal-backdrop.fade.in,
+body.single .modal-backdrop.fade.in {
+  opacity: 0.5;
+}
+
+.page-template-page-templatestemplate-mp-signin-php #homepage-page-container,
+.home #homepage-page-container {   
+    background: #f16059 url("../../img/backgrounds/login-page-bg.png") no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.user-notloggedin .error ul {
+    display: inline-block;
+    vertical-align: middle;
+    white-space: normal;
+    width: 80%;
+	margin-bottom:0;
+}
+
+/*#wafp_loginform input[type="checkbox"],*/
+.mepr-user-registration input[type="checkbox"],
+#mepr_loginform input[type="checkbox"]{
+    display:none;            
+}
+
+.mepr-user-registration .checkbox-label {
+    position: relative;
+    padding-left: 32px;
+}
+
+.mepr-user-registration input[type="checkbox"] + .c-label {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    height: 22px;
+    width: 22px;
+    margin: 0 10px 0 0;
+    background: url(../../img/global/checkbox.png) 1px center;
+}
+
+.mepr-user-registration input[type="checkbox"]:checked + .c-label{
+    background: url(../../img/global/checkbox-checked.png) no-repeat 0;
+}
+
+.page-template-page-templatestemplate-mp-signin-php .user-notloggedin .site-header {
+    display: block;
+}
+.page-template-page-templatestemplate-mp-signin-php #sign-in {
+    margin-top: 80px;
+}
+
+.page-template-page-templatestemplate-mp-signin-php .site-header nav .menu> li> a, 
+.page-template-page-templatestemplate-mp-signin-php .site-header nav .menu> li> a.active,
+.home .site-header nav .menu> li> a, 
+.home .site-header nav .menu> li> a.active {
+    color: #fff;
+    line-height: 18px;
+    margin-top: 0;
+}
+
+.page-template-page-templatestemplate-mp-signin-php .site-header nav ul .log-out-link,
+.home .site-header nav ul .log-out-link {
+    background: transparent;
+    /*border: 1px solid #fff;*/
+}
+
+.urp-no-register{
+    color: #fff;
+    font: 13px/25px 'Open Sans', sans-serif;
+    text-align: center;
+    margin-top: 30px;
+}
+.main-container .urp-no-register a,
+.main-container .urp-no-register a:hover {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.page-template-page-templatestemplate-mp-signin-php .site-footer,
+.page-template-page-templatestemplate-mp-signin-php .sub-footer,
+.home .site-footer,
+.home .sub-footer {
+    background: transparent;
+}
+
+.page-template-page-templatestemplate-mp-signin-php .sub-footer p, 
+.page-template-page-templatestemplate-mp-signin-php .sub-footer a, 
+.page-template-page-templatestemplate-mp-signin-php .sub-footer a:link, 
+.page-template-page-templatestemplate-mp-signin-php .sub-footer a:visited,
+.home .sub-footer p, 
+.home .sub-footer a, 
+.home .sub-footer a:link, 
+.home .sub-footer a:visited {
+    color: #d5514a; 
+    text-decoration: none;
+}
+
+.page-template-page-templatestemplate-mp-signin-php .sub-footer a[href^="mailto"],
+.home .sub-footer a[href^="mailto"] {
+    border-bottom: 2px dotted #d5514a;
+}
+
+body.page-template-page-templatestemplate-mp-signin-php div#container {
+    overflow: visible;
+}
+
+/* Unauthorized page*/
+#unauthorized .main {
+    background: url(../../img/backgrounds/unauthorized-bg.png) no-repeat 100% bottom;
+    padding: 75px 450px 0 0;
+    min-height: 750px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#unauthorized h1 {
+    color: #f16059;
+    font: 700 56px/60px 'Montserrat', sans-serif;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+}
+
+#unauthorized .form-group {
+    margin-bottom: 1em;
+}
+
+#unauthorized .help-block,
+#unauthorized .taken-block,
+#unauthorized .empty-block,
+#unauthorized .success-block {
+    display: none;
+}
+
+#unauthorized .btn--submit {
+    background-color: #f0595a;
+    color: #ffffff;
+    font-size: 16px;
+    text-transform: uppercase;
+    border: none;
+    padding: 12px;
+}
+
+.page-template-page-templatestemplate-mp-unauthorized-php .sub-footer {
+    background: #FFF;
+    margin-top: 40px;
+}
+
+.page-template-page-templatestemplate-mp-unauthorized-php .sub-footer .footer-copyright {
+    margin: 70px 0 30px;
+}
+.page-template-page-templatestemplate-mp-unauthorized-php .sub-footer p, 
+.page-template-page-templatestemplate-mp-unauthorized-php .sub-footer a, 
+.page-template-page-templatestemplate-mp-unauthorized-php .sub-footer a:link, 
+.page-template-page-templatestemplate-mp-unauthorized-php .sub-footer a:visited {
+    color: #3b3b3b;
+    text-decoration: none;
+}
+
+.page-template-page-templatestemplate-mp-unauthorized-php .sub-footer a[href^="mailto"] {
+    border-bottom: 2px dotted #3b3b3b;
+}
+.page-template-page-templatestemplate-mp-unauthorized-php .sub-footer a:hover {
+    border-bottom: 1px solid #3b3b3b;
+}
+
+.logged-in #unauthorized .urp-no-register,
+#unauthorized .logged-subheader {
+    display: none;
+}
+
+.logged-in #unauthorized .logged-subheader {
+    display: block;
+}
+
+.logged-in #unauthorized .make-readable,
+.user-notloggedin #unauthorized .make-readable {
+  background:rgba(255,255,255,0.5);
+  padding: 5px;
+  font: 1em/1.625em 'Open Sans', helvetica, arial, sans-serif;
+  margin-top: 0;
+  margin-bottom: 40px;
+  text-align: left;
+  width: 90%;
+  max-width: 480px;
+}
+
+.page-template-template-mp-signin .site-footer,
+.home .site-footer {
+    border-top: 0;
+}
+.page-template-template-mp-signin .site-footer .sf_email-us, 
+.page-template-template-mp-signin .site-footer .sf_email-us a,
+.page-template-template-mp-signin .sub-footer .footer-copyright,
+.home .site-footer .sf_email-us, 
+.home .site-footer .sf_email-us a,
+.home .sub-footer .footer-copyright {
+    color: #d5514a;
+}

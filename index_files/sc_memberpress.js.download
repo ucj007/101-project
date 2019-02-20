@@ -1,0 +1,43 @@
+$(document).ready(function() {
+
+    // MemberPress Purchase Step 1 - Button Toggles
+    $("label.btn-radio").click(function(){
+        $('a#next').addClass('show');
+        $('a#next').attr('href', $(this).data('link'));
+    });
+
+    $("label#monthly-label").click(function(){
+        $('.mepr-detail .media').addClass('show');
+        $('.mepr-detail .media').removeClass('invisible');
+    });
+
+    $("label#one-time-label").click(function(){
+        $('.mepr-detail .media').removeClass('show');
+        $('.mepr-detail .media').addClass('invisible');
+    });
+
+    // MemberPress Purchase Step 2 - Form Validation
+    // Since the MemberPress override functionality is extremely limited, we need to hook into their form validation to
+    // apply our custom error styles - see signup.js
+
+
+	// purchase step 3
+    //if ( $('#step-3 .mepr-form-header h1' ).length ) {
+     //   $('#step-3 .mepr-form-header h1').text('3. Complete Purchase');
+     //   var isBlueprint = $('h2.media-heading').text().indexOf('Blueprint') > -1;
+     //   var buttonText = (isBlueprint) ? 'Purchase Blueprint >': 'Purchase Class >';
+     //   $('form#payment-form .mepr-submit').attr('value', buttonText);
+    //}
+	
+	// global purchase steps
+	//$('.mepr-loading-gif').css({
+	//	'float': 'right',
+	//    'margin-top': '49px',
+	//    'margin-right': '-10px'
+	//});
+	//$('.stripe-loading-gif').css({
+	//	'float': 'right',
+	//    'margin-top': '160px',
+	//    'margin-right': '-10px'
+	//});
+});

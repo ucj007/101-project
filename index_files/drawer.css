@@ -1,0 +1,24 @@
+[data-drawer-wrapper] {
+  overflow: hidden;
+  margin: 0;
+}
+
+[data-drawer-full] {
+  margin: 0;
+}
+
+[data-drawer-visible] {
+  margin: 0;
+}
+
+[data-drawer-visible] > *:first-child {
+  margin-top: 0;
+}
+
+[aria-expanded="false"] .show-expanded {
+  display: none;
+}
+
+[aria-expanded="true"] .show-collapsed {
+  display: none;
+}

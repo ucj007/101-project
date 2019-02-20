@@ -1,0 +1,349 @@
+'use strict'
+
+// Production steps of ECMA-262, Edition 6, 22.1.2.1
+if (!Array.from) {
+  Array.from = (function () {
+    var toStr = Object.prototype.toString;
+    var isCallable = function (fn) {
+      return typeof fn === 'function' || toStr.call(fn) === '[object Function]';
+    };
+    var toInteger = function (value) {
+      var number = Number(value);
+      if (isNaN(number)) { return 0; }
+      if (number === 0 || !isFinite(number)) { return number; }
+      return (number > 0 ? 1 : -1) * Math.floor(Math.abs(number));
+    };
+    var maxSafeInteger = Math.pow(2, 53) - 1;
+    var toLength = function (value) {
+      var len = toInteger(value);
+      return Math.min(Math.max(len, 0), maxSafeInteger);
+    };
+
+    // The length property of the from method is 1.
+    return function from(arrayLike/*, mapFn, thisArg */) {
+      // 1. Let C be the this value.
+      var C = this;
+
+      // 2. Let items be ToObject(arrayLike).
+      var items = Object(arrayLike);
+
+      // 3. ReturnIfAbrupt(items).
+      if (arrayLike == null) {
+        throw new TypeError('Array.from requires an array-like object - not null or undefined');
+      }
+
+      // 4. If mapfn is undefined, then let mapping be false.
+      var mapFn = arguments.length > 1 ? arguments[1] : void undefined;
+      var T;
+      if (typeof mapFn !== 'undefined') {
+        // 5. else
+        // 5. a If IsCallable(mapfn) is false, throw a TypeError exception.
+        if (!isCallable(mapFn)) {
+          throw new TypeError('Array.from: when provided, the second argument must be a function');
+        }
+
+        // 5. b. If thisArg was supplied, let T be thisArg; else let T be undefined.
+        if (arguments.length > 2) {
+          T = arguments[2];
+        }
+      }
+
+      // 10. Let lenValue be Get(items, "length").
+      // 11. Let len be ToLength(lenValue).
+      var len = toLength(items.length);
+
+      // 13. If IsConstructor(C) is true, then
+      // 13. a. Let A be the result of calling the [[Construct]] internal method 
+      // of C with an argument list containing the single item len.
+      // 14. a. Else, Let A be ArrayCreate(len).
+      var A = isCallable(C) ? Object(new C(len)) : new Array(len);
+
+      // 16. Let k be 0.
+      var k = 0;
+      // 17. Repeat, while k < len… (also steps a - h)
+      var kValue;
+      while (k < len) {
+        kValue = items[k];
+        if (mapFn) {
+          A[k] = typeof T === 'undefined' ? mapFn(kValue, k) : mapFn.call(T, kValue, k);
+        } else {
+          A[k] = kValue;
+        }
+        k += 1;
+      }
+      // 18. Let putStatus be Put(A, "length", len, true).
+      A.length = len;
+      // 20. Return A.
+      return A;
+    };
+  }());
+}
+
+if (typeof Object.assign != 'function') {
+  // Must be writable: true, enumerable: false, configurable: true
+  Object.defineProperty(Object, "assign", {
+    value: function assign(target, varArgs) { // .length of function is 2
+      'use strict';
+      if (target == null) { // TypeError if undefined or null
+        throw new TypeError('Cannot convert undefined or null to object');
+      }
+
+      var to = Object(target);
+
+      for (var index = 1; index < arguments.length; index++) {
+        var nextSource = arguments[index];
+
+        if (nextSource != null) { // Skip over if undefined or null
+          for (var nextKey in nextSource) {
+            // Avoid bugs when hasOwnProperty is shadowed
+            if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+              to[nextKey] = nextSource[nextKey];
+            }
+          }
+        }
+      }
+      return to;
+    },
+    writable: true,
+    configurable: true
+  });
+}
+
+function _toConsumableArray(arr) {
+    if (Array.isArray(arr)) {
+        for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
+            arr2[i] = arr[i];
+        }
+        return arr2;
+    } else {
+        return Array.from(arr);
+    }
+  }
+
+var curry = function curry(f) {
+    var arr = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+    return function() {
+        for (
+            var _len = arguments.length, args = Array(_len), _key = 0;
+            _key < _len;
+            _key++
+        ) {
+            args[_key] = arguments[_key];
+        }
+
+        return (function(a) {
+            return a.length === f.length
+                ? f.apply(undefined, _toConsumableArray(a))
+                : curry(f, a);
+        })([].concat(_toConsumableArray(arr), args));
+    };
+  };
+
+
+var pipe = function pipe() {
+  for (
+    var _len = arguments.length, fns = Array(_len), _key = 0;
+    _key < _len;
+    _key++
+  ) {
+    fns[_key] = arguments[_key];
+  }
+
+  return function(x) {
+    return fns.reduce(function(v, f) {
+      return f(v);
+    }, x);
+  };
+};
+
+var trace = function trace(x) {
+  console.log(x);
+  return x;
+};
+
+var checkForRegex = curry(function(regs, expected, str) {
+  return regs.some(function(reg) {
+    var result = str.match(reg);
+    return result !== null && result.length >= expected;
+  });
+});
+
+var setUserAwards = function(string) {
+  var existingAwards = string.split(',');
+  var defaultAwardState = {
+    bravery: false,
+    perfectionist: false,
+    author: false,
+    masterlistmaker: false,
+    headstart: false,
+    autobiographer: false,
+    artist: false,
+    polyglot: false,
+    connector: false
+  }
+  var userAwardState = existingAwards.reduce(function(state, award) {
+    if (state.hasOwnProperty(award)) { state[award] = true; }
+    return state;
+  }, Object.assign({}, defaultAwardState));
+  
+  return {
+    awards: userAwardState,
+    setAward: function setAward(award, value) {
+      this.awards[award] = value;
+      return this;
+    },
+    awardsWon: function stringifyAwards() {
+      var awards = this.awards;
+      return Object
+      .keys(awards)
+      .reduce(function(acc, award) {
+        return awards[award] ? acc.concat(award) : acc;
+      }, [])
+      .join(',');
+    },
+    awardCount: function awardsCount() {
+      var awards = this.awards;
+      return Object.keys(awards).reduce(function(acc, award) {
+        return awards[award] ? acc + 1 : acc;
+      }, 0);
+    },
+    awardDone: function awardDone(award) {
+      return this.awards[award];
+    },
+    showAward: function showAward(award) {
+      var msgs = {
+        bravery: "<p>You've won the <strong>Bravery Award</strong>, for getting started!</p>",
+        perfectionist: "<p>You've won the <strong>Perfectionist Award</strong>, for closing all your HTML tags!</p>",
+        author: "<p>You've won the <strong>Author Award</strong>, for your paragraphs and paragraphs of writing!</p>",
+        masterlistmaker: "<p>You've won the <strong>Master List Maker Award</strong>, for making a darn good list!</p>",
+        headstart: "<p>Holy cow! You've won the <strong>Headstart Award</strong> for using HTML tags we have't learned yet!</p>",
+        autobiographer: "<p>We are so glad to learn more about you. For that, we give you the <strong>Autobiographer Award</strong>!</p>",
+        artist: "<p>What a beautiful image! We give you the <strong>Artist Award</strong>!</p>",
+        polyglot: "<p>Did you just add some JavaScript?! We give you the <strong>Polyglot Award</strong>!<?p>",
+        connector: "<p>You are quite the linkster. For that we give you the <strong>Connector Award</strong>!</p>",
+      }
+      $(msgs[award]).hide().appendTo('#free-time-awards').fadeIn('slow');
+      return this;
+    },
+    validateAward: curry(function validateAward(award, str) {
+      var validation = {
+        bravery: {
+          regs: null,
+          expected: null,
+        },
+        perfectionist: {
+          regs: [/<([a-z]*)\b[^>]*>([\s\S]*?)<\/\1>/g],
+          expected: 1,
+        },
+        author: {
+          regs: [/<p\b[^>]*>[\s\S]*?<\/p>/g],
+          expected: 3,
+        },
+        masterlistmaker: {
+          regs: [/<(ol|ul)\b[^>]*>[\s\S]*[ \t]*<li>[\s\S]*?<\/li>[\s\S]*[ \t]*<\/\1>/g],
+          expected: 1,
+        },
+        headstart: {
+          regs: [/<div\b[^>]*>[\s\S]*?<\/div>/g, /<article\b[^>]*>[\s\S]*?<\/article>/g],
+          expected: 1,
+        },
+        autobiographer: {
+          regs: [/\bborn\b/g],
+          expected: 1,
+        },
+        artist: {
+          regs: [/<img \bsrc\b="[\s\S]*?"[ ]*\/>/g],
+          expected: 1,
+        },
+        polyglot: {
+          regs: [/<script\b[^>]*>[\s\S]*?<\/script>/g],
+          expected: 1,
+        },
+        connector: {
+          regs: [/<a \bhref\b="[\s\S]*?"[ ]*>[\s\S]*?<\/a>/g],
+          expected: 1,
+        },
+      };
+      return checkForRegex(validation[award].regs, validation[award].expected, str);
+    })
+  }
+}
+
+var completeAward = curry(function (obj, storage, award) {
+  obj.setAward(award, true);
+  obj.showAward(award);
+  storage(obj);
+  allAwardsWon(obj);
+  return award;
+});
+
+var isAwardComplete = curry(function (obj, f, award, str) {
+  if (!obj.awardDone(award) && obj.validateAward(award, str)) {
+    f(award);
+  }
+  return award;
+});
+
+var allAwardsWon = function allAwardsWon(obj) {
+  var alreadyDone = $('.all-awards-complete');
+  if (alreadyDone && obj.awardCount >= 9) {
+    $("<h4 class='all-awards-complete'>You've won all nine awards!<br />A job well done!</h4>").hide().prependTo('#free-time-awards').fadeIn('slow');
+  }
+};
+
+var showCompletedAwards = function showCompletedAwards(obj) {
+  if (obj.awardCount() > 0) {
+    var awardContainer = $('#free-time-awards');
+    if ( awardContainer.children().length === 0 ) {
+      awardContainer.fadeIn('slow');
+      Object.keys(obj.awards)
+      .forEach(function(award) {
+        if (obj.awards[award]) {
+          obj.showAward(award);
+          allAwardsWon(obj);
+        }
+      });
+    }
+  }
+};
+
+var isBraveryAwardComplete = function isBraveryAwardComplete(container, obj, f) {
+  $(container).click(function(){
+    if (!obj.awardDone('bravery')) {
+      $('#free-time-awards').fadeIn('slow');
+      f('bravery');
+    }
+  });
+};
+
+var areRestOfAwardsComplete = function areRestOfAwardsComplete(container, input, f) {
+  // check whether or not to give an award on each keyup
+  $(container).keyup(function() {
+    // set a timeout so the value typed has time to update
+    setTimeout(function() {
+      var code = $(input).val();
+      // first closing tag
+      f('perfectionist', code);
+      // three paragraph tags
+      f('author', code);
+      // ordered or unordered list with at least one li tag inside
+      f('masterlistmaker', code);
+      // div or article tag
+      f('headstart', code);
+      // the word "born" is typed
+      f('autobiographer', code);
+      // img tag with src attr
+      f('artist', code);
+      // script tag
+      f('polyglot', code);
+      // a tag with href attr
+      f('connector', code);
+    }, 1500);
+  });
+}
+
+var updateStore = curry(function updateStore(sel, obj) {
+  document.querySelector(sel).value = obj.awardsWon();
+  return obj.awardsWon();
+});
+

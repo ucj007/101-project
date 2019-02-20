@@ -1,0 +1,190 @@
+@media screen and (min-width: 960px) and (max-width: 1200px){
+    .editor-area.slidein,
+    #preview-area.slidein {
+        width: 50%;
+    }
+    #preview-area.slidein {
+        left: 50%;
+        width: 50% !important;
+    }
+    #slider #tabs {
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 960px) and (orientation:portrait) {
+    .editor-area.slidein,
+    #preview-area.slidein {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 768px !important;
+    }
+    .project-entry #preview-area iframe {
+        width: 100%;
+    }
+    #slider {
+        padding-left: 0;
+    }
+    #slider #tabs {
+        width: 100%;
+    }
+    #code-editor-top {
+        padding: 10px;
+    }
+    #editor-code .CodeMirror {
+        width: 100%;
+    }
+    .slidein #editor-footer {
+        left: 0;
+        width: 100%;
+    }
+    #slide-nav {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        top: 0;
+    }
+    #slide-nav #editor-close {
+        width: 50px;
+        height: 50px;
+        float: right;
+        margin: 10px;
+    }
+    .editor-area {
+        margin-left: -100%;
+        top: 0;
+    }
+    .single-user_102_challenges #post {
+        overflow: hidden;
+    }
+    #preview-area {
+        border-left: 0;
+        left: 0;
+        position: relative;
+        width: 100% !important;
+        top: 70px;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .editor-top-btn {
+        padding: 19px 15px;
+    }
+    .instructions .steps-header {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .post-template-template-challenge-php #site-footer, 
+    .single-user_challenges #site-footer,
+    .post-template-template-user_102_challenges-php #site-footer, 
+    .single-user_102_challenges #site-footer,
+    .single-sc_class_projects #site-footer,
+    .single-user_class_projects #site-footer {
+        padding: 5px 0;
+    }
+    .post-template-template-challenge-php .sub-footer p,
+    .single-user_challenges .sub-footer p,
+    .post-template-template-user_102_challenges-php .sub-footer p,
+    .single-user_102_challenges .sub-footer p,
+    .single-sc_class_projects .sub-footer p,
+    .single-user_class_projects .sub-footer p {
+        margin-bottom: 3px;
+    }
+}
+
+/* Vertically orientated iPads & other small devices */
+@media only screen and (max-width: 800px) and (orientation:portrait) {
+	.editor-area.slidein,
+	#preview-area.slidein {
+	    position: relative;
+	    left: 0;
+	    top: 0;
+	    width: 100%;
+	}
+	#slider {
+	    padding-left: 0;
+	    height: auto;
+	    margin-bottom: 
+	}
+	#slider #tabs {
+	    width: 100%;
+	}
+	#code-editor-top {
+	    padding: 10px;
+	}
+	#editor-code .CodeMirror {
+	    width: 100%;
+	}
+	.slidein div#editor-footer {
+	    left: 0;
+	    width: 100%;
+	    height: auto;
+	    position: relative;
+	    overflow: hidden;
+	}
+	#slide-nav {
+	    position: relative;
+	    width: 100%;
+	    overflow: hidden;
+	    top: 0;
+	}
+	#slide-nav ul li#editor-close {
+	    width: 50px;
+	    height: 50px;
+	    float: right;
+	    margin: 10px;
+	}
+	.editor-area {
+	    margin-left: -100%;
+	    top: 0;
+	    overflow: visible;
+	}
+	.single-user_102_challenges #post {
+	    overflow: hidden;
+	}
+	#preview-area {
+	    border-left: 0;
+	    left: 0;
+	    position: relative;
+	    width: 100% !important;
+	    top: 70px;
+	}
+	.project-entry #tabs li a, 
+	.css-step-editor #tabs li a {
+	    padding: 6px 8px;
+	    font-size: 12px;
+	}
+	#editor-save-button {
+	    margin: 0;
+	    position: absolute;
+	    top: -34px;
+	    z-index: 1000;
+	    padding: 4px 10px;
+	}
+	#slide-nav ul li#editor-close {
+	    width: 30px;
+	    height: 30px;
+	    margin: 5px 10px;
+	    line-height: 10px;
+	}
+	#slide-nav {
+	    z-index: 10;
+	}
+	.project-entry {
+	    padding-top: 0;
+	    position: relative;
+	    top: -55px;
+	    background: #fff;
+	}
+	#editor-area-download-button,
+	#editor-area-publish-button, 
+	#editor-area-unpublish-button, 
+	#editor-area-run-js-button {
+	    background-image: none;
+	    padding: 5px 10px;
+	    font-size: 12px;
+	    margin-bottom: 0;
+	}
+	
+}

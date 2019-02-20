@@ -1,0 +1,380 @@
+$(document).ready(function() {
+	/** Account settings page **/
+	//if ($('body').hasClass('page-template-page-templatestemplate-mp-account-settings-php')) {
+	//	//$('.settings-wrapper #mepr-account-logout').parent().hide();
+	//
+	//	$(".settings-wrapper small:contains('Required field')").filter(function() {
+	//		return $(this);
+	//	}).hide();
+
+		//$('.settings-wrapper #mepr-account-nav').prepend('<span class="mepr-nav-item mepr-password"><a href="' + siteUrl + '/account-settings/?action=newpassword" id="mepr-account-change-password">Change Password</a></span>');
+		//if (location.search == '?action=newpassword' || location.search == '?action=newpassword&message=failed' || location.search == '?action=newpassword&message=success') {
+		//	$('.settings-wrapper .mepr-password').addClass('mepr-active-nav-tab');
+        //
+		//	var replacement = '<label for="mepr-new-password">New Password</label>';
+		//	replacement += '<input type="password" name="mepr-new-password" />';
+		//	replacement += '<label for="mepr-confirm-password">Confirm New Password</label>';
+		//	replacement += '<input type="password" name="mepr-confirm-password" />';
+		//	replacement += '<input type="submit" name="new-password-submit" value="Change Password" class="mepr_front_button" />';
+		//	replacement += '<a href="http://localhost/skillcrush/account-settings/" class="cancel">Cancel</a>';
+		//	$('.settings-wrapper label[for="mepr-new-password"]').replaceWith(replacement);
+		//}
+        //
+		//$('.settings-wrapper #mepr-account-nav').prepend('<span class="mepr-nav-item mepr-settings"><a href="' + siteUrl + '/account-settings/" id="mepr-account-settings">Settings</a></span>');
+		//if (location.search == '') {
+		//	$('.settings-wrapper .mepr-settings').addClass('mepr-active-nav-tab');
+		//}
+		//
+		//if (location.search.indexOf('?action=update') > -1) {
+		//	$('.settings-wrapper .mepr-subscriptions').addClass('mepr-active-nav-tab');
+		//}
+
+		//$('.settings-wrapper .mepr-account-info-label > label[for="user_first_name"]').filter(function() {
+		//	return $(this);
+		//}).closest('tr').addClass('left');
+        //
+		//$('.settings-wrapper .mepr-account-info-input > #user_first_name').filter(function() {
+		//	return $(this);
+		//}).closest('tr').addClass('left');
+        //
+		//$('.settings-wrapper .mepr-account-info-label > label[for="user_last_name"]').filter(function() {
+		//	return $(this);
+		//}).closest('tr').addClass('right');
+        //
+		//$('.settings-wrapper .mepr-account-info-input > #user_last_name').filter(function() {
+		//	return $(this);
+		//}).closest('tr').addClass('right');
+        //
+		//$('.settings-wrapper .mepr-account-info-label > label[for="user_email"]').filter(function() {
+		//	return $(this);
+		//}).closest('tr').addClass('full');
+        //
+		//$('.settings-wrapper .mepr-account-info-input > #user_email').filter(function() {
+		//	return $(this);
+		//}).closest('tr').addClass('full');
+		//
+		//$('.settings-wrapper #payment-form strong').text('Please update your credit card information below.');
+		//
+		//$('.settings-wrapper label[for="user_first_name"]').text('First Name');
+		//$('.settings-wrapper label[for="user_last_name"]').text('Last Name');
+		//$('.settings-wrapper label[for="user_email"]').text('Email (Required)');
+		//$('.settings-wrapper .mepr_front_button').val('Save Settings');
+
+		//if (location.search == '?action=payments' || location.search == '?action=subscriptions') {
+			//if (location.search == '?action=payments' && $('.settings-wrapper #mepr-member-account-wrapper:contains("You have no completed payments to display.")').length > 0) {
+			//	var subReplacement = '<div id="mepr-member-account-wrapper">';
+			//	subReplacement = '<div id="mepr-account-nav">';
+			//	subReplacement += '<span class="mepr-nav-item mepr-settings"><a href="' + siteUrl + '/account-settings/" id="mepr-account-settings">Settings</a></span>';
+			//	subReplacement += '<span class="mepr-nav-item mepr-password"><a href="' + siteUrl + '/account-settings/?action=newpassword" id="mepr-account-change-password">Change Password</a></span>';
+			//	subReplacement += '<span class="mepr-nav-item mepr-subscriptions"><a href="' + siteUrl + '/account-settings/?action=subscriptions" id="mepr-account-subscriptions">Subscriptions</a></span>';
+			//	subReplacement += '<span class="mepr-nav-item mepr-payments"><a href="' + siteUrl + '/account-settings/?action=payments" id="mepr-account-payments">Payments</a></span>';
+			//	subReplacement += '</div>';
+			//	subReplacement += '<div class="no-payments">You have no completed payments to display.</div>';
+			//	subReplacement += '</div>';
+			//	$('.settings-wrapper #mepr-member-account-wrapper').replaceWith(subReplacement);
+			//} else if (location.search == '?action=subscriptions' && $('.settings-wrapper #mepr-member-account-wrapper:contains("You have no active subscriptions to display.")').length > 0) {
+			//	var subReplacement = '<div id="mepr-member-account-wrapper">';
+			//	subReplacement = '<div id="mepr-account-nav">';
+			//	subReplacement += '<span class="mepr-nav-item mepr-settings"><a href="' + siteUrl + '/account-settings/" id="mepr-account-settings">Settings</a></span>';
+			//	subReplacement += '<span class="mepr-nav-item mepr-password"><a href="' + siteUrl + '/account-settings/?action=newpassword" id="mepr-account-change-password">Change Password</a></span>';
+			//	subReplacement += '<span class="mepr-nav-item mepr-subscriptions"><a href="' + siteUrl + '/account-settings/?action=subscriptions" id="mepr-account-subscriptions">Subscriptions</a></span>';
+			//	subReplacement += '<span class="mepr-nav-item mepr-payments"><a href="' + siteUrl + '/account-settings/?action=payments" id="mepr-account-payments">Payments</a></span>';
+			//	subReplacement += '</div>';
+			//	subReplacement += '<div class="no-payments">You have no active subscriptions to display.</div>';
+			//	subReplacement += '</div>';
+			//	$('.settings-wrapper #mepr-member-account-wrapper').replaceWith(subReplacement);
+			//}
+
+			//if (location.search == '?action=payments') {
+			//	$('.settings-wrapper .mepr-payments').addClass('mepr-active-nav-tab');
+			//}
+            //
+			//if (location.search == '?action=subscriptions') {
+			//	$('.settings-wrapper .mepr-subscriptions').addClass('mepr-active-nav-tab');
+			//}
+		//}
+	//}
+	/** END Account settings page **/
+
+
+	/** blueprint sales countdown clock **/
+	// function flipClock(deadline) {
+// 		if (deadline.length > 0) {
+// 			var offset = new Date().getTimezoneOffset() * 60;
+// 			deadline = parseInt(deadline) + parseInt(offset);
+// 			var now = Math.round(new Date().getTime() / 1000);
+// 			var timeLeft = deadline - now;
+// 			if (timeLeft > 0) {
+// 				var clock = new FlipClock($('.flipclock'), timeLeft, {
+// 					clockFace: 'DailyCounter',
+// 					countdown: true,
+// 					callbacks: {
+// 		                stop: function() {
+// 		                    $('#countdown').hide();
+// 		                }
+// 		            }
+// 				});
+// 			} else {
+// 				$('#countdown').hide();
+// 			}
+// 		}
+// 	}
+
+	// serverTime is set in the PHP files:
+	// template-blueprints-sales-page
+	// single-sc_blueprints
+	// if (typeof serverTime !== 'undefined') {
+	// 	flipClock(serverTime);
+	// }
+	/** END blueprint sales countdown clock **/
+
+
+	/** Login forms **/
+	//$('.page-template-page-templatestemplate-mp-signin-php #user_login, .page-template-page-templatestemplate-mp-unauthorized-php #user_login').attr('placeholder', 'Username or Email');
+
+        //$(function() {
+        //    $('#mepr_loginform').each(function() {
+        //        $('#mepr_loginform #wp-submit').val('Login');
+        //        $('#mepr_loginform #rememberme').prop('checked', true);
+        //        $('#user_login').focus();
+        //        //$('#rememberme').parent().addClass('checkbox-label').append('<span class="c-label"/>');
+        //        $("input").each(function() {
+        //            $this = $(this);
+        //            var labelText = $this.parent().find('strong').text();
+        //            if ($this.attr('id') !== 'mepr_user_or_email') {
+        //                $this.attr('placeholder', labelText);
+        //            }
+        //            var b = labelText;
+        //            $this.value = b;
+        //            $this.focus(function () {
+        //                if ($this.value == b) {
+        //                    $this.value = ""
+        //                }
+        //            });
+        //            $this.on("blur", function () {
+        //                if ($this.value == "") {
+        //                    $this.value = b
+        //                }
+        //            });
+        //        });
+        //    });
+
+		//$('#wafp_loginform').each(function() {
+		//	$('#wafp_loginform #wp-submit').val('Login');
+		//	$('#user_login').focus();
+		//	$('#rememberme').parent().addClass('checkbox-label').append('<span class="c-label"/>');
+		//	$("input").each(function() {
+		//		$this = $(this);
+		//		var labelText = $this.parent().find('strong').text();
+		//		if ($this.attr('id') !== 'mepr_user_or_email') {
+		//			$this.attr('placeholder', labelText);
+		//		}
+		//		var b = labelText;
+		//		$this.value = b;
+		//		$this.focus(function () {
+		//			if ($this.value == b) {
+		//				$this.value = ""
+		//			}
+		//		});
+		//		$this.on("blur", function () {
+		//			if ($this.value == "") {
+		//				$this.value = b
+		//			}
+		//		});
+		//	});
+		//});
+	//});
+	/** END Login forms **/
+
+	/** Class sales pages **/
+	// var myHash = location.hash;
+// 	if (myHash != '') {
+// 		if (myHash.toLowerCase() == '#web-developer') {
+// 			$('#back-to-dev-blueprint').show();
+// 		}
+// 		if (myHash.toLowerCase() == '#web-designer') {
+// 			$('#back-to-des-blueprint').show();
+// 		}
+// 	}
+//
+// 	$('.class-breakdown-right').addClass('inactive');
+// 	$('.right-preview').addClass('inactive');
+// 	$('.class-breakdown-right img').addClass('inactive');
+//
+// 	$('.class-breakdown-left').click(function() {
+// 		$('.right-preview').addClass('inactive');
+// 		$('.class-breakdown-right').addClass('inactive');
+// 		$('.class-breakdown-right img').addClass('inactive');
+// 		$('.left-preview').removeClass('inactive');
+// 		$('.class-breakdown-left').removeClass('inactive');
+// 		$('.class-breakdown-left img').removeClass('inactive');
+// 	});
+// 	$('.class-breakdown-right').click(function() {
+// 		$('.left-preview').addClass('inactive');
+// 		$('.class-breakdown-left').addClass('inactive');
+// 		$('.class-breakdown-left img').addClass('inactive');
+// 		$('.right-preview').removeClass('inactive');
+// 		$('.class-breakdown-right').removeClass('inactive');
+// 		$('.class-breakdown-right img').removeClass('inactive');
+// 	});
+	/** END Class sales pages **/
+
+
+	/** 101 Class lessons **/
+	// See the div tags - HTML2 Step 11 (I think)
+	$('#see-div-on').click(function(){
+		$('.div-preview').css('border', '2px dashed #4593fe');
+		$('.div-see-html-lined').css('border', '2px dashed #4593fe');
+	});
+
+	$('#see-div-off').click(function(){
+		$('.div-preview').css('border', '2px dashed white');
+		$('.div-see-html-lined').css('border', '2px dashed white');
+	});
+
+	$('#show-div-html').click(function(){
+		$('#see-div-html').show();
+		$('#see-div-preview').hide();
+	});
+
+	$('#hide-div-html').click(function(){
+		$('#see-div-html').hide();
+		$('#see-div-preview').show();
+	});
+	/** END 101 Class lessons **/
+
+
+	/** Gravity form challenge submission type **/
+	jQuery(document).ready(function() {
+		jQuery(document).bind('gform_post_render', function() {
+			if (jQuery('div#gform_wrapper_8 div.validation_error').length > 0) {
+				jQuery('button#gform_submit_button_8').css('margin-top', '-100px');
+			}
+		});
+	});
+	/** END Gravity form challenge submission type **/
+
+
+	/** Old login modal **/
+	// $("#modal-close").click(function() {
+	// 	$(".modal-background").toggle();
+	// });
+	/** END Old login modal **/
+
+
+	/** Placeholder cross browsers **/
+	$(function() {
+		if(!Modernizr.input.placeholder) {
+
+			$('[placeholder]').focus(function() {
+				var input = $(this).not('[type="password"]');
+				if (input.val() == input.attr('placeholder')) {
+					input.val('');
+					input.removeClass('placeholder');
+				}
+			}).blur(function() {
+				var input = $(this).not('[type="password"]');
+				if (input.val() == '' || input.val() == input.attr('placeholder')) {
+					input.addClass('placeholder');
+					input.val(input.attr('placeholder'));
+				}
+			}).blur();
+			$('[placeholder]').parents('form').submit(function() {
+				$(this).find('[placeholder]').each(function() {
+					var input = $(this).not('[type="password"]');
+					if (input.val() == input.attr('placeholder')) {
+						input.val('');
+					}
+				})
+			});
+			$('[type="password"]').closest('div').find('label').show();
+		}
+	});
+	/** END Placeholder cross browsers **/
+
+
+	/** About page **/
+	// $('.page-template-page-templatestemplate-skillcrush-about-php #employees .employer:odd').addClass('even');
+	/** END About page **/
+
+
+	/** 404 page **/
+	if ($('.page-404-content').length > 0) {
+		$('#homepage-page-container').css('margin-top', '0');
+	}
+	/** END 404 page **/
+
+
+	/** Replace event links **/
+	//$('.tribe-events-single .tribe-events-cal-links').insertAfter('.tribe-events-event-meta.primary');
+	/** END Replace event links **/
+
+
+	/* Skill resource btns */
+	$('.show-transcript').on('click', function(){
+		$('.transcript-wrap').removeClass('full').slideToggle().toggleClass('show');
+		if($('.transcript-wrap').hasClass('show')){
+			$(this).text('Hide Transcript');
+		} else {
+			$(this).text('View transcript');
+		}
+	});
+	/* END Skill resource btns */
+
+	/* blueprint sales page */
+	$(function() {
+		var numRows = $('.bsp-testimonial_row').length;
+		$('.page-template-template-blueprints-sales-page').find('span#num-testimonials').text(numRows);
+	});
+	/* END blueprint sales page */
+
+
+	/* Career Page: arrows in sidebar */
+	$(function() {
+		$('.career-sidebar_title').on('click', function() {
+			$(this).toggleClass('open');
+		});
+	});
+	/* END Career Page: arrows in sidebar */
+
+
+	/* Hide Olark */
+	if ($('body').hasClass('page-template-template-career') /* career landing page */
+		|| $('body').hasClass('single-sc_career_steps')  /* career steps */
+		|| $('body').hasClass('single-sc_user_career_work')  /* user career steps */
+		|| $('body').hasClass('post-template-template-challenge-php') /* new 101 project */
+		|| $('body').hasClass('single-user_challenges') /* saved 101 project */
+		|| $('body').hasClass('post-template-template-user_102_challenges-php') /* new 102 project */
+		|| $('body').hasClass('single-user_102_challenges') /* saved 102 project */
+		|| $('body').hasClass('post-template-template-sc_user_project_website-php') /* new bootcamp project */
+		|| $('body').hasClass('page-template-single-user_projects-php') /* saved bootcamp project */
+		|| $('body').hasClass('single-sc_class_projects') /* new multi-step project */
+		|| $('body').hasClass('single-user_class_projects') /* saved multi-step project */
+		)
+		{
+		if (typeof olark != "undefined") {
+			olark('api.box.hide');
+		}
+	}
+
+	/* Temp workaround to show/hide email archive links to HubSpot */
+	if( $('ul #archive') )
+	{
+		var lastDayGracePeriod = new Date('May 9, 2016');
+		var today = new Date();
+		var dayOfWeek = today.getDay();
+
+		// in case we forget to remove this make sure it doesn't recycle the weekdays after the first week
+		if(today.getTime() >= lastDayGracePeriod.getTime() )
+		{
+			var dayOfWeek = 5;
+		}
+		$( "#archive li" ).each(function( index ) {
+			if(dayOfWeek > index)
+			{
+				$( this ).show();
+			}
+		});
+	}
+
+});

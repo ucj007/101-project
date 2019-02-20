@@ -1,0 +1,588 @@
+/* ====================================================================================================
+All skill step / course unit styles
+This doc is for shared styles across steps
+
+* single-sc_skill-resources.php
+* single-sc_skill-challenges.php
+* single-course_unit.php
+* ex: /skill-resource/intro-to-101/
+* ex: /skill-resource/text-vs-tags-2016/
+* ex: /skill-challenges/clean-up-this-text-with-some-list-tags/
+
+====================================================================================================*/
+
+/* The purpose of this style is to make sure the edit links look out of place for all admins */
+a.post-edit-link {
+	font-family:'open sans' !important;
+	font-size:16px !important;
+	font-weight:normal !important;
+	text-transform:normal !important;
+	text-decoration:underline !important;
+	color:blue !important;
+}
+
+.site-footer {
+    border-top: none;
+    clear: both;
+    margin-top: 0;
+    padding: 2em 2%;
+    height: auto;
+}
+
+/* Hides the site wide top nav on the lesson pages */
+.single-sc_skill_resources #logged-in-top-nav-container,
+.single-sc_skill_challenges #logged-in-top-nav-container, 
+.single-course_unit #logged-in-top-nav-container {
+	display: none;
+}
+
+.single-sc_skill_resources .site-header,
+.single-sc_skill_challenges .site-header {
+    display:none;
+}
+
+.logged-in.single-sc_skill_resources #signed-in-navigation,
+.logged-in.single-sc_skill_challenges #signed-in-navigation,
+.logged-in.single-challenges_users #signed-in-navigation {
+	display:none;
+}
+
+/* Lesson step header styles */
+
+#skill-resource-header {
+    background: #fff;
+    overflow: hidden;
+    border-bottom: 1px solid #f2f2f2;
+    height: 50px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 998;
+}
+
+#skill-resource-header div,
+#skill-resource-header ol li {
+    float:left;
+}
+
+#skill-resource-header ol li {
+    border-left: 1px solid #F2F2F2;
+}
+
+#skill-resource-header ol li a {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    text-decoration: none;
+    font: 600 12px 'Open Sans', sans-serif;
+    color: #505050;
+    vertical-align: middle;
+    padding: 16px 31px;
+}
+
+#skill-resource-header ol li#next-resource a i.fa {
+	margin: 0 0 0 10px;
+}
+
+#skill-resource-header ol li {
+    display: inline-block;
+    float: none;
+    font-size: 20px;
+    line-height: 26px;
+    list-style: none outside none;
+    margin: 0;
+}
+
+#skill-resource-header #resource-link {
+    float: right;
+    line-height: 16px;
+    margin-right: 20px;
+    max-width: 180px;
+    padding-top: 17px;
+}
+
+#skill-resource-header nav {
+    float:right;
+}
+
+#skill-resource-header a, 
+#skill-resource-header h4 {
+    color:white;
+}
+
+#back-link {
+    border: 1px solid #F2F2F2;
+}
+
+#back-link a {
+    text-transform: uppercase;
+    text-decoration: none;
+    font: 600 12px/50px 'open sans', sans-serif;
+    color: #f16059;
+    padding: 16px 35px;
+}
+
+#skill-resource-header h4 {
+    margin: auto;
+    text-align: center;
+    padding: 0 30px;
+    font: 600 12px/50px 'Open Sans';
+    color: #505050;
+}
+#skill-resource-header h4 span {
+    text-transform: initial;
+}
+
+/* These exist in the user work templates */
+#resource-header-right, #resource-header-left {
+    position:absolute;
+}
+
+#resource-header-right {
+    min-width: 400px;
+    right: 0;
+    width: 40%;
+}
+
+#resource-header-left {
+    left: 0;
+}
+
+/* Global styles */
+.individual-skill p {
+    font-family: 'Montserrat',serif;
+}
+
+.individual-skill-resource .main {
+	margin:0 auto;
+}
+
+.individual-skill-resource ol li,
+.individual-skill-resource ul li,
+.skill-challenge ol li,
+.skill-challenge ul li {
+    font-size: 16px;
+    line-height: 32px;
+    margin-left: 26px;
+    padding-left: 0;
+	margin-bottom: 20px;
+}
+
+.single-sc_skill_resources .skill-main,
+.single-sc_skill_challenges .skill-main {
+    border-bottom: 1px solid #f2f2f2;
+    overflow: auto;
+    padding: 50px 0 0;
+}
+
+.individual-skill-resource ol li, .skill-challenge ol li {
+    list-style: decimal outside none;
+}
+
+.individual-skill-resource ul li, .skill-challenge ul li {
+    list-style: disc outside none;
+}
+
+.individual-skill-resource ol.carousel-indicators li, .skill-challenge ol.carousel-indicators li {
+    list-style: none outside none;
+}
+
+
+/* Skill sidebar */
+.skill-sidebar {
+    padding: 30px 0;
+    float: none;
+	
+}
+
+.skill-sidebar h4 {
+    font-family: 'montserrat';
+	font-size:14px;
+	text-transform:uppercase;
+	font-weight:bold;
+	margin:0;
+}
+
+h1#skill-title {
+    font-family: 'montserrat';
+    font-size: 20px;
+    margin: 5px 0 10px;
+    text-transform: uppercase;
+	font-weight:bold;
+}
+
+#skill-title span {
+	color: #f16059;
+}
+
+/* Main skill content */
+.skill-main {
+    border-bottom: 1px solid #f2f2f2;
+	overflow:auto;
+}
+
+.skill-content-main {
+    border-top: 1px solid #f2f2f2;
+	border-left:none;
+    float: none;
+    width: 100%;
+	padding: 0 0 100px;
+}
+
+.skill-content {
+    padding: 30px 0;
+}
+
+.skill-content .inner {
+    margin-bottom: 50px;
+}
+.skill-content .inner img {
+    max-width: 720px;
+    height: auto;
+	border:1px solid #e3e3e3;
+}
+
+.single-sc_skill_challenges p img, 
+.single-sc_skill_resources p img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.skill-info-text p {
+    font-size: 16px;
+    line-height: 28px;
+    margin-bottom: 24px;
+	color:#3b3b3b;
+	word-wrap: break-word;
+}
+
+.skill-info-text h2 {
+    color:#6b6b6b;
+    font-weight:bold;
+    font-size:20px;
+}
+
+.skill-info-text h5 {
+    border-bottom: 1px solid #DDDDDD;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 40px;
+    padding-bottom: 4px;
+    text-transform: uppercase;
+	clear:both;
+}
+
+.skill-info-text h6 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 40px;
+    padding-bottom: 4px;
+	clear:both;
+}
+
+.skill-info-text ol li {
+    list-style-type: decimal;
+    margin-left: 40px;
+}
+
+.skill-info-text h4 {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 40px;
+}
+
+/** adding padding to Crayon highlighting **/
+.crayon-nums-content,
+.crayon-pre {
+	padding: 8px;
+}
+
+.skill-challenges li {
+    width:100%;
+    float:none;
+    overflow:auto;
+    margin-bottom:30px;
+}
+
+.skill-info-text h4 {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 40px;
+}
+
+.skill-info-text code {
+	background: url("../../img/backgrounds/code-lines.png") repeat scroll -44px 0 #F8F8F8;
+	border: 1px solid #DDDDDD;
+	color: #117700;
+	display: block;
+	font-family: monospace,sans-serif;
+	line-height: 33px;
+	padding: 0 20px;
+}
+
+.skill-info-text ul, .skill-info-text ol {
+	margin-bottom:20px;
+	overflow:auto;
+}
+
+/* Video steps */
+.iframe-wrap {
+    border: 1px solid #d7d5d5;
+    background: #faf8f8;
+    max-width: 802px;
+    margin: auto;
+}
+
+.btn.show-transcript {
+    color: #878686;
+    background: #c9c8c8 url(../../img/icons/view-icon.png) no-repeat 17px center;
+    border-radius: 0;
+    font: 13px/13px 'Montserrat', sans-serif;
+    padding: 10px 17px 10px 37px;
+    margin: 10px;
+    text-transform: uppercase;
+    float: right;
+    outline: 0;
+}
+.btn.show-transcript:active {
+    outline: 0;
+}
+.transcript-wrap .title {
+    color: #878686;
+    font-size: 1em;
+    font-weight: 400;
+    border-bottom: 2px solid #eae9e9;
+    padding: 35px 0 25px;
+    margin: 0 7px 15px;
+}
+.transcript-wrap {
+    display: none;
+    max-width: 800px;
+    margin: auto;
+}
+.transcript-wrap .content {
+    padding: 10px 75px 40px 180px;
+}
+
+.transcript-wrap .content, 
+.transcript-wrap .content p {
+    color: #5b5b5b;
+    line-height: 1.375em;
+    padding: 0 1%;
+}
+
+.transcript-wrap .content iframe {
+    display: none;
+}
+
+/* 
+Project Name: Alert Styles
+Client: Skillcrush
+Author: Kristina Zmaic | @KZmaic | zmaic.com
+*/
+
+/*----------------------------------------------------------------------------- 
+TYPE STYLES
+-----------------------------------------------------------------------------*/
+.alert h4 {
+    float: left;
+    font: 700 14.5px/1.4em 'Montserrat',Arial,sans-serif;
+    letter-spacing: 0.09em;
+    margin: 13px 2em 0 1em;
+    text-transform: uppercase;
+}
+
+.alert-button {
+    border-radius: 0.2em;
+    background: #fc3649;
+    display: inline-block;
+    color: #fff;
+    font: 400 15px 'Montserrat', Arial, sans-serif;
+    letter-spacing: .09em;
+    font-style: normal;
+    text-transform: uppercase;
+    padding: 0;
+    text-decoration: none;
+    float: right;
+    padding: .25em 2em;
+    margin: .25em .15em;
+
+}
+
+.alert-button:after {
+    content: url('../../img/button_arrow.png');
+    width: 9px;
+    height: 14px;
+    float: right;
+    margin: 1px 0 0 10px;
+}
+
+.alert-button:hover {
+  text-decoration:none;
+}
+
+.alert a {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-weight: 600;
+  font-style: italic;
+  float: left;
+  margin: .6em 1em 0 0;
+  float: right;
+}
+
+/*----------------------------------------------------------------------------- 
+SUCCESS MESSAGE
+-----------------------------------------------------------------------------*/
+.alert#success {
+  color: #609f87;
+  background: #ccf1e3;
+}
+
+.page-template-page-templatestemplate-classes-php #success.alert {
+  display:block;
+}
+
+.alert#success img {
+  float: left;
+}
+
+#success h4 {
+  color: #609f87;
+  font-size:14.5px;
+     text-transform: uppercase;
+}
+
+.alert#success a {
+  color: #83a99b;
+}
+
+.alert#success .alert-button{
+  background: #83c2aa;
+  color: #fff;
+     font-style: normal;
+  margin:5px 0 0 10px;
+}
+
+.alert#success .alert-button:hover{
+    color: #fff;
+    background: #5da086;
+}
+
+/*----------------------------------------------------------------------------- 
+WARNING MESSAGE
+-----------------------------------------------------------------------------*/
+.alert.warning,
+.alert#warning {
+  color: #e3bd25;
+  background: #fdf6a3;
+}
+
+.alert.warning img,
+.alert#warning img {
+  float: left;
+}
+
+.warning h4, #warning.alert h4 {
+    color: #E3BD25;
+    font-size: 14.5px;
+    margin-bottom: 10px;
+    margin-top: 4px;
+    max-width: 380px;
+    text-transform: uppercase;
+    width: 54%;
+}
+
+.alert.warning a,
+.alert#warning a {
+  color: #f1c92a;
+}
+
+
+.alert.warning .alert-button,
+.alert#warning .alert-button {
+  background: #f1c92a;
+  color: #fff;
+   font-style: normal;
+  margin:5px 0 0 10px;
+
+}
+
+.alert.warning .alert-button:hover,
+.alert#warning .alert-button:hover {
+    color: #fff;
+    background: #d8b321;
+}
+
+
+/*----------------------------------------------------------------------------- 
+FAILURE MESSAGE
+-----------------------------------------------------------------------------*/
+.alert.failure {
+  color: #b9554c;
+  background: #fabeb9;
+}
+
+.alert.failure h4 {
+  color: #b9554c; 
+  font-size:14.5px;
+     text-transform: uppercase;
+}
+
+.alert.failure img {
+  float: left;
+}
+
+.alert.failure a {
+  color: #cd7a73;
+}
+
+.alert.failure .alert-button{
+  background: #c35e56;
+  color: #fff;
+     font-style: normal;
+  margin:5px 0 0 10px;
+}
+
+.alert.failure .alert-button:hover{
+    color: #fff;
+    background: #ae463d;
+}
+
+/*----------------------------------------------------------------------------- 
+Button Styles
+-----------------------------------------------------------------------------*/
+button, .button, input[type="submit"] {
+    background-color: #f16059;
+    border: medium none;
+    border-radius: 0;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Montserrat","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+    font-weight: normal;
+    line-height: normal;
+    margin: 0 0 1.25rem;
+    padding: 1.5625rem 2rem 1.5rem;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 300ms ease-out 0s;
+    text-transform: uppercase;
+    min-width: 240px;
+}
+
+button:hover, 
+.button:hover,
+input[type="submit"]:hover {
+	color:white;
+	text-decoration:none;
+}

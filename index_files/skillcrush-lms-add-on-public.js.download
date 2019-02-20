@@ -1,0 +1,930 @@
+(function( $ ) {
+	'use strict';
+
+	/**
+	 * All of the code for your public-facing JavaScript source
+	 * should reside in this file.
+	 *
+	 * Note: It has been assumed you will write jQuery code here, so the
+	 * $ function reference has been prepared for usage within the scope
+	 * of this function.
+	 *
+	 * This enables you to define handlers, for when the DOM is ready:
+	 *
+	 * $(function() {
+	 *
+	 * });
+	 *
+	 * When the window is loaded:
+	 *
+	 * $( window ).load(function() {
+	 *
+	 * });
+	 *
+	 * ...and/or other possibilities.
+	 *
+	 * Ideally, it is not considered best practise to attach more than a
+	 * single DOM-ready or window-load handler for a particular page.
+	 * Although scripts in the WordPress core, Plugins and Themes may be
+	 * practising this, we should strive to set a better example in our own work.
+	 */
+
+	/**
+	 * HELPER FUNCTIONS
+	 */
+
+	/**
+	 * Function to toggle a class name on an element
+	 * 
+	 * @param {DOMElement} el
+	 * @param {string} trigger
+	 * @param {string} className
+	 */
+	var toggleClassFor = curry(function(el, trigger, className) {
+		var $el = document.querySelector(el);
+		return $el ? $el.classList[trigger](className) : 'Selector ' + el + ' not found.';
+	});
+
+	/**
+	 * Return Boolean if element exists on page
+	 * 
+	 * @param {string} event
+	 * @param {DOMElement} el
+	 * @param {function} f
+	 */
+	var addEventOn = curry(function(event, el, f) {
+		var $elms = document.querySelectorAll(el);
+		return $elms ? $elms.forEach(function (el) { el.addEventListener(event, f)}) : 'Selector ' + el + ' not found.';
+	});
+
+	/**
+	 * Return Boolean if element exists on page
+	 * 
+	 * @param {string} sel
+	 */
+	var elExists = function(sel) {
+		return document.querySelector(sel) !== null;
+	};
+
+	/**
+	 * Make getting an element from the DOM more functional friendly
+	 * 
+	 * @param {string} sel
+	 */
+	var safeEl = function(sel) {
+		return elExists(sel) ? document.querySelector(sel) : { error: 'Element not found' };
+	};
+
+	/**
+	 * Make grabbing a property off of an object easier
+	 * 
+	 * @param {string} prop
+	 * @param {object} obj
+	 */
+	var getProp = curry(function(prop, obj) {
+		return obj[prop] || false;
+	});
+
+	/**
+	 * Make grabbing a property off of an object easier
+	 * 
+	 * @param {string} prop
+	 * @param {value} any
+	 * @param {object} obj
+	 * @returns {object} returns object with prop set to new value
+	 */
+	var setProp = curry(function(prop, val, obj) {
+		obj[prop] = val;
+		return obj;
+	});
+
+	// setup composed functions to return DOMElement attributes
+	var getType = pipe( safeEl, getProp('dataset'), getProp('challengeType'));
+	var getSrc = pipe(safeEl, getProp('src'));
+	var getValue = pipe(safeEl, getProp('value'));
+
+	var getHeight = pipe(safeEl, getProp('clientHeight'));
+
+	var setHeight = function(val) {
+		return pipe(safeEl, getProp('style'), setProp('height', val));
+	}
+	
+	/**
+	 * Ajax Factory for setting up lesson challenge AJAX requests
+	 * 
+	 * @param {string} action
+	 * @returns {function} closure to wrap data variable and 
+	 */
+	var createLessonAjax = function createLessonAjax(method, action) {
+		var getId = pipe(safeEl, getProp('id'));
+		var getUnitId = pipe( safeEl, getProp('dataset'), getProp('wpcw_unit'));
+		var formClass = '.sclmsaddon_lesson_challenge_form';
+		
+		/**
+		 * Set optional data properties and make jQuery ajax request
+		 * 
+		 * @param {object} options
+		 * @returns {object} jQuery object so that we can chain done/fail/always methods
+		 */
+		return function setOptionsAjax(options) {
+			var data = Object.assign({
+				action: action,
+				sclmsaddon_progress_nonce: sclmsaddon_js_consts.sclmsaddon_progress_nonce,
+				id: getId(formClass),
+				unit_id: getUnitId(formClass)
+			}, options);
+			return $[method](sclmsaddon_js_consts.ajaxurl, data);
+		}
+	};
+
+	/**
+	 * SETTING UP INSTANCE FUNCTIONS, OBJECTS, AND VARS
+	 */
+	// setup partially applied function to handle class changes to the 
+	// challenge for on feedback challenges
+	var toggleFeedbackParent = toggleClassFor('.skill-main');
+	// get saved awards
+	var existingAwards = sclmsaddon_js_consts.existing_awards;
+	// use previous awards to build userAwards obj with right state
+	var userAwards = setUserAwards(existingAwards);
+	// selector for code container
+	var codeContainer = '.sclmsaddon-code-editor';
+	// selector for hidden code input field
+	var codeInput = '.wpcw_fe_quiz_q_single_0 textarea';
+	// selector for hidden input to save awards
+	var storeSel = '#free-time-awards-won';
+
+	/**
+	 * SETTING UP ALL AJAX REQUESTS
+	 */
+	var saveAwardsAjax = createLessonAjax("post", sclmsaddon_js_consts.save_free_time_awards);
+
+	/**
+	 * GET DATA FUNCTIONS
+	 */
+	var getAwardsWon = function(obj) {
+		return {
+			awards: obj.awardsWon(),
+		}
+	};
+
+	/**
+	 * DOM FUNCTIONS
+	 * These functions that handle state changes in the DOM
+	 */
+	// setup function to update the storage with new awards won
+	var updateWPCWStore = updateStore(storeSel);
+	// setup function to complete awards for legacy lessons by passing in 
+	// users award state and the storage function
+	var completeWPCWAward = completeAward(userAwards, updateWPCWStore);
+	// setup function to check if legacy award meets validation criteria and
+	// if it does update the award state and show the award in the DOM
+	var isWPCWAwardComplete = isAwardComplete(userAwards, completeWPCWAward);
+	//
+	var selectFeedback = function() {
+		toggleFeedbackParent('add', 'step-select');
+	};
+	// fucntion to change classes to show feedback form
+	var requestFeedback = function(e) {
+		e.preventDefault();
+		toggleFeedbackParent('remove', 'step-select')
+		toggleFeedbackParent('add', 'step-comment');
+	};
+	// function to hide feedback form
+	var refuseFeedback = function(e) {
+		e.preventDefault();
+		toggleFeedbackParent('add', 'step-select');
+		toggleFeedbackParent('remove', 'step-comment');
+	};
+	// function to show loading state after submitting feedback
+	var loadingFeedback = function() {
+		toggleFeedbackParent('remove', 'step-error');
+		toggleFeedbackParent('remove', 'step-comment');
+		toggleFeedbackParent('add', 'step-loading');
+	};
+	// function to show feedback thread when only one response
+	var showWaitingForFeedback = function() {
+		toggleFeedbackParent('remove', 'step-error');
+		toggleFeedbackParent('remove', 'step-loading');
+		toggleFeedbackParent('add', 'step-waiting');
+	};
+	// function to show feedback thread when only one response
+	var showContinueForFeedback = function() {
+		toggleFeedbackParent('remove', 'step-error');
+		toggleFeedbackParent('remove', 'step-loading');
+		toggleFeedbackParent('remove', 'step-waiting');
+		toggleFeedbackParent('add', 'step-continue');
+	};
+	// function to show when there is an error
+	var showErrorFeedback = function() {
+		toggleFeedbackParent('remove', 'step-loading');
+		toggleFeedbackParent('add', 'step-error');
+	};
+	var replaceThreadOutput = function(output) {
+		var thread = safeEl('.feedback');
+		thread.innerHTML = output;
+		return output;
+	};
+	var inputEmpty = function(input) {
+		if (!input.hasOwnProperty('error')) {
+			return input.value.length === 0;
+		}
+
+		return false;
+	};
+	var disableSubmit = curry(function(submit, disabled) {
+		if (!submit.hasOwnProperty('error')) {
+			submit.disabled = disabled;
+		}
+		return submit;
+	});
+	var ifEmptyDisable = function(input, submit) {
+		return pipe(inputEmpty, disableSubmit(submit))(input);
+	}
+	var validateFeedback = function(e) {
+		return ifEmptyDisable(e.target, safeEl('.student-comment__submit'));
+	}
+	// TODO: Abstract into universal drawer functions
+	var showNotification = function(parent) {
+		setHeight(getHeight(parent + ' .sc-alert__content') + 'px')('.sc-alert' + parent);
+		toggleClassFor(parent, 'remove', 'sc-alert--hidden');
+	}
+	var hideNotification = function(parent) {
+		setHeight('0px')('.sc-alert' + parent);
+		toggleClassFor(parent, 'add', 'sc-alert--hidden');
+	}
+
+	/**
+	 * MAIN FUNCTIONS
+	 * These are the main AJAX event functions that run on form submissions or other such events
+	 * that compose all the previous functions as needed to handle DOM changes and AJAX repsonses
+	 */
+	var saveAwards = function saveAwards() {
+		saveAwardsAjax(getAwardsWon(userAwards));
+	}
+
+	/**
+	 * EVENT LISTENERS
+	 */
+	var onClickRequestFeedback = addEventOn('click', '.accept-feedback');
+	var onClickRefuseFeedback = addEventOn('click', '.cancel-feedback');
+	var onClickSubmitFeedback = addEventOn('click', '.student-comment__submit');
+	var onClickSaveAwards = addEventOn('click', '.wpcw_fe_quiz_submit input[type="submit"]');
+	var onInputValidateFeedback = addEventOn('input', '.student-comment__field');
+
+	/**
+	 * Function called to submit student feedback.
+	 */
+	function submitFeedback(e) {
+		e.preventDefault();
+
+		// Set form to loading feedback
+		loadingFeedback();
+
+		
+		var setValue = function(value) {
+			return pipe(safeEl, setProp('value', value))
+		}
+		// setup composed functions to return needed attributes
+		var getType = pipe(safeEl, getProp('dataset'), getProp('challengeType'));
+		var getSrc = pipe(safeEl, getProp('src'));
+		var getValue = pipe(safeEl, getProp('value'));
+		var resetValue = setValue('');
+
+		function getSubmission(type) {
+			if (type === 'upload') {
+				return getSrc('.wpcw_fe_quiz_q_your_answer img');
+			}
+
+			if (type === 'link') {
+				return getValue('.sclmsaddon_lesson_challenge_form input[type="text"]');
+			}
+
+			if (type === 'htmlcsseditor') {
+				return {
+					html: getValue('.wpcw_fe_quiz_q_single_0 textarea'),
+					css: getValue('.wpcw_fe_quiz_q_single_1 textarea'),
+				}
+			}
+
+			if (type === 'htmlcssjseditor') {
+				return {
+					html: getValue('.wpcw_fe_quiz_q_single_0 textarea'),
+					css: getValue('.wpcw_fe_quiz_q_single_1 textarea'),
+					js: getValue('.wpcw_fe_quiz_q_single_2 textarea'),
+				}
+			}
+
+			if (type === 'jseditor') {
+				return {
+					js: getValue('.wpcw_fe_quiz_q_single_0 textarea'),
+				}
+			}
+
+			if (type === 'rubysnippet') {
+				return {
+					ruby: getValue('.wpcw_fe_quiz_q_single_0 textarea'),
+				}
+			}
+
+			return 'No submission was found.'
+		}
+
+		var submission = {
+			type: getType('.skill-main'),
+			submission: getSubmission(getType('.skill-main')),
+			comment: getValue('#student-comment') || '',
+		};
+
+		var data = {
+			action: sclmsaddon_js_consts.sc_submit_feedback,
+			unit_id: getValue('#unit-id'),
+			submission: submission,
+			sclmsaddon_progress_nonce: sclmsaddon_js_consts.sclmsaddon_progress_nonce,
+		};
+
+		$.post(sclmsaddon_js_consts.ajaxurl, data, function(response, status) {
+			// the response object that has messages & data in it
+			if ( response.data.thread_output ) {
+				resetValue('#student-comment');
+				replaceThreadOutput(response.data.thread_output);
+				
+				if (response.data.hasInstructorResponse) {
+					showContinueForFeedback();
+				} else {
+					showWaitingForFeedback();
+				}
+
+				// Check on page load if feedback is empty
+				ifEmptyDisable(safeEl('.student-comment__field'), safeEl('.student-comment__submit'));
+				
+			} else {
+				showErrorFeedback();
+			}
+		});
+	}
+
+	/**
+	 * Function called when the timer reaches 0.
+	 */
+	function timerHandler_expiry() {
+		var quizForm = $('.sclmsaddon_lesson_challenge_form');
+
+		// Update flag on form to show it's expired, then trigger submission.
+		quizForm.attr('data-wpcw_expired', 'expired');
+		quizForm.submit();
+	}
+
+	/**
+	 * Attempt to set up the timer handler based on how many minutes are remaining.
+	 */
+	function timerHandler_setup() {
+		var timerHolder = $('#wpcw_fe_timer_countdown');
+		if (timerHolder.length > 0) {
+			// How many seconds are left on the timer?
+			var sLeft = parseInt(timerHolder.attr('data-time_left'));
+
+			$('#wpcw_fe_timer_countdown').wpcwcountdown({
+				// Labels with translation
+				labels: ['y', 'm', 'w', 'd', wpcw_frontend_params.timer_units_hrs, wpcw_frontend_params.timer_units_mins, wpcw_frontend_params.timer_units_secs],
+				labels1: ['y', 'm', 'w', 'd', wpcw_frontend_params.timer_units_hrs, wpcw_frontend_params.timer_units_mins, wpcw_frontend_params.timer_units_secs],
+
+				padZeroes: true,
+				until: '+' + sLeft + 's',
+				format: 'MS',
+
+				// Event for timer expiry
+				onExpiry: timerHandler_expiry
+			});
+		}
+
+		// Called when setting up AJAX form, so we don't need to call it
+		// separately.
+	}
+
+	/**
+	 * Remove any timers before doing an AJAX load to prevent errors.
+	 */
+	function timerHandler_cleanup() {
+		$('#wpcw_fe_timer_countdown').hide().wpcwcountdown('destroy');
+	}
+
+	// determine if the supplied file is a .pdf
+	function isPDF(file) {
+		var ext = file.split('.').pop().toLowerCase();
+		if (ext == 'pdf') {
+			return true;
+		}
+		return false;
+	}
+
+	// update the page with the response object
+	// after an AJAX request
+	function updatePageWithResponse(responseObj) {
+		// hide the loader gif
+		$('.sclmsaddon_lesson_challenge_form').find('.wpcw_loader').hide();
+
+		// catching an edge case of the response returning 0
+		if (responseObj === 0) {
+			responseObj.responseText = 'An error has occurred. Please refresh the page and try again or contact us!';
+		}
+
+		// add response content (newly submitted content and form with messaging)
+		if ($('#wpcw_fe_outer_wrap').length > 0) {
+			$('#wpcw_fe_outer_wrap').replaceWith('<div id="wpcw_fe_outer_wrap">' + responseObj.responseText + '</div>');
+		} else {
+			$('.skill-info-text').append('<div id="wpcw_fe_outer_wrap">' + responseObj.responseText + '</div>');
+		}
+
+		if ($('.skill-main').hasClass('upload')) {
+			// if this is a PDF, hide the usual file preview and show the link to it instead
+			var uploadedFile = $('.wpcw_fe_quiz_q_your_answer img').attr('src');
+			if (typeof uploadedFile != 'undefined' && uploadedFile.length > 0 && isPDF(uploadedFile)) {
+				$('.wpcw_fe_quiz_q_your_answer img').hide();
+				$('.wpcw_fe_quiz_q_upload_existing').show();
+			} else {
+				$('.wpcw_fe_quiz_q_your_answer img').show();
+			}
+
+			// make sure permitted files line and submit button are hidden for uploads only
+			if ($('.wpcw_fe_quiz_q_upload_change_file').length > 0) {
+				$('#wpcw_fe_outer_wrap .wpcw_fe_quiz_q_upload_permitted_files').hide();
+				$('#wpcw_fe_outer_wrap .sclmsaddon_lesson_challenge_form').find('.wpcw_fe_quiz_submit input').hide();
+				$('#wpcw_fe_outer_wrap .wpcw_fe_quiz_q_upload_change_file').show();
+			} else {
+				$('#wpcw_fe_outer_wrap .wpcw_fe_quiz_q_upload_permitted_files').show();
+				$('#wpcw_fe_outer_wrap .sclmsaddon_lesson_challenge_form').find('.wpcw_fe_quiz_submit input').show();
+			}
+			// the quiz and its ID
+			if (elExists('.feedback') && document.querySelectorAll('.thread__reply').length === 1) {
+				showWaitingForFeedback();
+			} else if (elExists('.feedback') && document.querySelectorAll('.thread__reply').length > 1) {
+				showContinueForFeedback();
+			} else if (elExists('.wpcw_fe_progress_box_complete')) {
+				selectFeedback();
+			}
+		}
+
+		if ($('.skill-main').hasClass('link')) {
+			// make sure link form shows after submit
+			$('.sclmsaddon_lesson_challenge_form').show();
+		}
+
+		if ($('.skill-main').hasClass('htmlcsseditor') || $('.skill-main').hasClass('jseditor') || $('.skill-main').hasClass('htmlcssjseditor') || $('.skill-main').hasClass('rubysnippet')) {
+			// make sure link form shows after submit
+			$('.sclmsaddon-code-editor .wpcw_fe_progress_box.wpcw_fe_progress_box_success').html('<i class="fa fa-check"></i> Your code has been saved.').show();
+			$('.sclmsaddon-solution-code').show();
+			$('.sclmsaddon-code-editor .wpcw_fe_progress_box.wpcw_fe_progress_box_error').hide();
+		}
+	}
+
+	// set up the quiz form for lesson challenges
+	// originally from wpcw_front.js and heavily edited
+	function lessonChallengeQuizSetup() {
+		// the quiz and its ID
+		if (elExists('.feedback') && document.querySelectorAll('.thread__reply').length === 1) {
+			showWaitingForFeedback();
+		} else if (elExists('.feedback') && document.querySelectorAll('.thread__reply').length > 1) {
+			showContinueForFeedback();
+		} else if (elExists('.wpcw_fe_progress_box_complete')) {
+			selectFeedback();
+		}
+
+		// Check on page load if feedback is empty
+		ifEmptyDisable(safeEl('.student-comment__field'), safeEl('.student-comment__submit'));
+
+		onClickRequestFeedback(requestFeedback);
+		onClickRefuseFeedback(refuseFeedback);
+		onClickSubmitFeedback(submitFeedback);
+		onInputValidateFeedback(validateFeedback);
+		
+		if (elExists('#free-time-awards')) {
+			onClickSaveAwards(saveAwards);
+			showCompletedAwards(userAwards);
+			isBraveryAwardComplete(codeContainer, userAwards, completeWPCWAward);
+			areRestOfAwardsComplete(codeContainer, codeInput, isWPCWAwardComplete);
+		}
+
+		var quizForm = $('.sclmsaddon_lesson_challenge_form');
+		var quizid = quizForm.attr('id');
+
+		// message boxes & the quiz form parent container
+		var errorMsgArea = $('.sclmsaddon_fe_lesson_challenge_box_wrap .wpcw_fe_progress_box_error');
+		var successMsgArea = $('.sclmsaddon_fe_lesson_challenge_box_wrap .wpcw_fe_progress_box_success');
+		var quizFormParent = $('.sclmsaddon_lesson_challenge_form').closest('.sclmsaddon_fe_lesson_challenge_box_wrap');
+
+		// remove any existing messages
+		errorMsgArea.empty().hide();
+		successMsgArea.empty().hide();
+		$('.sclmsaddon-code-editor .wpcw_fe_progress_box.wpcw_fe_progress_box_error').hide();
+
+		// configure the AJAX request
+		var configdata = {
+			action: sclmsaddon_js_consts.quiz_action,
+			id: quizid,
+			timerexpired: quizForm.attr('data-wpcw_expired'),
+			sclmsaddon_progress_nonce: sclmsaddon_js_consts.sclmsaddon_progress_nonce
+		};
+
+		// configure form
+		var options = {
+			url: wpcw_frontend_params.ajaxurl,	// the post url (admin-ajax.php)
+			data: configdata, // AJAX config details
+			dataType: 'json', // data type for response, which is sent to the success callback regardless of actual success / failure
+			type: 'POST', // method by which the form data is submitted
+
+			// before submission - handle simple validation here (empty form field)
+			// formData is an array of objects representing the name and value of each form field
+			beforeSubmit: function(formData, jqForm, options) {
+
+				// Has the timer expired
+				var hasTimerExpired = 'expired' == quizForm.attr('data-wpcw_expired');
+
+				// Ignore checking that fields are missing data if the timer has expired.
+				if (!hasTimerExpired) {
+					var missingData = false;
+					if ($('.skill-main').hasClass('htmlcsseditor')) {
+						if (!formData[0].value && !formData[1].value) {
+							missingData = true;
+						}
+					} else if ($('.skill-main').hasClass('htmlcssjseditor')) {
+						if (!formData[0].value && !formData[1].value && !formData[2].value) {
+							missingData = true;
+						}
+					} else if ($('.skill-main').hasClass('quiz')) {
+						// Right now this is only going to work for radio button questions
+						$('#' + quizid + ' .wpcw_fe_quiz_q_multi, #' + quizid + ' .wpcw_fe_quiz_q_truefalse').each(function() {
+							if ($(this).find('input:checked').length == 0) {
+								missingData = true;
+							}
+						});
+					} else {
+						if (!formData[0].value) {
+							missingData = true;
+						}
+					}
+					// check to see if there's a value in the input field
+					if (missingData) {
+						// this is hacky but let's go with it for now
+						var msg = 'Please enter a value.';
+						if ($('.skill-main').hasClass('upload')) {
+							msg = 'Please select a valid file.';
+						}
+						if ($('.skill-main').hasClass('link')) {
+							msg = 'Please enter a valid link.';
+						}
+						if ($('.skill-main').hasClass('quiz')) {
+							msg = 'Please answer all of the questions on this page.';
+						}
+
+						if ($('.skill-main').hasClass('htmlcsseditor') || $('.skill-main').hasClass('jseditor') || $('.skill-main').hasClass('htmlcssjseditor') || $('.skill-main').hasClass('rubysnippet')) {
+							msg = 'Please enter some code!';
+							$('.sclmsaddon-code-editor .wpcw_fe_progress_box.wpcw_fe_progress_box_error').html('<i class="fa fa-asterisk"></i> ' + msg).show();
+							$('.sclmsaddon-code-editor .wpcw_fe_progress_box.wpcw_fe_progress_box_success').hide();
+						} else {
+							if ($('.sclmsaddon_fe_lesson_challenge_box_wrap .wpcw_fe_progress_box_error').length == 0) {
+								// error message stuff doesn't exist in the DOM, create it
+								$('<div class="sclmsaddon_fe_lesson_challenge_box_wrap"><div class="wpcw_fe_progress_box wpcw_fe_progress_box_error"><i class="fa fa-asterisk"></i>' + msg + '</div></div>').insertBefore(quizFormParent).show();
+							} else {
+								// error area already exists, just update it with right error.
+								$('.sclmsaddon_fe_lesson_challenge_box_wrap .wpcw_fe_progress_box_error').html('<i class="fa fa-asterisk"></i>' + msg).show();
+							}
+							$('.sclmsaddon-code-editor .wpcw_fe_progress_box.wpcw_fe_progress_box_success').hide();
+						}
+						return false;
+					}
+				}
+
+				// otherwise, hide submit button & show that progress is happening
+				quizForm.find('.wpcw_fe_quiz_submit input').hide();
+				quizForm.find('.wpcw_loader').show();
+
+				// Disable timer before refreshing.
+				timerHandler_cleanup();
+			},
+
+			// called when the request has completed
+			success: function(responseObj) {
+				// update the page with the response
+				updatePageWithResponse(responseObj);
+
+				// reattach ajax
+				lessonChallengeQuizSetup();
+			},
+
+			// called when an error is returned
+			error: function(responseObj) {
+				// update the page with the response
+				updatePageWithResponse(responseObj);
+
+				// reattach ajax
+				lessonChallengeQuizSetup();
+			}
+		};
+
+		// set up the ajax form
+		quizForm.ajaxForm(options);
+
+		// Set up timer again
+		timerHandler_setup();
+	}
+
+	$(function() {
+		// Marking a lesson step as complete
+		$('.sclmsaddon_fe_progress_box_mark a').click(function() {
+			var courseid = $(this).attr('id');
+			var data = {
+				action: sclmsaddon_js_consts.progress_action,
+				id: courseid,
+				sclmsaddon_progress_nonce: sclmsaddon_js_consts.sclmsaddon_progress_nonce
+			};
+
+			$(this).hide();
+			var spinner = $(this).parent().find('.wpcw_loader');
+			spinner.show();
+
+			// Hide any navigation boxes
+			$('.wpcw_fe_navigation_box').hide();
+
+			// need this for spitting out error messages
+			var errorMsgArea = $('.wpcw_fe_progress_box_error');
+			var completeBoxParent = $('#wpcw_fe_' + courseid);
+
+			// remove any existing error messages
+			errorMsgArea.empty().hide();
+
+			$.post(sclmsaddon_js_consts.ajaxurl, data, function(response) {
+				var responseObj = $.parseJSON(response);
+				if (responseObj.hasOwnProperty('errorMessage')) {
+					if (errorMsgArea.length == 0) {
+						$('<div class="wpcw_fe_progress_box_error"><i class="fa fa-asterisk"></i>' + responseObj.errorMessage + '</div>').insertBefore(completeBoxParent).fadeIn();
+					} else {
+						errorMsgArea.html('<i class="fa fa-asterisk"></i> ' + responseObj.errorMessage).show();
+					}
+					spinner.hide();
+					$('a#' + courseid).show();
+				} else if (responseObj.hasOwnProperty('successMessage')) {
+					completeBoxParent.hide().html('<div class="wpcw_fe_progress_box wpcw_fe_progress_box_complete"><i class="fa fa-check-circle" aria-hidden="true"></i> ' + responseObj.successMessage + '</div>').fadeIn();
+				}
+			});
+
+			return false;
+		});
+
+		// The quiz retake button.
+		$('.sclmsaddon_fe_quiz_retake a.fe_btn').live('click', function(e) {
+			e.preventDefault();
+
+			// Show loader and hide button
+			$(this).closest('.sclmsaddon_fe_quiz_retake').find('.wpcw_loader').show();
+			$(this).hide();
+
+			var unit_id = $(this).attr('data-wpcw_unit');
+
+			// Trigger AJAX request to allow the user to retake the quiz.
+			var data = {
+				action: sclmsaddon_js_consts.retake_quiz_action,
+				unit_id: unit_id,
+				sclmsaddon_progress_nonce: sclmsaddon_js_consts.sclmsaddon_progress_nonce
+			};
+
+			$.post(sclmsaddon_js_consts.ajaxurl, data, function(response) {
+				$('#wpcw_fe_outer_wrap').html(response);
+
+				// Re-do quiz data.
+				lessonChallengeQuizSetup();
+
+				// Show navigation if needed (because one isn't showing).
+				if (1 == $('.wpcw_fe_navigation_box').length) {
+					$('.wpcw_fe_navigation_box').show();
+				}
+			});
+		});
+
+		// The quiz timer begin button.
+		$('#sclmsaddon_fe_quiz_begin_quiz').live('click', function(e) {
+			e.preventDefault();
+
+			// Show loader and hide button
+			$(this).closest('.wpcw_fe_quiz_begin_quiz').find('.wpcw_loader').show();
+			$(this).hide();
+
+			var unit_id = $(this).attr('data-wpcw_unit');
+
+			// Trigger AJAX request to allow the user to start the quiz.
+			var data = {
+				action: sclmsaddon_js_consts.begin_quiz_timer_action,
+				unit_id: unit_id,
+				sclmsaddon_progress_nonce: sclmsaddon_js_consts.sclmsaddon_progress_nonce
+			};
+
+			$.post(sclmsaddon_js_consts.ajaxurl, data, function(response) {
+				$('#wpcw_fe_outer_wrap').html(response);
+
+				// Re-do quiz data.
+				lessonChallengeQuizSetup();
+			});
+
+		});
+
+		// button that allows a user to edit their choice of file that's been uploaded (shows the input field)
+		$('#wpcw_fe_outer_wrap .wpcw_fe_quiz_q_upload_change_file').live('click', function(e) {
+			e.preventDefault();
+
+			// Get wrapper for the changing file section.
+			var changeWrap = $(this).closest('.wpcw_fe_quiz_q_upload_change_file_wrap');
+
+			// Get the field ID for the upload field, so we can create it dynamically
+			var wpcw_fieldid = $(this).attr('data-fieldid');
+
+			// Hide this link, show the cancel link.
+			$(this).hide();
+			changeWrap.find('.wpcw_fe_quiz_q_upload_change_file_cancel').show();
+
+			// Now show the form.
+			changeWrap.find('.wpcw_fe_quiz_q_upload_change_holder').html('<div class="wpcw_fe_quiz_q_upload_wrapper" id="' + wpcw_fieldid + '"><input type="file" name="' + wpcw_fieldid + '" ></div>');
+			$('.wpcw_fe_quiz_q_upload_permitted_files').show();
+			$('.sclmsaddon_lesson_challenge_form').find('.wpcw_fe_quiz_submit input').show();
+		});
+
+		// button that cancels uploading a different file (hides the input field)
+		$('#wpcw_fe_outer_wrap .wpcw_fe_quiz_q_upload_change_file_cancel').live('click', function(e) {
+			e.preventDefault();
+
+			// Get wrapper for the changing file section.
+			var changeWrap = $(this).closest('.wpcw_fe_quiz_q_upload_change_file_wrap');
+
+			// Hide this link, show the change link.
+			$(this).hide();
+			changeWrap.find('.wpcw_fe_quiz_q_upload_change_file').show();
+
+			// Now remove the form again.
+			changeWrap.find('.wpcw_fe_quiz_q_upload_change_holder').html('');
+			$('.wpcw_fe_quiz_q_upload_permitted_files').hide();
+			$('.sclmsaddon_lesson_challenge_form').find('.wpcw_fe_quiz_submit input').hide();
+		});
+
+		/*** PAGE LOAD ***/
+		// if this is a link challenge, check for an existing saved link and populate the form field with it
+		if ($('.skill-main').hasClass('link')) {
+			var data = {
+				action: sclmsaddon_js_consts.link_challenge_value_action,
+				id: $('.sclmsaddon_lesson_challenge_form').attr('id'),
+				sclmsaddon_progress_nonce: sclmsaddon_js_consts.sclmsaddon_progress_nonce,
+			};
+			$.post(sclmsaddon_js_consts.ajaxurl, data, function(response, status) {
+				// the response object that has messages in it
+				var responseObj = $.parseJSON(response);
+
+				// if we have a link challenge value, update the form field value with it
+				if (responseObj.hasOwnProperty('success')) {
+					if (responseObj.success.hasOwnProperty('value') && $('.sclmsaddon_lesson_challenge_form input[type="text"]').length > 0) {
+						$('.sclmsaddon_lesson_challenge_form input[type="text"]').val(responseObj.success.value);
+					}
+				}
+			});
+		}
+
+		// if this is an upload challenge, check for an existing uploaded pdf file and show the link to it
+		if ($('.skill-main').hasClass('upload')) {
+			var data = {
+				action: sclmsaddon_js_consts.upload_challenge_pdf_value_action,
+				id: $('.sclmsaddon_lesson_challenge_form').attr('id'),
+				sclmsaddon_progress_nonce: sclmsaddon_js_consts.sclmsaddon_progress_nonce,
+			};
+			$.post(sclmsaddon_js_consts.ajaxurl, data, function(response, status) {
+				// the response object that has messages in it
+				var responseObj = $.parseJSON(response);
+
+				// if we have an upload challenge pdf, update the page to show the link
+				// otherwise, we can assume it's not a pdf and we should show the image as usual
+				if (responseObj.hasOwnProperty('success')) {
+					if (responseObj.success.hasOwnProperty('value') && isPDF(responseObj.success.value)) {
+						var string = '<div class="wpcw_fe_quiz_q_upload_existing">You have uploaded a <b><a href="' + responseObj.success.value + '" target="_blank">.pdf file';
+						if (responseObj.success.hasOwnProperty('filesize') && responseObj.success.filesize.length > 0) {
+							string = string + ' (' + responseObj.success.filesize + ')';
+						}
+						string = string + '</a></b> for this answer.</div>';
+						$(string)
+							.show()
+							.insertBefore('.sclmsaddon_fe_lesson_challenge_box_wrap#wpcw_fe_' + $('.sclmsaddon_lesson_challenge_form').attr('id'));
+					} else {
+						$('.wpcw_fe_quiz_q_your_answer img').show();
+					}
+				} else {
+					$('.wpcw_fe_quiz_q_your_answer img').show();
+				}
+			});
+		}
+
+		// phase choose your path
+		$('form[name="choose-path"]').submit(function(e) {
+
+			e.preventDefault();
+
+			// get parent path div of form
+			var parent = $(this).closest('.path');
+			// get path value for success message
+			var path = parent.find('.path__heading').text();
+
+			var data = {
+				// data: newData,
+				id: $(this).attr('data-wpcw_unit'),
+				action: sclmsaddon_js_consts.phase_choose_path_action,
+				sclmsaddon_progress_nonce: sclmsaddon_js_consts.sclmsaddon_progress_nonce,
+				formData: $(this).serialize()
+			};
+			$.post(sclmsaddon_js_consts.ajaxurl, data, function(response, status) {
+				// the response object that has messages in it
+				var responseObj = $.parseJSON(response);
+
+				// this was good yay
+				if (responseObj.hasOwnProperty('successMessage')) {
+					$('.skill-info-text').hide();
+					$('.path').hide();
+					$('.success__message').append("<strong>You've been successfully enrolled in the " + path + " Track!</strong>");
+					$('.success').addClass('show-result');
+					$(parent).addClass('complete').show();
+
+				}
+
+				// this was bad oh noes
+				if (responseObj.hasOwnProperty('error')) {
+					$(parent).find('.error').addClass('show');
+				}
+			});
+		});
+
+		// if this is a lesson challenge, set up the quiz and ajax stuff
+		if ($('.sclmsaddon_lesson_challenge_form').length > 0) {
+			lessonChallengeQuizSetup();
+		}
+
+		// Check if this is the ruby card challenge. NOTE: the id for this is hardcoded because it is a snowflake step.
+        var isCardFlip = $('.postid-768484');
+		// Return the saved card values on submitted challenges for https://learn.skillcrush.com/module-2/brainstorm-a-web-app/.
+		if (isCardFlip) {
+			var data = {
+				action: sclmsaddon_js_consts.ruby_card_flip_challenge_value_action,
+				id: 768484, // NOTE: the id for this is hardcoded because it is a snowflake step.
+				sclmsaddon_progress_nonce: sclmsaddon_js_consts.sclmsaddon_progress_nonce,
+			};
+			$.post(sclmsaddon_js_consts.ajaxurl, data, function(response, status) {
+				// the response object that has messages & data in it
+				var responseObj = $.parseJSON(response);
+				if (responseObj.hasOwnProperty('success')) {
+					if (responseObj.success.hasOwnProperty('data')) {
+						// if we have card value, flip it.
+						for (var key in responseObj.success.data) {
+							if (responseObj.success.data.hasOwnProperty(key)) {
+								$('.back#' + responseObj.success.data[key]).parents('.flip-container').toggleClass('hover');
+							}
+						}
+					}
+				}
+			});
+		}
+
+	});
+
+	$(document).ready(function() {
+		var menu = document.querySelector('.wpcw-class-menu');
+
+		if (menu) {
+			var menuSize = menu.dataset.menuSize;
+		}
+		
+		var pageContainer = document.querySelector('.subscription-container #container');
+
+		if (menuSize) {
+			pageContainer.classList.add('menu-size--' + menuSize);
+		}
+
+		// expand / collapse day
+	  $(".phase__title").click(function() {
+		   $(this).closest('.phase--wrapper').toggleClass('active');
+		});
+		 
+		// checks if there is new feedback and shows alert if their is
+		if (sclmsaddon_js_consts.is_new_feedback === "true") {
+			if (window.innerWidth > 800) {
+				showNotification('.global-feedback-alert--desktop');
+			} else {
+				showNotification('.global-feedback-alert--mobile');
+			}
+		}
+
+		function pauseVideo() {
+			var iframe = document.getElementById("yt-video").contentWindow;
+			iframe.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+		}
+
+		$('[data-dismiss="modal"], .modal-backdrop').click(pauseVideo);
+		$('.modal').click(function(e) {
+			if (e.target.classList.contains('modal')) {
+				pauseVideo();
+			}
+		});
+	});
+
+})( jQuery );

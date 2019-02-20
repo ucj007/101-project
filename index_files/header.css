@@ -1,0 +1,93 @@
+/*========================================================================================================================
+Header Styles
+=========================================================================================================================*/
+#wp-submit {
+  float:none;
+  margin:10px 0px 20px;
+}
+/*======================================================
+Header
+========================================================*/
+.site-header {
+  position: relative;
+  z-index: 1;
+}
+.site-header {
+    height: 4.125em; /* 66px */
+    padding: 5px 0 0;
+}
+
+/* Changing header styles only for bootcamp template */
+.page-template-template-bootcamp-sales-alt .site-header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.site-logo {
+    float: left;
+    font: normal 1.875em 'Montserrat', sans-serif; /* 30px */
+    margin: 0;
+}
+
+.site-logo a {
+    background: url("../../img/logo/skillcrush-logo.png") no-repeat scroll 0 0 transparent;
+    height: 1em;
+    margin: 8px 18px 0 0;
+    text-indent: -10000px;
+    width: 4.333em; /* 130px */
+    display: block;
+    outline: 0;
+}
+
+.page-template-template-mp-signin .site-logo a,
+.home .site-logo a {
+    background: url("../../img/logo/white-logo.png") no-repeat center;
+    background-size: contain;
+}
+
+.open-right {
+    -webkit-user-select: none;
+    -moz-user-select: none;   
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none; 
+    display: none;
+}
+
+#main-menu{
+    float: right;
+    margin-top: 4px;
+}
+
+.menu-item,
+.log-out-link {
+    float: left;
+    margin-right: 0;
+    margin-top: 6px;
+}
+
+.log-out-link a {
+    border: 1px solid;
+} 
+.menu-item a,
+.log-out-link a {
+  color: #727176;
+  display: block;
+  margin: 2px 7px 0;
+  padding: 0 10px;
+  text-transform: uppercase;
+  font: 0.875em/1.93em 'open sans', sans-serif;
+}
+
+.site-header .menu-item a:hover,
+.site-header .log-out-link a:hover {
+  color:#3A3939;
+  cursor:pointer;
+  text-decoration:none;
+}
+
+/* NEW mobile menu */
+#mobile-menu {
+  display: none;
+}

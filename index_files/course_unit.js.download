@@ -1,0 +1,84 @@
+$(document).ready(function() {
+  // Check if body height is higher than window height :)
+  if ($("#container").height() > $(window).height()) {
+		var animated = false;
+		$(window).scroll(function(){
+			if ($(this).scrollTop() > 100) {
+		    	if(!animated){
+		        	$('.wpcw_fe_progress_box_complete').slideDown();
+		        	animated = true;
+		    	}
+			} else if(animated){
+		    	$('.wpcw_fe_progress_box_complete').slideUp();
+		    	animated = false;
+			}
+		});
+    } else {
+    	$('.wpcw_fe_progress_box_complete').slideDown();
+	}
+
+});
+
+//PowerTip Initializer - applies to a number of lessons
+$('.highlight').powerTip();
+
+// CSS lesson - With & Without CSS - https://dev.learn.skillcrush.com/module-9/with-without-css/
+$("#get-rid-of-css a.button").click(function(){
+	for ( i=0; i<document.styleSheets.length; i++) {
+		void(document.styleSheets.item(i).disabled=true);
+	}
+});
+$("#get-back-css").click(function(){
+	for ( i=0; i<document.styleSheets.length; i++) {
+		void(document.styleSheets.item(i).disabled=false);
+	}
+});
+
+// HTML lesson - Let's Take A Look At Some Div Tags - https://dev.learn.skillcrush.com/module-5/lets-take-a-look-at-some-div-tags/
+$('#see-div-on').click(function(){
+	$('.div-preview').css('border', '2px dashed #4593fe');
+	$('.div-see-html-lined').css('border', '2px dashed #4593fe');
+});
+
+$('#see-div-off').click(function(){
+	$('.div-preview').css('border', '2px dashed white');
+	$('.div-see-html-lined').css('border', '2px dashed white');
+});
+
+$('#show-div-html').click(function(){
+	$(this).hide();
+	$('#hide-div-html').show();
+	$('#see-div-preview').hide();
+});
+
+$('#hide-div-html').click(function(){
+	$(this).hide();
+	$('#show-div-html').show();
+	$('#see-div-html').hide();
+	$('#see-div-preview').show();
+});
+
+// HTML lesson - Add a URL and ALT Values	- https://dev.learn.skillcrush.com/module-4/add-a-url-and-alt-values/
+$("#fill-frame").click(function(){
+	var imageSRC = $("#image-source").val();
+	var imageALT = $("#image-alt").val();
+	if ( imageSRC != '' &&  imageALT !='' ) {
+		$("#empty-frame-comment").fadeIn();
+		$("#empty-frame-text").text(imageALT);
+		$("div.empty-frame-photo").html("<img src=" + imageSRC + " />");
+		$("#fill-frame").fadeOut(function() {
+			$(".empty-frame-form-response").fadeIn();
+		});
+		$("#image-source").removeAttr('style');
+		$("#image-alt").removeAttr('style');
+	} else if ( imageSRC == '' &&  imageALT == '' ) {
+		$("#image-source").css('border-bottom','2px solid #EA827C');
+		$("#image-alt").css('border-bottom','2px solid #EA827C');
+	} else if ( imageSRC == '' ) {
+		$("#image-source").css('border-bottom','2px solid #EA827C');
+		$("#image-alt").removeAttr('style');
+	} else if ( imageALT =='' ) {
+		$("#image-alt").css('border-bottom','2px solid #EA827C');
+		$("#image-source").removeAttr('style');
+	}
+});

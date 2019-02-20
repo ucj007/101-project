@@ -1,0 +1,21 @@
+(function($) {
+
+  $(document).ready(function() {
+    $('#mepr-stripe-payment-form').submit(function(e) {
+        e.preventDefault();
+        console.log('here');
+        var submit = document.querySelector('.mp_payment_form_wrapper input[type="submit"]');
+        var ccForm = document.getElementById('card-element');
+        var spinner = document.querySelector('.mepr-loading-gif');
+        var isComplete = ccForm.classList.contains("StripeElement--complete");
+
+        if (isComplete) {
+          console.log('complete');
+          submit.setAttribute('data-is-submitting', 'true');
+          submit.disabled = true;
+          spinner.style.opacity = '1';
+        }
+    });
+  });
+
+})(jQuery);
